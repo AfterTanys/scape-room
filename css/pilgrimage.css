@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'FutureZ';
+    src: url('../fonts/Future_Z.ttf') format('truetype'),
+         url('../fonts/Future_Z.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Ahora puedes usar la fuente en tu CSS */
+body {
+    font-family: 'FutureZ';
+    color: var(--color-one);
+}
+
+:root{
+
+    --color-one:#CCAC00;
+    --color-two:#003B59;
+    --color-three:#857E7B;
+    --color-four:#00CECB;
+    --color-five:#CDF7F6;
+
+}
