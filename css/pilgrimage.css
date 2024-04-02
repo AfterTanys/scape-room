@@ -6,8 +6,8 @@
     font-style: normal;
 }
 
-/* Ahora puedes usar la fuente en tu CSS */
-body {
+
+.titulo {
     font-family: 'FutureZ';
     color: var(--color-one);
 }
@@ -15,9 +15,81 @@ body {
 :root{
 
     --color-one:#CCAC00;
+    --color-oneTrans:#CCAC0050;
     --color-two:#003B59;
+    --color-twoTrans:#003B5995;
     --color-three:#857E7B;
     --color-four:#00CECB;
     --color-five:#CDF7F6;
 
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url('../img/PuertaFondo1.png'); /* Establece la imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra toda la página */
+    background-position: center; /* Centra la imagen de fondo */
+    color: #ecf0f1;
+}
+
+
+.container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: var(--color-twoTrans) ; /* Color de fondo semitransparente */
+    border-radius: 15px; /* Bordes redondeados para el cuadro */
+    color: var(--color-five);
+}
+
+p {
+    margin: 20px 0; /* Añade más espacio alrededor del párrafo */
+    line-height: 1.5; /* Mejora la legibilidad del texto */
+}
+
+button {
+    background-color: var(--color-one); /* Cambia a un color más vibrante */
+    color: #ffffff;
+    border: 0;
+    padding: 15px 30px; /* Aumenta el relleno para un botón más grande */
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 20px; /* Aumenta el tamaño de fuente para mayor visibilidad */
+    font-weight: bold; /* Hace que el texto sea más grueso */
+    border-radius: 10px; /* Bordes redondeados para un aspecto moderno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra para darle profundidad */
+    transition: background-color 0.3s, transform 0.2s; /* Transición suave al interactuar */
+}
+
+button:hover, button:focus {
+    background-color: #e1c700; /* Color más oscuro al pasar el ratón o enfocar */
+    transform: scale(1.05); /* Ligeramente más grande al pasar el ratón o enfocar */
+    outline: none; /* Elimina el contorno al enfocar */
+}
+.modal {
+    display: none; /* Ocultar por defecto */
+    position: fixed;
+    z-index: 1; /* Situar sobre otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Habilita scroll si necesario */
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% desde arriba y centrado */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Podrías ajustar según necesidad */
+    border-radius: 10px; /* Bordes redondeados */
 }
