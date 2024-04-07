@@ -11,7 +11,7 @@
     font-family: 'FutureZ';
     color: var(--color-one);
 }
-
+bod
 :root{
 
     --color-one:#CCAC00;
@@ -25,6 +25,7 @@
 }
 
 body, html {
+    
     margin: 0;
     padding: 0;
     width: 100%;
@@ -92,4 +93,43 @@ button:hover, button:focus {
     border: 1px solid #888;
     width: 80%; /* Podrías ajustar según necesidad */
     border-radius: 10px; /* Bordes redondeados */
+}
+#introContainer {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+}
+
+#dialogBox {
+    position: absolute;
+    bottom: 10%; /* Ajusta la posición según sea necesario */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%; /* O el ancho que prefieras */
+    height: 399px; /* Ajusta la altura automáticamente basado en el contenido */
+    max-height: 150px; /* La altura máxima deseada */
+    background: url('../resources/dialogBox/CardX5.png') no-repeat center center;
+    background-size: 100% 100%; /* Asegura que la imagen de fondo cubra todo el área sin cortarse */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#dialogText {
+    color: white;
+    text-align: center;
+    width: 100%;
+    height: auto; /* El texto se ajustará dentro del espacio disponible */
+    overflow: hidden; /* Previene que el texto desborde el contenedor */
+    margin: 0;
+}
+
+#nextArrow {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
 }
