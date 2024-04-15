@@ -81,6 +81,11 @@ p {
     font-size: 20px;
     
 }
+
+#blurryBackground{
+    transition: background-image 1s ease;
+}
+
 button {
     background-image: url('../resources/Button/ButtonNormal.png'); 
     background-size: cover;
@@ -205,9 +210,9 @@ button:hover, button:focus {
 
 #door-glow{
     position: fixed;
-    top: 18vh;
+    top: 25vh;
     left: 42.7vw;
-    height: 50vh;
+    height: 40vh;
     width: 14.5vw;
     background-image: url('../resources/glows/door-glow.png');
     background-size: cover; /* La imagen cubrirá todo el div */
