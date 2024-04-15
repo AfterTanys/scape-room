@@ -205,8 +205,8 @@ button:hover, button:focus {
 
 #door-glow{
     position: fixed;
-    top: 18%;
-    left: 42.7%;
+    top: 18vh;
+    left: 42.7vw;
     height: 50vh;
     width: 14.5vw;
     background-image: url('../resources/glows/door-glow.png');
@@ -215,6 +215,7 @@ button:hover, button:focus {
     background-position: center; /* Centra la imagen */
     opacity: 0; /* Inicialmente oculta la imagen */
     transition: opacity 0.5s ease; /* Transición suave para la opacidad */
+    cursor: pointer;
 }
 
 #door-glow:hover{
