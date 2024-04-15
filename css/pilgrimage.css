@@ -74,10 +74,12 @@ p {
     align-items: center;
     text-align: justify;
     text-justify: inter-word;
+    
+}
+.introParagraph {
     line-height: 2.5;
     font-size: 20px;
 }
-
 button {
     background-image: url('../resources/Button/ButtonNormal.png'); 
     background-size: cover;
