@@ -163,7 +163,6 @@ button:hover, button:focus {
     max-height: 150px; /* La altura máxima deseada */
     background: url('../resources/dialogBox/CardX5.png') no-repeat center center;
     background-size: 100% 100%; /* Asegura que la imagen de fondo cubra todo el área sin cortarse */
-    display: flex;
     align-items: center;
     justify-content: center;
     padding: 50px;
@@ -194,7 +193,7 @@ button:hover, button:focus {
     background-position: center;
 }
 .room1-background {
-    background-image: url('../resources/img/');
+    background-image: url('../resources/img/Room1.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -235,3 +234,12 @@ button:hover, button:focus {
     background-size: contain; /* Asegura que la imagen se ajuste al botón */
     background-repeat: no-repeat; /* La imagen no se repetirá */
 }
+#optionsButton {
+    background-image: url('../resources/Icons/24.png'); /* Cambia a la ruta de tu imagen de inventario */
+    
+    background-size: contain; /* Asegura que la imagen se ajuste al botón */
+    background-repeat: no-repeat; /* La imagen no se repetirá */
+}
+.hidden {
+    display: none; /* Oculta el elemento */
+  }

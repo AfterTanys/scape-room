@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const hudHtml = `
         <div id="hud">
+        <button id="optionsButton"></button>
             <button id="hintButton"></button>
             <button id="inventoryButton"></button>
         </div>
@@ -9,4 +10,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
         </div>
     `;
     document.body.insertAdjacentHTML('afterbegin', hudHtml);
-   
+});
