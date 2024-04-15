@@ -61,7 +61,7 @@ body, html {
     justify-content: center; /* Centra verticalmente los elementos hijos */
     height: 100%; /* Ocupa toda la altura de .container */
     text-align: justify; /* Justifica el texto del párrafo */
-    padding: 20px; /* Añade padding para no tocar los bordes de .container */
+    padding: 70px; /* Añade padding para no tocar los bordes de .container */
     box-sizing: border-box; /* Incluye el padding en la altura total de .content */
 }
 
@@ -163,10 +163,9 @@ button:hover, button:focus {
     max-height: 150px; /* La altura máxima deseada */
     background: url('../resources/dialogBox/CardX5.png') no-repeat center center;
     background-size: 100% 100%; /* Asegura que la imagen de fondo cubra todo el área sin cortarse */
-    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 50px;
     box-sizing: border-box;
     z-index: 2; /* Encima de la imagen de fondo y el fondo borroso */
 }
@@ -178,6 +177,7 @@ button:hover, button:focus {
     height: auto; /* El texto se ajustará dentro del espacio disponible */
     overflow: hidden; /* Previene que el texto desborde el contenedor */
     margin: 0;
+    line-height: 1.5; /* Mejora la legibilidad del texto */
 }
 
 #nextArrow {
@@ -188,12 +188,12 @@ button:hover, button:focus {
 }
 
 .hub-background {
-    background-image: url('../img/PuertaFondo1.png');
+    background-image: url('../resources/img/PuertaFondo1.png');
     background-size: cover;
     background-position: center;
 }
 .room1-background {
-    background-image: url('../img/Room1.webp');
+    background-image: url('../resources/img/Room1.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -220,3 +220,46 @@ button:hover, button:focus {
 #door-glow:hover{
     opacity: 1;
 }
+/*Final Glows Section*/
+
+#hud {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que el HUD siempre esté en la parte superior */
+    display: flex; /* Organiza los botones en línea */
+    align-items: center; /* Alinea los elementos verticalmente */
+    padding: 10px; /* Espacio alrededor del HUD */
+}
+
+/* Estilos para los botones de pistas e inventario */
+#hud button {
+    background-color: transparent; /* Botones transparentes para que solo se vea la imagen */
+    border: none; /* Sin borde para que se vean como imágenes */
+    cursor: pointer; /* Cambia el cursor a pointer para indicar que es clickeable */
+    margin-right: 10px; /* Espacio entre los botones */
+}
+
+/* Asegúrate de que los ID de las imágenes coincidan con los que usarás en el HTML */
+#hintButton {
+    background-image: url('../resources/Icons/06.png'); /* Cambia a la ruta de tu imagen de pistas */
+    
+    background-size: contain; /* Asegura que la imagen se ajuste al botón */
+    background-repeat: no-repeat; /* La imagen no se repetirá */
+}
+
+#inventoryButton {
+    background-image: url('../resources/Icons/13.png'); /* Cambia a la ruta de tu imagen de inventario */
+    
+    background-size: contain; /* Asegura que la imagen se ajuste al botón */
+    background-repeat: no-repeat; /* La imagen no se repetirá */
+}
+#optionsButton {
+    background-image: url('../resources/Icons/24.png'); /* Cambia a la ruta de tu imagen de inventario */
+    
+    background-size: contain; /* Asegura que la imagen se ajuste al botón */
+    background-repeat: no-repeat; /* La imagen no se repetirá */
+}
+.hidden {
+    display: none; /* Oculta el elemento */
+  }
