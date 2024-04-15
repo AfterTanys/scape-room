@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
             image: "../resources/img/intro4.webp", 
             text: "Their actions had not gone unnoticed.\nTime was of the essence, and the threat that nearly extinguished all life in the solar system, the Hostage, had pinpointed their location and deciphered their intentions.\nNow, the Final Squadron races against time to achieve their goal before the darkness looms over all once again."
         }
+        
     ];
 
     let currentSlide = 0;
@@ -72,8 +73,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Inicializar con la primera imagen
     updateBackgroundImage();
+    
 });
 
 document.getElementById('startButton').addEventListener('click', function() {
     window.location.href = 'cinematic.html'; // Redirige a cinematic.html
 });
+
+function showDialog(text) {
+    const dialogBox = document.getElementById('dialogBox');
+    const dialogText = document.getElementById('dialogText');
+    dialogText.textContent = text;
+    dialogBox.classList.remove('hidden');
+}
+
+// Función para ocultar la caja de diálogo
+function hideDialog() {
+    const dialogBox = document.getElementById('dialogBox');
+    dialogBox.classList.add('hidden');
+}

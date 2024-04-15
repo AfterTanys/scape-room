@@ -189,15 +189,49 @@ button:hover, button:focus {
 }
 
 .hub-background {
-    background-image: url('../img/PuertaFondo1.png');
+    background-image: url('../resources/img/PuertaFondo1.png');
     background-size: cover;
     background-position: center;
 }
 .room1-background {
-    background-image: url('../img/Room1.webp');
+    background-image: url('../resources/img/');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
     height: 100vh;
+}
+
+
+#hud {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que el HUD siempre esté en la parte superior */
+    display: flex; /* Organiza los botones en línea */
+    align-items: center; /* Alinea los elementos verticalmente */
+    padding: 10px; /* Espacio alrededor del HUD */
+}
+
+/* Estilos para los botones de pistas e inventario */
+#hud button {
+    background-color: transparent; /* Botones transparentes para que solo se vea la imagen */
+    border: none; /* Sin borde para que se vean como imágenes */
+    cursor: pointer; /* Cambia el cursor a pointer para indicar que es clickeable */
+    margin-right: 10px; /* Espacio entre los botones */
+}
+
+/* Asegúrate de que los ID de las imágenes coincidan con los que usarás en el HTML */
+#hintButton {
+    background-image: url('../resources/Icons/06.png'); /* Cambia a la ruta de tu imagen de pistas */
+    
+    background-size: contain; /* Asegura que la imagen se ajuste al botón */
+    background-repeat: no-repeat; /* La imagen no se repetirá */
+}
+
+#inventoryButton {
+    background-image: url('../resources/Icons/13.png'); /* Cambia a la ruta de tu imagen de inventario */
+    
+    background-size: contain; /* Asegura que la imagen se ajuste al botón */
+    background-repeat: no-repeat; /* La imagen no se repetirá */
 }
