@@ -76,19 +76,5 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
-document.getElementById('startButton').addEventListener('click', function() {
-    window.location.href = 'cinematic.html'; // Redirige a cinematic.html
-});
 
-function showDialog(text) {
-    const dialogBox = document.getElementById('dialogBox');
-    const dialogText = document.getElementById('dialogText');
-    dialogText.textContent = text;
-    dialogBox.classList.remove('hidden');
-}
 
-// Función para ocultar la caja de diálogo
-function hideDialog() {
-    const dialogBox = document.getElementById('dialogBox');
-    dialogBox.classList.add('hidden');
-}

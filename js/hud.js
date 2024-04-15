@@ -11,3 +11,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
     `;
     document.body.insertAdjacentHTML('afterbegin', hudHtml);
 });
+function showDialog(text) {
+    const dialogBox = document.getElementById('dialogBox');
+    const dialogText = document.getElementById('dialogText');
+    dialogText.textContent = text;
+    dialogBox.classList.remove('hidden');
+}
+
+// Función para ocultar la caja de diálogo
+function hideDialog() {
+    const dialogBox = document.getElementById('dialogBox');
+    dialogBox.classList.add('hidden');
+}
+document.getElementById('optionsButton').addEventListener('click', function() {
+    showDialog("ESTO ES UNA PRUEBA");
+    alert('Debug function...');
+});
