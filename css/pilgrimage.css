@@ -205,10 +205,10 @@ button:hover, button:focus {
 
 #door-glow{
     position: fixed;
-    top: 120px;
-    left: 657px;
-    height: 350px;
-    width: 220px;
+    top: 18%;
+    left: 42.7%;
+    height: 50vh;
+    width: 14.5vw;
     background-image: url('../resources/glows/door-glow.png');
     background-size: cover; /* La imagen cubrirá todo el div */
     background-repeat: no-repeat; /* Evita la repetición de la imagen */
