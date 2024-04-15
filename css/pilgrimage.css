@@ -61,7 +61,7 @@ body, html {
     justify-content: center; /* Centra verticalmente los elementos hijos */
     height: 100%; /* Ocupa toda la altura de .container */
     text-align: justify; /* Justifica el texto del párrafo */
-    padding: 20px; /* Añade padding para no tocar los bordes de .container */
+    padding: 70px; /* Añade padding para no tocar los bordes de .container */
     box-sizing: border-box; /* Incluye el padding en la altura total de .content */
 }
 
@@ -166,7 +166,7 @@ button:hover, button:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 50px;
     box-sizing: border-box;
     z-index: 2; /* Encima de la imagen de fondo y el fondo borroso */
 }
@@ -178,6 +178,7 @@ button:hover, button:focus {
     height: auto; /* El texto se ajustará dentro del espacio disponible */
     overflow: hidden; /* Previene que el texto desborde el contenedor */
     margin: 0;
+    line-height: 1.5; /* Mejora la legibilidad del texto */
 }
 
 #nextArrow {
