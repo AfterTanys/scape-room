@@ -10,6 +10,7 @@
 .titulo {
     font-family: 'FutureZ';
     color: var(--color-one);
+    font-size: 50px;
 }
 
 :root{
@@ -30,7 +31,7 @@ body, html {
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,17 +41,41 @@ body, html {
 
 
 .container {
-    
     padding: 20px;
     background-image: url('../resources/dialogBox/CardX5.png'); 
-    background-size: contain; 
+    background-size: 100% 100%; 
+    height: 770px;
     background-repeat: no-repeat;
     background-position: center;
+    display: flex; /* Nuevo estilo para usar flexbox */
+    align-items: center; /* Centra los elementos hijos verticalmente */
+    justify-content: center; /* Centra los elementos hijos horizontalmente */
+    flex-direction: column; /* Organiza los elementos hijos en una columna */
+    text-align: center; /* Asegúrate de que el texto esté centrado si solo hay una línea */
 }
 
+.content {
+    display: flex; /* Utiliza flexbox también aquí para alinear p y button */
+    flex-direction: column; /* Coloca p y button en una columna */
+    align-items: center; /* Centra horizontalmente los elementos hijos */
+    justify-content: center; /* Centra verticalmente los elementos hijos */
+    height: 100%; /* Ocupa toda la altura de .container */
+    text-align: justify; /* Justifica el texto del párrafo */
+    padding: 20px; /* Añade padding para no tocar los bordes de .container */
+    box-sizing: border-box; /* Incluye el padding en la altura total de .content */
+}
+
+
 p {
+    display: flex;
     margin: 20px 0; /* Añade más espacio alrededor del párrafo */
     line-height: 1.5; /* Mejora la legibilidad del texto */
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 2.5;
+    font-size: 20px;
 }
 
 button {
@@ -99,15 +124,38 @@ button:hover, button:focus {
     position: relative;
     width: 100%;
     height: 100vh;
-    text-align: center;
-}
-
+    overflow: hidden;
+  }
+  
+  #blurryBackground {
+    position: absolute;
+    top: 0; 
+    right: 0; 
+    bottom: 0; 
+    left: 0;
+    background-size: cover;
+    filter: blur(8px);
+    z-index: -1;
+  }
+  
+  #backgroundImage {
+    position: relative;
+    width: 953px;
+    height: 1000px;
+    z-index: 1; /* Encima del fondo borroso pero detrás del contenido */
+  }
+  
+  #nextArrow {
+    position: relative;
+    z-index: 2; /* Por encima de la imagen de fondo y su versión borrosa */
+  }
+  
 #dialogBox {
     position: absolute;
-    bottom: 10%; /* Ajusta la posición según sea necesario */
+    bottom: 1%; /* Ajusta la posición según sea necesario */
     left: 50%;
     transform: translateX(-50%);
-    width: 80%; /* O el ancho que prefieras */
+    width: 953px; /* O el ancho que prefieras */
     height: 399px; /* Ajusta la altura automáticamente basado en el contenido */
     max-height: 150px; /* La altura máxima deseada */
     background: url('../resources/dialogBox/CardX5.png') no-repeat center center;
@@ -117,6 +165,7 @@ button:hover, button:focus {
     justify-content: center;
     padding: 20px;
     box-sizing: border-box;
+    z-index: 2; /* Encima de la imagen de fondo y el fondo borroso */
 }
 
 #dialogText {
