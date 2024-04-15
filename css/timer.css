@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'FutureZ';
+    src: url('../fonts/Future_Z.ttf') format('truetype'),
+         url('../fonts/Future_Z.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+.timer{
+    font-family: 'FutureZ';
+    color: #CCAC00;
+    font-size: 50px;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    background-image: url(../resources/dialogBox/CardX5.png);
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20px;
+}
