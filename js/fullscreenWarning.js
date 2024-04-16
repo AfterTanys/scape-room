@@ -1,26 +1,20 @@
 /*
-Cambiar lo de abajo y mover todo el resto al HUB
-
-document.getElementById('startButton').addEventListener('click', function() {
-    //window.location.href = 'cinematic.html';
-});
-*/
 const overlay = document.getElementById("fullscreen-window-warning-overlay");
 const warning_window = document.getElementById("fullscreen-window-warning");
 
-document.getElementById('startButton').addEventListener('click', function() {
+//Cuando se abre la pagina se esperan 4 segundos y aparece la ventana
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
     openModal(warning_window);
-    document.getElementById('startButton').disabled=true;
-    //window.location.href = 'cinematic.html';
+  }, 4000);
 });
+
+let completa = false;
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "F11") {
     console.log("El usuario presionó F11 para pantalla completa.");
     closeModal(warning_window);
-    setTimeout(() => {
-        window.location.href = 'cinematic.html'; // Redirige a cinematic.html
-    }, 1000);
   }
 });
 
@@ -37,3 +31,4 @@ function closeModal(modal) {
   modal.classList.remove("active");
   overlay.classList.remove("active");
 }
+*/
