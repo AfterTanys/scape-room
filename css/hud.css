@@ -57,7 +57,7 @@ height: 31px;
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
-  
+    transition: transform 10s ease-in-out;
   
 }
 
@@ -71,6 +71,7 @@ height: 31px;
     background-size: contain; /* o contain, dependiendo de lo que necesites */
     background-repeat: no-repeat;
     background-position: center;
+    transition: transform 10s ease-in-out;
     
 }
 

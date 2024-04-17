@@ -1,34 +1,69 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    // Inyecta el HTML del HUD y la caja de diálogo en el cuerpo del documento
-    const hudHtml = `
-    <div id="hud">
-    <div id="optionsButton" class="hud-button"></div>
-    <div id="hintButton" class="hud-button"></div>
-    <div id="inventoryButton" class="hud-button"></div>
-</div>
-<div id="dialogBox" class="hidden">
-    <div id="speakerSprite" class="hidden"></div>
-    <div id="speakerContainer">
-        <div id="speakerName">Nombre...</div>
-    </div>
-    <div id="dialogTextContainer">
-        <p id="dialogText">Texto del diálogo...</p>
-    </div>
-</div
-    `;
+    // Crear el contenedor HUD y sus botones
+const hud = document.createElement('div');
+hud.id = 'hud';
 
-    document.body.insertAdjacentHTML('afterbegin', hudHtml);
+const optionsButton = document.createElement('div');
+optionsButton.id = 'optionsButton';
+optionsButton.className = 'hud-button';
+
+const hintButton = document.createElement('div');
+hintButton.id = 'hintButton';
+hintButton.className = 'hud-button';
+
+const inventoryButton = document.createElement('div');
+inventoryButton.id = 'inventoryButton';
+inventoryButton.className = 'hud-button';
+
+// Añadir los botones al HUD
+hud.appendChild(optionsButton);
+hud.appendChild(hintButton);
+hud.appendChild(inventoryButton);
+
+// Crear el cuadro de diálogo
+const dialogBox = document.createElement('div');
+dialogBox.id = 'dialogBox';
+dialogBox.className = 'hidden';
+
+const speakerSprite = document.createElement('div');
+speakerSprite.id = 'speakerSprite';
+speakerSprite.className = 'hidden';
+
+const speakerContainer = document.createElement('div');
+speakerContainer.id = 'speakerContainer';
+
+const speakerName = document.createElement('div');
+speakerName.id = 'speakerName';
+speakerName.textContent = 'Nombre...';
+
+const dialogTextContainer = document.createElement('div');
+dialogTextContainer.id = 'dialogTextContainer';
+
+const dialogText = document.createElement('p');
+dialogText.id = 'dialogText';
+dialogText.textContent = 'Texto del diálogo...';
+
+// Añadir elementos al cuadro de diálogo
+speakerContainer.appendChild(speakerName);
+dialogTextContainer.appendChild(dialogText);
+
+dialogBox.appendChild(speakerSprite);
+dialogBox.appendChild(speakerContainer);
+dialogBox.appendChild(dialogTextContainer);
+
+// Añadir HUD y cuadro de diálogo al cuerpo del documento
+document.body.appendChild(hud);
+document.body.appendChild(dialogBox);
 
     let activeDialog = false;
-    
-    
 
     function dialog(text, speakerName, speakerSpritePath){
         if(activeDialog == false){
             showDialog(text,speakerName,speakerSpritePath);
-            
+            overlay.classList.add('active');
         } else {
             hideDialog();
+            overlay.classList.remove('active');
         }
     }
     // Función para mostrar la caja de diálogo
@@ -45,8 +80,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (speakerSpritePath) {
             speakerSprite.style.backgroundImage = `url('${speakerSpritePath}')`;
             speakerSprite.classList.remove('hidden');
+            
         } else {
             speakerSprite.classList.add('hidden');
+           
         }
     
         dialogBox.classList.remove('hidden');
