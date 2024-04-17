@@ -16,7 +16,6 @@
     <div id="small-box-glow"></div>
 
     <div class="modal-puzzle" id="modal-puzzle-box">
-        <button id="close-btn">CERRAR</button>
         <div id="jm-1">
             <h1 id="msg-slide">Turn: <span id="turns"></span></h1>
             <div id="container-slide">
@@ -25,6 +24,10 @@
         
               </div>
         </div>
+        </div>
+        <br>
+        <div>
+            <button class="close-modal-btn" id="small-box-puzzle-close-btn">CERRAR</button>
         </div>
     </div>
 
@@ -36,15 +39,30 @@
 <!--<script src="../js/hud.js"></script>-->
 <script src="../js/slidePuzzle.js"></script>
 <script>
+    
     //El siguiente script hace que no puedas hacer zoom en la pagina
     window.addEventListener("wheel", (e)=>{
         if(e.ctrlKey){
             e.preventDefault();
         }
     }, {passive:false});
+
     //Cuando carga la primera habitacion inicia el timer
     document.addEventListener("DOMContentLoaded", ()=>{
         resetTimer();
+    });
+
+
+    //Codigo de abajo de testing de bolas
+    document.getElementById("door-glow").addEventListener("click", ()=>{
+        let bolas = true;
+        if(localStorage.getItem('bolas')){
+            console.log("Borrando bolas");
+            localStorage.removeItem("bolas");
+        }else{
+            console.log("Añadiendo bolas");
+            localStorage.setItem('bolas', JSON.stringify(bolas));
+        }
     });
 
 </script>

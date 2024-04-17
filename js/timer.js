@@ -30,7 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
     timerText.innerHTML = formatTime(timerMinutes, timerSeconds);
 
     timerInterval = setInterval(updateTimer, 1000);
-    timerText.addEventListener("click", resetTimer);
+    //Descomentar la linea de abajo para reiniciar el timer en click
+    //timerText.addEventListener("click", resetTimer);
 });
 
 function updateTimer() {
@@ -71,46 +72,3 @@ function resetTimer() {
     saveStartTime();
     timerInterval = setInterval(updateTimer, 1000);
 }
-
-
-
-
-/*
-const timerText = document.getElementsByClassName("timer")[0];
-let timerSeconds = 0;
-let timerMinutes = 1;
-let timerInterval;
-
-document.addEventListener("DOMContentLoaded", ()=>{
-
-    timerText.innerHTML = "40:00"; 
-
-    timerInterval = setInterval(escribir, 1000);
-    
-});
-
-function escribir(){
-
-    let ss;
-    let smin;
-
-    timerSeconds--;
-
-    if(timerSeconds<0){
-        timerMinutes--;
-        timerSeconds=59;
-    }
-
-    ss = ("0" + timerSeconds).slice(-2);
-    smin = ("0" + timerMinutes).slice(-2);
-
-    timerText.innerHTML = `${smin}:${ss}`; //Voy a usar por una vez las comillas con expresiones regulares y dolar
-    //Todo lo que haga entre comillas oblicuas es expresion regular y si hay ${variable} se escribe el valor
-
-    if(timerMinutes<0){
-        clearInterval(timerInterval);
-        timerText.innerHTML = "HAS PERDIDO";
-    }
-
-}
-*/

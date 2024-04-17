@@ -17,7 +17,14 @@
         </div>
         <img id="cinematicNextArrow" src="../resources/Icons/10.png" alt="Siguiente">
     </div>
-    
-    <script src="../js/cinematic.js"></script>
 </body>
+<script src="../js/cinematic.js"></script>
+<script>
+    //El siguiente script hace que no puedas hacer zoom en la pagina
+    window.addEventListener("wheel", (e)=>{
+        if(e.ctrlKey){
+            e.preventDefault();
+        }
+    }, {passive:false});
+</script>
 </html>

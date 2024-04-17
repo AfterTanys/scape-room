@@ -41,5 +41,13 @@
 
 </body>
 <script src="../js/intro.js"></script>
+<script>
+    //El siguiente script hace que no puedas hacer zoom en la pagina
+    window.addEventListener("wheel", (e)=>{
+        if(e.ctrlKey){
+            e.preventDefault();
+        }
+    }, {passive:false});
+</script>
 </html>
 
