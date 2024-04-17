@@ -6,26 +6,15 @@
     font-style: normal;
 }
 
-.titulo {
-    font-family: 'FutureZ';
-    color: var(--color-one);
-    font-size: 50px;
-}
-
-:root{
-
-    --color-one:#CCAC00;
-    --color-oneTrans:#CCAC0050;
-    --color-two:#003B59;
-    --color-twoTrans:#003B5995;
-    --color-three:#857E7B;
-    --color-four:#00CECB;
-    --color-five:#CDF7F6;
-
+:root {
+    --color-one: #CCAC00;
+    --color-two: #003B59;
+    --color-three: #857E7B;
+    --color-four: #00CECB;
+    --color-five: #CDF7F6;
 }
 
 body, html {
-    
     margin: 0;
     padding: 0;
     width: 100%;
@@ -38,167 +27,137 @@ body, html {
     color: #ecf0f1;
 }
 
-
-.container {
-    padding: 20px;
-    background-image: url('../resources/dialogBox/CardX5.png'); 
-    background-size: 100% 100%; 
-    height: 770px;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex; /* Nuevo estilo para usar flexbox */
-    align-items: center; /* Centra los elementos hijos verticalmente */
-    justify-content: center; /* Centra los elementos hijos horizontalmente */
-    flex-direction: column; /* Organiza los elementos hijos en una columna */
-    text-align: center; /* Asegúrate de que el texto esté centrado si solo hay una línea */
+.titulo {
+    font-family: 'FutureZ';
+    color: var(--color-one);
+    font-size: 3.125rem; /* 50px / 16px */
 }
-
-.content {
-    display: flex; /* Utiliza flexbox también aquí para alinear p y button */
-    flex-direction: column; /* Coloca p y button en una columna */
-    align-items: center; /* Centra horizontalmente los elementos hijos */
-    justify-content: center; /* Centra verticalmente los elementos hijos */
-    height: 100%; /* Ocupa toda la altura de .container */
-    text-align: justify; /* Justifica el texto del párrafo */
-    padding: 70px; /* Añade padding para no tocar los bordes de .container */
-    box-sizing: border-box; /* Incluye el padding en la altura total de .content */
+.hidden {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
 }
+/*----INTRO----*/
 
-
-p {
-    display: flex;
-    margin: 20px 0; /* Añade más espacio alrededor del párrafo */
-    line-height: 1.5; /* Mejora la legibilidad del texto */
-    justify-content: center;
-    align-items: center;
-    text-align: justify;
-    text-justify: inter-word;
-    
-}
-.introParagraph {
-    line-height: 2.5;
-    font-size: 20px;
-    
-}
-
-#blurryBackground{
-    transition: background-image 1s ease;
-}
-
-button {
-    background-image: url('../resources/Button/ButtonNormal.png'); 
+#introBackground {
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: center;
-    color: #ffffff;
-    border: 0;
-    padding: 15px 30px; /* Aumenta el relleno para un botón más grande */
-    margin-top: 20px;
-    cursor: pointer;
-    font-size: 20px; /* Aumenta el tamaño de fuente para mayor visibilidad */
-    font-weight: bold; /* Hace que el texto sea más grueso */
-    border-radius: 10px; /* Bordes redondeados para un aspecto moderno */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra para darle profundidad */
-    transition: background-color 0.3s, transform 0.2s; /* Transición suave al interactuar */
-}
-
-button:hover, button:focus {
-    background-image: url('../resources/Button/ButtonHover.png'); 
-    transform: scale(1.05); /* Ligeramente más grande al pasar el ratón o enfocar */
-    outline: none; /* Elimina el contorno al enfocar */
-}
-/*POR QUE COJONES HAY UN MODAL AQUI NO SE USA COJONES POR QUE POR QUE*/
-.modal {
-    display: none; /* Ocultar por defecto */
-    position: fixed;
-    z-index: 1; /* Situar sobre otros elementos */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto; /* Habilita scroll si necesario */
-    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% desde arriba y centrado */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Podrías ajustar según necesidad */
-    border-radius: 10px; /* Bordes redondeados */
-}
-#introContainer {
-    position: relative;
+    background-repeat: no-repeat;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    background-image: url("../resources/img/PuertaFondo1.png");
+}
+#introContainer {
+    background-image: url("../resources/dialogBox/CardX5.png"); /* Añade la imagen de fondo al contenedor */
+    background-size: 100% 100%; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen de fondo */
+    padding: 1.25em; /* Agrega padding para no tener texto pegado a los bordes */
   }
   
-  #blurryBackground {
+#introParagraph {
+    font-size: 1.25em; /* Establece el tamaño de la fuente a 20px */
+    line-height: 2; /* Establece el interlineado a 2*/
+    text-align: justify; /* Justifica el texto del párrafo */
+    margin: 2.5em;
+  }
+#startButton {
+    background-image: url('../resources/Button/ButtonNormal.png'); /* Imagen de fondo normal */
+    border: none; /* Eliminar el borde del botón */
+    color: white; /* Color del texto */
+    background-color: transparent; 
+    padding: 0.625em 1.25em; /* Padding para el botón */
+    font-size: 1em; /* Tamaño de fuente */
+    cursor: pointer; /* Cursor tipo pointer para indicar que es clickeable */
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center; /* Para que la imagen de fondo cubra completamente el botón */
+    outline: none; /* Eliminar el outline al hacer focus */
+    margin: 1.25em;
+  }
+  #startButton:hover {
+    background-image: url('../resources/Button/ButtonHover.png');
+    transform: scale(1.05); /* Imagen de fondo al pasar el ratón */
+  }
+  
+  #startButton:active {
+    background-image: url('../resources/Button/ButtonActive.png'); /* Imagen de fondo al hacer clic */
+  }
+/*----CINEMATIC----*/
+
+.cinematicBackground {
     position: absolute;
-    top: 0; 
-    right: 0; 
-    bottom: 0; 
+    top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     background-size: cover;
+    background-position: center center;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#blurryBackground {
     filter: blur(8px);
-    z-index: -1;
-  }
-  
-  #backgroundImage {
-    position: relative;
-    width: 953px;
-    height: 1000px;
-    z-index: 1; /* Encima del fondo borroso pero detrás del contenido */
-  }
-  
-  #nextArrow {
-    position: relative;
-    z-index: 2; /* Por encima de la imagen de fondo y su versión borrosa */
-  }
-  
-#dialogBox {
+    z-index: 1;
+    opacity: 1;
+}
+
+#centerImageContainer {
     position: absolute;
-    bottom: 1%; /* Ajusta la posición según sea necesario */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#centerImage {
+    background-size: contain;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto; /* Esto mantendrá la imagen en su tamaño original hasta el máximo permitido */
+    height: auto;
+    opacity: 1;
+}
+
+
+#cinematicDialogBox {
+    position: absolute; /* Esto permite posicionar absolutamente los elementos hijos respecto a este */
+    z-index: 2; /* Asegúrate de que este valor sea mayor que el del sprite para que la caja de diálogo aparezca encima */
+    bottom: 1%;
     left: 50%;
     transform: translateX(-50%);
-    width: 953px; /* O el ancho que prefieras */
-    height: 399px; /* Ajusta la altura automáticamente basado en el contenido */
-    max-height: 150px; /* La altura máxima deseada */
+    width: 59.5625rem; /* 953px / 16px */
+    height: 24.9375rem; /* 399px / 16px */
+    max-height: 9.375rem; /* 150px / 16px */
     background: url('../resources/dialogBox/CardX5.png') no-repeat center center;
-    background-size: 100% 100%; /* Asegura que la imagen de fondo cubra todo el área sin cortarse */
-    align-items: center;
-    justify-content: center;
-    padding: 50px;
-    box-sizing: border-box;
-    z-index: 2; /* Encima de la imagen de fondo y el fondo borroso */
+    background-size: 100% 100%;
+    opacity: 1; /* Establecer la opacidad inicial completa */
+    transition: opacity 0.5s ease-in-out; /* Transición suave de la opacidad */
+    
 }
-
-#dialogText {
-    color: white;
-    text-align: center;
-    width: 100%;
-    height: auto; /* El texto se ajustará dentro del espacio disponible */
-    overflow: hidden; /* Previene que el texto desborde el contenedor */
-    margin: 0;
-    line-height: 1.5; /* Mejora la legibilidad del texto */
+#cinematicdialogText{
+    font-size: 1em; 
+    line-height: 1.5; /* Establece el interlineado a 2*/
+    text-align: justify; /* Justifica el texto del párrafo */
+    margin:2.5em;
 }
-
-#nextArrow {
+#cinematicNextArrow {
     position: absolute;
-    right: 20px;
-    bottom: 20px;
+    bottom: 10%;
+    right: 10%;
+    z-index: 4;
     cursor: pointer;
+   
 }
 
-.hub-background {
-    background-image: url('../resources/img/PuertaFondo1.png');
-    background-size: cover;
-    background-position: center;
-}
-.room1-background {
-    background-image: url('../resources/img/Room1.webp');
+/* ----HUD IDs---- */
+
+.backgroundImg {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -282,44 +241,123 @@ button:hover, button:focus {
 
 /*Ventanas modales config end*/
 
+.hud-button {
+   margin-top: 10px;
+    margin-right: 30px;
+    margin-left: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.hud-button:hover {
+    transform: scale(1.05);
+}
+#optionsButton {
+background-image: url(../resources/Icons/24.png);
+width: 32px;
+height: 31px;
+}
+
+#hintButton {
+    width: 20px; /* Ajusta según el tamaño deseado */
+    height: 31px; /* Ajusta según el tamaño deseado */
+    background-image: url(../resources/Icons/06.png);
+    }
+
+#inventoryButton {
+    width: 32px; /* Ajusta según el tamaño deseado */
+    height: 31px; /* Ajusta según el tamaño deseado */
+    background-image: url(../resources/Icons/13.png);
+    }
 #hud {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000; /* Asegura que el HUD siempre esté en la parte superior */
-    display: flex; /* Organiza los botones en línea */
-    align-items: center; /* Alinea los elementos verticalmente */
-    padding: 10px; /* Espacio alrededor del HUD */
+    z-index: 1000;
+    display: flex;
 }
 
-/* Estilos para los botones de pistas e inventario */
-#hud button {
-    background-color: transparent; /* Botones transparentes para que solo se vea la imagen */
-    border: none; /* Sin borde para que se vean como imágenes */
-    cursor: pointer; /* Cambia el cursor a pointer para indicar que es clickeable */
-    margin-right: 10px; /* Espacio entre los botones */
+#dialogBox {
+    position: fixed;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%; /* O el ancho que prefieras */
+    height: 20%;
+    z-index: 1001; /* Por encima del HUD */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../resources/dialogBox/CardX6.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  
+  
 }
 
-/* Asegúrate de que los ID de las imágenes coincidan con los que usarás en el HTML */
-#hintButton {
-    background-image: url('../resources/Icons/06.png'); /* Cambia a la ruta de tu imagen de pistas */
+#speakerSprite {
+    position: absolute;
+    top: -260px;
+    right: 40%; /* Ajusta para colocar encima del diálogo */
+    width: 300px; /* Ajusta según el tamaño deseado */
+    height: 300px; /* Ajusta según el tamaño deseado */
+    z-index: 1; /* Detrás del texto del diálogo */
+    background-size: contain; /* o contain, dependiendo de lo que necesites */
+    background-repeat: no-repeat;
+    background-position: center;
     
-    background-size: contain; /* Asegura que la imagen se ajuste al botón */
-    background-repeat: no-repeat; /* La imagen no se repetirá */
 }
 
-#inventoryButton {
-    background-image: url('../resources/Icons/13.png'); /* Cambia a la ruta de tu imagen de inventario */
+#speakerContainer {
+    position: fixed;
+    transform: translateY(70%);
+    width: 80%;
     
-    background-size: contain; /* Asegura que la imagen se ajuste al botón */
-    background-repeat: no-repeat; /* La imagen no se repetirá */
 }
-#optionsButton {
-    background-image: url('../resources/Icons/24.png'); /* Cambia a la ruta de tu imagen de inventario */
+
+#speakerName {
+    padding: 0.313em;
     
-    background-size: contain; /* Asegura que la imagen se ajuste al botón */
-    background-repeat: no-repeat; /* La imagen no se repetirá */
+    text-align: center;
 }
-.hidden {
-    display: none; /* Oculta el elemento */
-  }
+
+#dialogTextContainer {
+    position: fixed;
+    transform: translateY(80%);
+    width: 94%;
+    
+}
+
+#dialogText {
+    padding: 0.625em;
+    text-align: center;
+}
+
+
+/*----Room 1----*/
+
+#room1-background {
+    background-image: url(../resources/img/Room1.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#door-glow {
+    position: fixed;
+    top: 18vh;
+    left: 42.7vw;
+    height: 50vh;
+    width: 14.5vw;
+    background-image: url('../resources/glows/door-glow.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+}
+
+#door-glow:hover {
+    opacity: 1;
+}

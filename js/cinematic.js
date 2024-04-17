@@ -22,59 +22,70 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentSlide = 0;
     let textIndex = 0;
     let timeoutId = null;
+    let isTypingComplete = false; // Nuevo indicador para completar la animación
 
-    function updateBlurredBackground(imageSrc) {
-        const blurryBackground = document.getElementById('blurryBackground');
-        
-        blurryBackground.style.backgroundImage = `url(${imageSrc})`;
-        blurryBackground.style.backgroundSize = 'cover';
-        blurryBackground.style.backgroundPosition = 'center center';
-      }
-      
-     
-      
-      function updateBackgroundImage() {
-        const backgroundImage = document.getElementById('backgroundImage');
-        backgroundImage.src = slides[currentSlide].image;
-        updateBlurredBackground(slides[currentSlide].image); // Actualiza el fondo borroso
-        document.getElementById('dialogBox').style.display = 'block';
-        document.getElementById('dialogText').textContent = '';
+    const blurryBackground = document.getElementById('blurryBackground');
+    const centerImage = document.getElementById('centerImage');
+    const cinematicDialogBox = document.getElementById('cinematicDialogBox');
+    const cinematicdialogText = document.getElementById('cinematicdialogText');
+    const nextArrow = document.getElementById('cinematicNextArrow');
+
+    function updateBackground(imageSrc) {
+        // Iniciar el fade out
+        blurryBackground.style.opacity = '0';
+        centerImage.style.opacity = '0';
+    
+        // Función para cambiar la imagen una vez que la opacidad llega a 0
+        blurryBackground.addEventListener('transitionend', function handler() {
+            this.removeEventListener('transitionend', handler); // Elimina el manejador para evitar múltiples llamadas
+            blurryBackground.style.backgroundImage = `url(${imageSrc})`;
+            blurryBackground.style.opacity = '1'; // Iniciar el fade in
+        }, { once: true }); // Asegurarse de que el evento se dispare solo una vez
+    
+        centerImage.addEventListener('transitionend', function handler() {
+            this.removeEventListener('transitionend', handler); // Elimina el manejador para evitar múltiples llamadas
+            centerImage.style.backgroundImage = `url(${imageSrc})`;
+            centerImage.style.opacity = '1'; // Iniciar el fade in
+        }, { once: true }); // Asegurarse de que el evento se dispare solo una vez
+    }
+
+    function updateSlide() {
+        updateBackground(slides[currentSlide].image);
+        cinematicDialogBox.classList.remove('hidden');
+        cinematicdialogText.textContent = '';
         textIndex = 0;
-      }
+        isTypingComplete = false; // Restablecer la bandera cuando se actualiza el slide
+        typeWriter();
+    }
 
     function typeWriter() {
         if (textIndex < slides[currentSlide].text.length) {
-            document.getElementById('dialogText').textContent += slides[currentSlide].text.charAt(textIndex);
+            cinematicdialogText.textContent += slides[currentSlide].text.charAt(textIndex);
             textIndex++;
             timeoutId = setTimeout(typeWriter, 50);
+        } else {
+            isTypingComplete = true; // Marcar la animación como completa
         }
     }
 
-    document.getElementById('nextArrow').addEventListener('click', function() {
-        if (timeoutId !== null) {
+    nextArrow.addEventListener('click', function() {
+        if (!isTypingComplete) {
+            // Si la animación aún no está completa, la terminamos inmediatamente
             clearTimeout(timeoutId);
-            document.getElementById('dialogText').textContent = slides[currentSlide].text;
+            cinematicdialogText.textContent = slides[currentSlide].text;
+            isTypingComplete = true; // Actualizar la bandera
             timeoutId = null;
-            textIndex = 0;
-            currentSlide++;
-            if (currentSlide >= slides.length+1) {
-                window.location.href = "room1.html";
-            }
-            return;
-        }
-
-        if (currentSlide < slides.length) {
-            updateBackgroundImage();
-            typeWriter();
         } else {
-            window.location.href = "room1.html";
+            // Si la animación está completa, avanzamos al siguiente slide
+            currentSlide++;
+            if (currentSlide < slides.length) {
+                updateSlide();
+            } else {
+                window.location.href = "room1.html"; // Redirige si es la última diapositiva
+            }
         }
     });
-
-    // Inicializar con la primera imagen
-    updateBackgroundImage();
-    
+   
+        
+    updateSlide(); // Inicializar con la primera diapositiva
 });
-
-
-
