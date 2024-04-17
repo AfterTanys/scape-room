@@ -1,7 +1,7 @@
 //INVENTARIO TESTING  NO METER 
-let bolas = false;
+//Al principio del juego hay que reiniciar absolutamente todo el inventario y se ira ganando cosas
+
+//Borrado de bolas
 if(localStorage.getItem('bolas')){
-    console.log("Ya tienes bolas");
-}else{
-    localStorage.setItem('bolas', JSON.stringify(bolas));
+    localStorage.removeItem("bolas");
 }
