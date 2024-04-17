@@ -51,31 +51,32 @@ body, html {
     background-image: url("../resources/dialogBox/CardX5.png"); /* Añade la imagen de fondo al contenedor */
     background-size: 100% 100%; /* Asegura que la imagen cubra todo el contenedor */
     background-position: center; /* Centra la imagen de fondo */
-    padding: 20px; /* Agrega padding para no tener texto pegado a los bordes */
+    padding: 1.25em; /* Agrega padding para no tener texto pegado a los bordes */
   }
   
-  #introParagraph {
-    font-size: 20px; /* Establece el tamaño de la fuente a 20px */
+#introParagraph {
+    font-size: 1.25em; /* Establece el tamaño de la fuente a 20px */
     line-height: 2; /* Establece el interlineado a 2*/
     text-align: justify; /* Justifica el texto del párrafo */
-    margin: 30px;
+    margin: 2.5em;
   }
 #startButton {
     background-image: url('../resources/Button/ButtonNormal.png'); /* Imagen de fondo normal */
     border: none; /* Eliminar el borde del botón */
     color: white; /* Color del texto */
     background-color: transparent; 
-    padding: 10px 20px; /* Padding para el botón */
-    font-size: 16px; /* Tamaño de fuente */
+    padding: 0.625em 1.25em; /* Padding para el botón */
+    font-size: 1em; /* Tamaño de fuente */
     cursor: pointer; /* Cursor tipo pointer para indicar que es clickeable */
     background-size: 100% 100%; 
     background-repeat: no-repeat;
     background-position: center; /* Para que la imagen de fondo cubra completamente el botón */
     outline: none; /* Eliminar el outline al hacer focus */
-    margin: 20px;
+    margin: 1.25em;
   }
   #startButton:hover {
-    background-image: url('../resources/Button/ButtonHover.png'); /* Imagen de fondo al pasar el ratón */
+    background-image: url('../resources/Button/ButtonHover.png');
+    transform: scale(1.05); /* Imagen de fondo al pasar el ratón */
   }
   
   #startButton:active {
@@ -91,6 +92,7 @@ body, html {
     bottom: 0;
     background-size: cover;
     background-position: center center;
+    transition: opacity 0.3s ease-in-out;
 }
 
 #blurryBackground {
@@ -119,6 +121,7 @@ body, html {
     max-height: 100%;
     width: auto; /* Esto mantendrá la imagen en su tamaño original hasta el máximo permitido */
     height: auto;
+    opacity: 1;
 }
 
 
@@ -133,13 +136,15 @@ body, html {
     max-height: 9.375rem; /* 150px / 16px */
     background: url('../resources/dialogBox/CardX5.png') no-repeat center center;
     background-size: 100% 100%;
+    opacity: 1; /* Establecer la opacidad inicial completa */
+    transition: opacity 0.5s ease-in-out; /* Transición suave de la opacidad */
     
 }
 #cinematicdialogText{
-    font-size: 17px; /* Establece el tamaño de la fuente a 20px */
+    font-size: 1em; 
     line-height: 1.5; /* Establece el interlineado a 2*/
     text-align: justify; /* Justifica el texto del párrafo */
-    margin: 40px;
+    margin:2.5em;
 }
 #cinematicNextArrow {
     position: absolute;
@@ -166,6 +171,9 @@ body, html {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+.hud-button:hover {
+    transform: scale(1.05);
 }
 #optionsButton {
 background-image: url(../resources/Icons/24.png);
@@ -232,7 +240,7 @@ height: 31px;
 }
 
 #speakerName {
-    padding: 5px;
+    padding: 0.313em;
     
     text-align: center;
 }
@@ -245,7 +253,7 @@ height: 31px;
 }
 
 #dialogText {
-    padding: 10px;
+    padding: 0.625em;
     text-align: center;
 }
 
@@ -254,6 +262,9 @@ height: 31px;
 
 #room1-background {
     background-image: url(../resources/img/Room1.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 #door-glow {
     position: fixed;
