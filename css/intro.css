@@ -1,0 +1,43 @@
+#introBackground {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-image: url("../resources/img/PuertaFondo1.png");
+}
+#introContainer {
+    background-image: url("../resources/dialogBox/CardX5.png"); /* Añade la imagen de fondo al contenedor */
+    background-size: 100% 100%; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen de fondo */
+    padding: 1.25em; /* Agrega padding para no tener texto pegado a los bordes */
+  }
+  
+#introParagraph {
+    font-size: 1.25em; /* Establece el tamaño de la fuente a 20px */
+    line-height: 2; /* Establece el interlineado a 2*/
+    text-align: justify; /* Justifica el texto del párrafo */
+    margin:  2.5em;
+  }
+#startButton {
+    background-image: url('../resources/Button/ButtonNormal.png'); /* Imagen de fondo normal */
+    border: none; /* Eliminar el borde del botón */
+    color: white; /* Color del texto */
+    background-color: transparent; 
+    padding: 0.625em 1.25em; /* Padding para el botón */
+    font-size:  1em; /* Tamaño de fuente */
+    cursor: pointer; /* Cursor tipo pointer para indicar que es clickeable */
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center; /* Para que la imagen de fondo cubra completamente el botón */
+    outline: none; /* Eliminar el outline al hacer focus */
+    margin: 1.25em;
+  }
+  #startButton:hover {
+    background-image: url('../resources/Button/ButtonHover.png'); /* Imagen de fondo al pasar el ratón */
+    transform: scale(1.05);
+  }
+  
+  #startButton:active {
+    background-image: url('../resources/Button/ButtonActive.png'); /* Imagen de fondo al hacer clic */
+  }

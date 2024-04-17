@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/pilgrimage.css">
     <link rel="stylesheet" href="../css/timer.css" />
+    <link rel="stylesheet" href="../css/room1.css">
+    <link rel="stylesheet" href="../css/hud.css">
+    <link rel="stylesheet" href="../css/slidePuzzle.css" />
     <title>Habitación 1</title>
 </head>
 <body id="room1-background">
@@ -12,12 +15,30 @@
 
     <div id="door-glow"></div>
 
+    <div id="small-box-glow"></div>
 
+    <div class="modal-puzzle" id="modal-puzzle-box">
+        <div id="jm-1">
+            <h1 id="msg-slide">Turn: <span id="turns"></span></h1>
+            <div id="container-slide">
+                
+              <div id="game-slide">
+        
+              </div>
+        </div>
+        </div>
+        <br>
+        <div>
+            <button class="close-modal-btn" id="small-box-puzzle-close-btn">CERRAR</button>
+        </div>
+    </div>
 
+    <div id="background-overlay"></div>
     
 </body>
 <script src="../js/timer.js"></script>
 <script src="../js/hud.js"></script>
+<script src="../js/slidePuzzle.js"></script>
 <script>
     //El siguiente script hace que no puedas hacer zoom en la pagina
     window.addEventListener("wheel", (e)=>{
@@ -28,6 +49,17 @@
     //Cuando carga la primera habitacion inicia el timer
     document.addEventListener("DOMContentLoaded", ()=>{
         resetTimer();
+    });
+//Codigo de abajo de testing de bolas
+document.getElementById("door-glow").addEventListener("click", ()=>{
+        let bolas = true;
+        if(localStorage.getItem('bolas')){
+            console.log("Borrando bolas");
+            localStorage.removeItem("bolas");
+        }else{
+            console.log("Añadiendo bolas");
+            localStorage.setItem('bolas', JSON.stringify(bolas));
+        }
     });
 
 </script>

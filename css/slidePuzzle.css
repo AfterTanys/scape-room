@@ -1,0 +1,104 @@
+/*ESTILO PARA VENTANA EMERGENTE*/
+
+*, *::after, *::before {
+    box-sizing: border-box;
+  }
+  
+  #modal-puzzle-box{
+    background-image: url('../resources/dialogBox/CardX5.png');
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 40px;
+    width: 800px;
+    height: 770px;
+    max-width: 80%;
+  }
+  
+  
+/*ESTILO PUZZLE MIGUEL*/
+#jm-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #container-slide {
+    border: 0.7em groove burlywood;
+    width: 31em;
+    height: 31em;
+    background-color: burlywood;
+  }
+  
+  #game-slide {
+    display: flex;
+    flex-wrap: wrap;
+  
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  
+    background-image: url("../resources/slide/slide_Tablero.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .tile {
+    background-position: center;
+    background-size: inherit;
+    width: 33%;
+    height: 33%;
+    border: 0.1875em solid transparent; /* Define el borde inicialmente transparente */
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    z-index: 100;
+    &:hover {
+      border: 0.1875em solid rgba(0, 128, 0, 0.582); /* Cambia el color del borde al hacer hover */
+    }
+  }
+  
+  /* Soy el mayor fan del jose(18)vs victoria(49) */
+  
+  .c_1 {
+    background-image: url(../resources/slide/slide_Hueco-Verde.png);/*verde*/
+  }
+  .bc_1 {
+    background-image: url(../resources/slide/slide_BHueco-Verde.png);/*verde*/
+  }
+  .c_2 {
+    background-image: url(../resources/slide/slide_wood2.png);
+  }
+  .c_3 {
+    background-image: url(../resources/slide/slide_Hueco-Negro.png);/*negro*/
+  }
+  .bc_3 {
+    background-image: url(../resources/slide/slide_BHueco-Negro.png);/*negro*/
+  }
+  .c_4 {
+    background-image: url(../resources/slide/slide_wood4.png);
+  }
+  .c_5 {
+    background-image: url(../resources/slide/slide_wood5.png);
+  }
+  .c_6 {
+    background-image: url();
+    &:hover {
+      border: 0.1875em solid transparent;
+    }
+  }
+  .c_7 {
+    background-image: url(../resources/slide/slide_Hueco-Azul.png);/*azul*/
+  }
+  .bc_7 {
+    background-image: url(../resources/slide/slide_BHueco-Azul.png);/*azul*/
+  }
+  .c_8 {
+    background-image: url(../resources/slide/slide_wood8.png);
+  }
+  .c_9 {
+    background-image: url(../resources/slide/slide_Hueco-Rojo.png);/*rojo*/
+  }
+  .bc_9 {
+    background-image: url(../resources/slide/slide_BHueco-Rojo.png);/*rojo*/
+  }

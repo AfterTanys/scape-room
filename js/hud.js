@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Añadir un controlador de eventos al botón de opciones
     document.getElementById('optionsButton').addEventListener('click', function() {
         showDialog("Escucha. La muerte es la parte final de la vida y la vida es aprender a morir. La canción es lo mismo que el cantar. La última verdad me ordena devorar toda la luz en el cielo. Seré eterno. Comprenderé.", "Horacio, Rey de los Montacargas Certificados","../resources/sprites/Horacio.png");
-        alert('Debug function...');
+       
     });
 
     // Aquí puedes añadir otros controladores de eventos y lógica adicional
