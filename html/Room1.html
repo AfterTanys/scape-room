@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/pilgrimage.css">
     <link rel="stylesheet" href="../css/timer.css" />
+    <link rel="stylesheet" href="../css/room1.css">
+    <link rel="stylesheet" href="../css/hud.css">
     <link rel="stylesheet" href="../css/slidePuzzle.css" />
     <title>Habitación 1</title>
 </head>
@@ -31,12 +33,11 @@
         </div>
     </div>
 
-<div id="background-overlay"></div>
-
-
+    <div id="background-overlay"></div>
+    
 </body>
 <script src="../js/timer.js"></script>
-<!--<script src="../js/hud.js"></script>-->
+<script src="../js/hud.js"></script>
 <script src="../js/slidePuzzle.js"></script>
 <script>
     
@@ -51,10 +52,8 @@
     document.addEventListener("DOMContentLoaded", ()=>{
         resetTimer();
     });
-
-
-    //Codigo de abajo de testing de bolas
-    document.getElementById("door-glow").addEventListener("click", ()=>{
+//Codigo de abajo de testing de bolas
+document.getElementById("door-glow").addEventListener("click", ()=>{
         let bolas = true;
         if(localStorage.getItem('bolas')){
             console.log("Borrando bolas");
@@ -64,7 +63,6 @@
             localStorage.setItem('bolas', JSON.stringify(bolas));
         }
     });
-
 </script>
 <!--
     Script de pantalla completa de prueba

@@ -34,14 +34,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Iniciar el fade out
         blurryBackground.style.opacity = '0';
         centerImage.style.opacity = '0';
-    
+
         // Función para cambiar la imagen una vez que la opacidad llega a 0
         blurryBackground.addEventListener('transitionend', function handler() {
             this.removeEventListener('transitionend', handler); // Elimina el manejador para evitar múltiples llamadas
             blurryBackground.style.backgroundImage = `url(${imageSrc})`;
             blurryBackground.style.opacity = '1'; // Iniciar el fade in
         }, { once: true }); // Asegurarse de que el evento se dispare solo una vez
-    
+
         centerImage.addEventListener('transitionend', function handler() {
             this.removeEventListener('transitionend', handler); // Elimina el manejador para evitar múltiples llamadas
             centerImage.style.backgroundImage = `url(${imageSrc})`;

@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introducción</title>
     <link rel="stylesheet" href="../css/pilgrimage.css">
+    <link rel="stylesheet" href="../css/cinematic.css">
 </head>
-<body style="background-color: black;">
+<body  style="background-color: black;">
     <div id="cinematicContainer">
         <div id="blurryBackground" class="cinematicBackground"></div>
         <div id="centerImageContainer">
@@ -17,7 +18,18 @@
         </div>
         <img id="cinematicNextArrow" src="../resources/Icons/10.png" alt="Siguiente">
     </div>
+    
+    
 </body>
+<script src="../js/cinematic.js"></script>
+<script>
+    //El siguiente script hace que no puedas hacer zoom en la pagina
+    window.addEventListener("wheel", (e)=>{
+        if(e.ctrlKey){
+            e.preventDefault();
+        }
+    }, {passive:false});
+</script>
 <script src="../js/cinematic.js"></script>
 <script>
     //El siguiente script hace que no puedas hacer zoom en la pagina

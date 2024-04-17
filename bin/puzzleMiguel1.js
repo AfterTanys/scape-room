@@ -1,33 +1,3 @@
-//Programacion de la ventana
-const overlay = document.getElementById("background-overlay");
-const modal_small_box = document.getElementById("modal-puzzle-box");
-
-//Cuando haces click fuera de la ventana modal cierra la ventana modal
-document.getElementById("small-box-puzzle-close-btn").addEventListener("click", ()=>{
-  closeModal(modal_small_box);
-});
-
-//Cuando haces click en el elemento abre la ventana modal
-document.getElementById("small-box-glow").addEventListener("click", ()=>{
-    console.log("Hola2");
-    openModal(modal_small_box);
-});
-
-//Abre el modal
-function openModal(modal) {
-    if (modal == null) return;
-    modal.classList.add("active");
-    overlay.classList.add("active");
-}
-  
-//Cierra el modal
-function closeModal(modal) {
-    if (modal == null) return;
-    modal.classList.remove("active");
-    overlay.classList.remove("active");
-}
-
-//Programacion del juego
 //Const
 const rows = 3;
 const columns = 3;
@@ -46,13 +16,7 @@ let turns_lim = 100;
 let boolWin = false;
 
 //Variable that it will be false until we pick the balls
-let boolBalls;
-//Cuando carga la pagina se comprueba si hay o no bolas
-if(localStorage.getItem('bolas')){
-  boolBalls=true;
-}else{
-  boolBalls=false;
-}
+let boolBalls = true;
 
 let tileOrder = ["2", "4", "8", "5", "3", "6", "9", "1", "7"];
 let tileOrder_backup=["2", "4", "8", "5", "3", "6", "9", "1", "7"];
@@ -62,9 +26,7 @@ let tileOrder_backup=["2", "4", "8", "5", "3", "6", "9", "1", "7"];
 //const tileOrder_backup = ["1", "2", "3", "4", "6", "5", "7", "8", "9"]; //test
 
 //Probably we need to put it on the display button.
-window.onload = slideStart(); 
-//Preguntar a miguel si puede cambiar el puzzle para que se borre porque se genera puzzle debajo del puzzle
-//Las bolas si no las encuentras en la pagina es una liada
+window.onload = slideStart();
 
 function slideStart() {
   //Initialize divs;
@@ -195,5 +157,3 @@ function slideRestart() {
   h1_msg.childNodes[0].textContent = "Turn: ";
   slideStart();
 }
-
-
