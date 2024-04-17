@@ -1,0 +1,62 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+  }
+  
+  .fullscreen-window-warning {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 500ms ease-in-out;
+    border-radius: 10px;
+    z-index: 10;
+    background-image: url('../resources/dialogBox/CardX5.png');
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 40px;
+    width: 800px;
+    max-width: 80%;
+  }
+  
+  .fullscreen-window-warning.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .fullscreen-window-warning-header {
+    font-family: 'FutureZ';
+    color: #CCAC00;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #00CECB;
+    justify-content: center;
+  }
+  
+  .fullscreen-window-warning-header .fullscreen-window-warning-title {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .fullscreen-window-warning-body {
+    padding: 10px 15px;
+    font-size: 1.5rem;
+  }
+  
+  #fullscreen-window-warning-overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 500ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+    z-index: 9;
+  }
+  
+  #fullscreen-window-warning-overlay.active {
+    opacity: 1;
+  }
