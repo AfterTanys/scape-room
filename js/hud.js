@@ -55,23 +55,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Aquí puedes añadir otros controladores de eventos y lógica adicional
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
