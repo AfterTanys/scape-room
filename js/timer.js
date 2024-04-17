@@ -32,6 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     timerInterval = setInterval(updateTimer, 1000);
     //Descomentar la linea de abajo para reiniciar el timer en click
     //timerText.addEventListener("click", resetTimer);
+    //Descomentar la linea de abajo para reiniciar el timer en click
+    //timerText.addEventListener("click", resetTimer);
 });
 
 function updateTimer() {

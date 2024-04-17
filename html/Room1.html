@@ -40,12 +40,14 @@
 <script src="../js/hud.js"></script>
 <script src="../js/slidePuzzle.js"></script>
 <script>
+    
     //El siguiente script hace que no puedas hacer zoom en la pagina
     window.addEventListener("wheel", (e)=>{
         if(e.ctrlKey){
             e.preventDefault();
         }
     }, {passive:false});
+
     //Cuando carga la primera habitacion inicia el timer
     document.addEventListener("DOMContentLoaded", ()=>{
         resetTimer();
@@ -61,7 +63,6 @@ document.getElementById("door-glow").addEventListener("click", ()=>{
             localStorage.setItem('bolas', JSON.stringify(bolas));
         }
     });
-
 </script>
 <!--
     Script de pantalla completa de prueba

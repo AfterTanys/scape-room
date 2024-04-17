@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-
+   
+        
     updateSlide(); // Inicializar con la primera diapositiva
 });
