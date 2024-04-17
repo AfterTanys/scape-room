@@ -1,16 +1,16 @@
 //Programacion de la ventana
 const overlay = document.getElementById("background-overlay");
-const modal_small_box = document.getElementById("modal-puzzle-box");
+const modal_big_box = document.getElementById("modal-puzzle-box");
 
 //Cuando haces click fuera de la ventana modal cierra la ventana modal
-document.getElementById("small-box-puzzle-close-btn").addEventListener("click", ()=>{
-  closeModal(modal_small_box);
+document.getElementById("big-box-puzzle-close-btn").addEventListener("click", ()=>{
+  closeModal(modal_big_box);
 });
 
 //Cuando haces click en el elemento abre la ventana modal
-document.getElementById("small-box-glow").addEventListener("click", ()=>{
+document.getElementById("big-box-glow").addEventListener("click", ()=>{
     console.log("Hola2");
-    openModal(modal_small_box);
+    openModal(modal_big_box);
 });
 
 //Abre el modal

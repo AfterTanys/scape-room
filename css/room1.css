@@ -42,6 +42,43 @@
     opacity: 1;
 }
 
+#big-box-glow{
+  position: fixed;
+  top: 72vh;
+  left: 66.5vw;
+  height: 10vh;
+  width: 10vw;
+  background-image: url('../resources/glows/big-box-glow.png');
+  background-size: cover; /* La imagen cubrirá todo el div */
+  background-repeat: no-repeat; /* Evita la repetición de la imagen */
+  background-position: center; /* Centra la imagen */
+  opacity: 0; /* Inicialmente oculta la imagen */
+  transition: opacity 0.5s ease; /* Transición suave para la opacidad */
+  cursor: pointer;
+}
+
+#big-box-glow:hover{
+  opacity: 1;
+}
+
+#computer-glow{
+  position: fixed;
+  top: 64.6vh;
+  left: 37.9vw;
+  height: 4.9vh;
+  width: 3.8vw;
+  background-image: url('../resources/glows/computer-glow.png');
+  background-size: cover; /* La imagen cubrirá todo el div */
+  background-repeat: no-repeat; /* Evita la repetición de la imagen */
+  background-position: center; /* Centra la imagen */
+  opacity: 0; /* Inicialmente oculta la imagen */
+  transition: opacity 0.5s ease; /* Transición suave para la opacidad */
+  cursor: pointer;
+}
+
+#computer-glow:hover{
+  opacity: 1;
+}
 
 #background-overlay {
     position: fixed;
