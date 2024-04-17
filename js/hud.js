@@ -16,16 +16,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
     </div>
 </div
     `;
+
     document.body.insertAdjacentHTML('afterbegin', hudHtml);
 
-    // Ahora que el HTML está inyectado, los elementos están disponibles para interactuar
+    let activeDialog = false;
+    
+    
+
+    function dialog(text, speakerName, speakerSpritePath){
+        if(activeDialog == false){
+            showDialog(text,speakerName,speakerSpritePath);
+            
+        } else {
+            hideDialog();
+        }
+    }
     // Función para mostrar la caja de diálogo
     function showDialog(text, speakerName, speakerSpritePath) {
         const dialogBox = document.getElementById('dialogBox');
         const dialogText = document.getElementById('dialogText');
         const speakerNameElement = document.getElementById('speakerName');
         const speakerSprite = document.getElementById('speakerSprite');
-    
+        
         dialogText.textContent = text;
         speakerNameElement.textContent = speakerName;
         
@@ -38,6 +50,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     
         dialogBox.classList.remove('hidden');
+        activeDialog =true;
     }
     
 
@@ -45,11 +58,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
     function hideDialog() {
         const dialogBox = document.getElementById('dialogBox');
         dialogBox.classList.add('hidden');
+        activeDialog =false;
     }
 
     // Añadir un controlador de eventos al botón de opciones
     document.getElementById('optionsButton').addEventListener('click', function() {
-        showDialog("Escucha. La muerte es la parte final de la vida y la vida es aprender a morir. La canción es lo mismo que el cantar. La última verdad me ordena devorar toda la luz en el cielo. Seré eterno. Comprenderé.", "Horacio, Rey de los Montacargas Certificados","../resources/sprites/Horacio.png");
+        
+            dialog("Escucha. La muerte es la parte final de la vida y la vida es aprender a morir. La canción es lo mismo que el cantar. La última verdad me ordena devorar toda la luz en el cielo. Seré eterno. Comprenderé.", "Horacio, Rey de los Montacargas Certificados","../resources/sprites/Horacio.png");
+        
+       
        
     });
 
