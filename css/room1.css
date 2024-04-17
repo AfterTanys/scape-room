@@ -116,13 +116,15 @@
     color: white; /* Color del texto */
     background-color: transparent;
     padding: 0.625em 1.25em; /* Padding para el botón */
-    font-size: 1em; /* Tamaño de fuente */
+    font-size: 1.5em; /* Tamaño de fuente */
     cursor: pointer; /* Cursor tipo pointer para indicar que es clickeable */
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center; /* Para que la imagen de fondo cubra completamente el botón */
     outline: none; /* Eliminar el outline al hacer focus */
     margin: 1.25em;
+    font-family: "FutureZ";
+    color: var(--color-one);
   }
   .close-modal-btn:hover {
     background-image: url("../resources/Button/ButtonHover.png");
