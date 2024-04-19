@@ -101,7 +101,7 @@ document.body.appendChild(dialogBox);
     // Añadir un controlador de eventos al botón de opciones
     document.getElementById('optionsButton').addEventListener('click', function() {
         
-            dialog("Escucha. La muerte es la parte final de la vida y la vida es aprender a morir. La canción es lo mismo que el cantar. La última verdad me ordena devorar toda la luz en el cielo. Seré eterno. Comprenderé.", "Horacio, Rey de los Montacargas Certificados","../resources/sprites/Horacio.png");
+            dialog("DIALOG", "NAME","../resources/sprites/ejemplo.jpg");
         
        
        

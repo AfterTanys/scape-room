@@ -62,7 +62,7 @@ height: 31px;
 
 #speakerSprite {
     position: absolute;
-    top: -260px;
+    top: -290px;
     right: 40%; /* Ajusta para colocar encima del diálogo */
     width: 300px; /* Ajusta según el tamaño deseado */
     height: 300px; /* Ajusta según el tamaño deseado */
@@ -89,12 +89,13 @@ height: 31px;
     position: fixed;
     transform: translateY(80%);
     width: 94%;
+    z-index: 10;
     
 }
 
 #dialogText {
     padding: 0.625em;
     text-align: center;
-
+    
 }
 
