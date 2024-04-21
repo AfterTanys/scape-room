@@ -1,0 +1,33 @@
+/* Estilos generales del cuerpo del documento */
+body {
+    font-family: Arial, sans-serif; /* Tipografía más legible */
+    margin: 20px; /* Espaciado alrededor del contenido de la página */
+    text-align: center; /* Centra el contenido textual */
+}
+
+/* Estilos para los botones de colores */
+.color-btn {
+    width: 50px; /* Ancho del botón */
+    height: 50px; /* Altura del botón */
+    border: none; /* Sin borde */
+    margin: 5px; /* Margen alrededor de los botones */
+    cursor: pointer; /* Cursor en forma de mano al pasar el mouse sobre el botón */
+    outline: none; /* Elimina el contorno al hacer clic */
+    transition: box-shadow 0.3s; /* Transición suave para la sombra */
+}
+
+.color-btn:hover {
+    box-shadow: 0 0 8px rgba(0,0,0,0.6); /* Sombra al pasar el mouse para mejorar la interactividad */
+}
+
+/* Estilos para el botón de cambio de fase */
+button {
+    padding: 10px 20px; /* Espaciado interno del botón */
+    font-size: 16px; /* Tamaño de la fuente más grande para mejor legibilidad */
+    cursor: pointer; /* Cursor en forma de mano al pasar el mouse sobre el botón */
+    outline: none; /* Elimina el contorno al hacer clic */
+}
+
+button:hover {
+    background-color: #eee; /* Cambio de color de fondo al pasar el mouse para mejorar la interactividad */
+}
