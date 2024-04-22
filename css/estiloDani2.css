@@ -1,65 +1,91 @@
-#simon-container{
-
-    justify-self: center;
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+@font-face {
+  font-family: "PilgrimageArrows";
+  src: url("../fonts/Pilgrimage_Arrows.ttf") format("truetype"),
+    url("../fonts/Pilgrimage_Arrows.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-.simon-tile{
-    height: 20vh;
-    width: 12vw;
-    border: 2px solid black;
+#simon-container {
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.simon-score{
-    font-family: "FutureZ";
-    color: var(--color-one);
-    font-size: 3rem;
-    margin-bottom: 1rem;
+.simon-tile {
+  height: 20vh;
+  width: 12vw;
+  border: 2px solid black;
+  transform: scale(1); /* Aumenta el tamaño al 110% */
+  transition: transform 0.2s ease-in-out; /* Agrega una transición suave */
 }
 
-.simon-first-row{
-    display: flex;
-    flex-direction: row;
+#simon-score {
+  font-family: "FutureZ";
+  color: var(--color-one);
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
-.simon-first-row > .simon-tile{
-    border-radius: 1rem;
+.simon-first-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 
-.simon-second-row{
-    display: flex;
-    flex-direction: row;
+.simon-first-row > .simon-tile {
+  border-radius: 1rem;
+  height: 18.3vh;
+  width: 11vw;
 }
 
-.simon-second-row >.simon-tile{
-    background-size: 100% 100%; /* La imagen cubrirá todo el div */
-    background-repeat: no-repeat; /* Evita la repetición de la imagen */
-    background-position: center; /* Centra la imagen */
-    background-image: url(../resources/dialogBox/cardX5.png);
-    font-family: "FutureZ";
-    border: none;
+.simon-second-row {
+  display: flex;
+  flex-direction: row;
 }
 
-.simon-third-row{
-    display: flex;
-    flex-direction: row;
+.simon-second-row > .simon-tile {
+  background-size: 100% 100%; /* La imagen cubrirá todo el div */
+  background-repeat: no-repeat; /* Evita la repetición de la imagen */
+  background-position: center; /* Centra la imagen */
+  background-image: url(../resources/cards/CardX3.png);
+  font-family: "PilgrimageArrows";
+  font-size: 5rem;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.simon-third-row >.simon-tile{
-    background-size: 100% 100%; /* La imagen cubrirá todo el div */
-    background-repeat: no-repeat; /* Evita la repetición de la imagen */
-    background-position: center; /* Centra la imagen */
-    background-image: url(../resources/dialogBox/cardX5.png);
-    font-family: "FutureZ";
-    border: none;
+.simon-third-row {
+  display: flex;
+  flex-direction: row;
 }
 
-.simon-rune{
-    height: 18vh;
-    width: 10vw;
+.simon-third-row > .simon-tile {
+  background-size: 100% 100%; /* La imagen cubrirá todo el div */
+  background-repeat: no-repeat; /* Evita la repetición de la imagen */
+  background-position: center; /* Centra la imagen */
+  background-image: url(../resources/cards/CardX3.png);
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.simon-rune {
+  height: 15vh;
+  width: 8vw;
+}
+
+.simon-active {
+  transform: scale(0.9); /* Aumenta el tamaño al 110% */
+  transition: transform 0.2s ease-in-out; /* Agrega una transición suave */
 }

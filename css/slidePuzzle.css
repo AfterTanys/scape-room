@@ -54,7 +54,7 @@
     background-repeat: no-repeat;
     z-index: 100;
     &:hover {
-      border: 0.1875em solid rgba(0, 128, 0, 0.582); /* Cambia el color del borde al hacer hover */
+      border: 0.1875em solid var(--color-four); /* Cambia el color del borde al hacer hover */
     }
   }
   

@@ -1,16 +1,157 @@
-const container = document.getElementById("simon-container");
+//Inicio del juego (Temporal)
 
+document.addEventListener("DOMContentLoaded", () => {});
+
+//Constantes
+const container = document.getElementById("simon-container");
 const cells = document.getElementsByClassName("simon-tile");
 
-cells[0].style.backgroundColor = "green";
-cells[1].style.backgroundColor = "red";
-cells[2].style.backgroundColor = "yellow";
-cells[3].style.backgroundColor = "blue";
+//Visualizacion
+cells[0].style.backgroundColor = "#56742e";
+cells[1].style.backgroundColor = "crimson";
+cells[2].style.backgroundColor = "var(--color-one)";
+cells[3].style.backgroundColor = "var(--color-four)";
 
-cells[4].innerHTML="<-";
+cells[4].innerHTML = "a";
+cells[4].style.color = "#56742e";
+cells[5].innerHTML = "w";
+cells[5].style.color = "crimson";
+cells[6].innerHTML = "s";
+cells[6].style.color = "var(--color-one)";
+cells[7].innerHTML = "d";
+cells[7].style.color = "var(--color-four)";
 
-cells[8].innerHTML=`<img src="../resources/runes/all-hive-runes_sigil_01.png" alt="pito1" class="simon-rune">`;
-cells[9].innerHTML=`<img src="../resources/runes/all-hive-runes_sigil_02.png" alt="pito1" class="simon-rune">`;
-cells[10].innerHTML=`<img src="../resources/runes/all-hive-runes_sigil_03.png" alt="pito1" class="simon-rune">`;
-cells[11].innerHTML=`<img src="../resources/runes/all-hive-runes_sigil_04.png" alt="pito1" class="simon-rune">`;
+cells[8].innerHTML = `<img src="../resources/runes/all-hive-runes_sigil_01.png" alt="rune1" class="simon-rune">`;
+cells[9].innerHTML = `<img src="../resources/runes/all-hive-runes_sigil_05_RED.png" alt="rune2" class="simon-rune">`;
+cells[10].innerHTML = `<img src="../resources/runes/all-hive-runes_sigil_12_YELLOW.png" alt="rune3" class="simon-rune">`;
+cells[11].innerHTML = `<img src="../resources/runes/all-hive-runes_sigil_18_TEAL.png" alt="rune4" class="simon-rune">`;
 
+//Eventos de click
+for (let i = 0; i < 4; i++) {
+  cells[i].addEventListener("click", () => {
+    cells[i].classList.add("simon-active");
+    checkSequence(i);
+    setTimeout(() => {
+      cells[i].classList.remove("simon-active");
+    }, 300);
+  });
+}
+
+document.addEventListener("keypress", function (event) {
+  let pulsada = -1;
+  switch (event.key) {
+    case "a":
+      pulsada = 4;
+      break;
+    case "w":
+      pulsada = 5;
+      break;
+    case "s":
+      pulsada = 6;
+      break;
+    case "d":
+      pulsada = 7;
+      break;
+    case "j":
+      pulsada = 8;
+      break;
+    case "i":
+      pulsada = 9;
+      break;
+    case "k":
+      pulsada = 10;
+      break;
+    case "l":
+      pulsada = 11;
+      break;
+    default:
+      pulsada = -1;
+      break;
+  }
+  if (pulsada != -1) {
+    cells[pulsada].classList.add("simon-active");
+    checkSequence(pulsada);
+    setTimeout(() => {
+      cells[pulsada].classList.remove("simon-active");
+    }, 300);
+  }
+});
+
+//Logica de las rondas
+
+let round1 = 4;
+let round2 = 8;
+let round3 = 12;
+
+let rounds = [
+  { percution: 3, round: round1 },
+  { percution: 5, round: round1 },
+  { percution: 7, round: round1 },
+  { percution: 5, round: round2 },
+  { percution: 7, round: round2 },
+  { percution: 9, round: round2 },
+  { percution: 7, round: round3 },
+  { percution: 9, round: round3 },
+  { percution: 12, round: round3 },
+];
+
+let current_round = 0;
+
+let response_position = 0;
+
+let correct = new Array();
+
+//Reinicia el juego
+function resetGame() {
+  current_round = 0;
+  response_position = 0;
+  document.getElementById("simon-score").innerHTML = `Round ${
+    current_round + 1
+  }`;
+}
+
+//Funcion de jugar una ronda
+function playRound() {
+  correct = new Array();
+  for (let i = 0; i < rounds[current_round].percution; i++) {
+    correct.push(Math.floor(Math.random() * rounds[current_round].round));
+  }
+  animateSequence(0);
+  response_position = 0;
+}
+
+//Funcion para comprobar la secuencia
+function checkSequence(introducido) {
+  if (introducido === correct[response_position]) {
+    response_position++;
+    if (response_position === correct.length) {
+      current_round++;
+      if (current_round == 9) {
+        document.getElementById("simon-score").innerHTML = `You Win`;
+        document.getElementById("simon-start-button").hidden=true;
+      } else {
+        document.getElementById("simon-score").innerHTML = `Round ${
+          current_round + 1
+        }`;
+        setTimeout(() => {
+          playRound();
+        }, 1000);
+      }
+    }
+  } else {
+    resetGame();
+  }
+}
+
+//Funcion para animar secuencia
+function animateSequence(idx) {
+  setTimeout(() => {
+    cells[correct[idx]].classList.add("simon-active");
+    setTimeout(() => {
+      cells[correct[idx]].classList.remove("simon-active");
+      if (++idx < correct.length) {
+        animateSequence(idx);
+      }
+    }, 500);
+  }, 1000);
+}

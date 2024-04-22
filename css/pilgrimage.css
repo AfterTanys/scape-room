@@ -2,7 +2,7 @@
 @font-face {
   font-family: "FutureZ";
   src: url("../fonts/Future_Z.ttf") format("truetype"),
-    url("../fonts/Future_Z.otf") format("opentype");
+       url("../fonts/Future_Z.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -41,3 +41,59 @@ html {
   left: -9999px;
 }
 
+/*Boton para cerrar ventana modal generico*/
+
+.close-modal-btn {
+  background-image: url("../resources/Button/ButtonNormal.png"); /* Imagen de fondo normal */
+  border: none; /* Eliminar el borde del botón */
+  color: white; /* Color del texto */
+  background-color: transparent;
+  padding: 0.625em 1.25em; /* Padding para el botón */
+  font-size: 1.5em; /* Tamaño de fuente */
+  cursor: pointer; /* Cursor tipo pointer para indicar que es clickeable */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center; /* Para que la imagen de fondo cubra completamente el botón */
+  outline: none; /* Eliminar el outline al hacer focus */
+  margin: 1.25em;
+  font-family: "FutureZ";
+  color: var(--color-one);
+}
+.close-modal-btn:hover {
+  background-image: url("../resources/Button/ButtonHover.png");
+  transform: scale(1.05); /* Imagen de fondo al pasar el ratón */
+}
+
+/*Ventana modal generica*/
+
+.modal-puzzle {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 500ms ease-in-out;
+  z-index: 10;
+}
+
+.modal-puzzle.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/*Fondo transludico generico con id = "background-overlay"*/
+
+#background-overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+#background-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
