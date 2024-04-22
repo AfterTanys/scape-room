@@ -27,7 +27,6 @@ function combinar(col1, col2, colorObjetivo) {
 }
 
 // Actualiza la interfaz con botones según los colores disponibles
-// Actualiza la interfaz con botones según los colores disponibles
 function actualizarBotones(colores) {
     const botonesDiv = document.getElementById('botones');
     botonesDiv.innerHTML = '';  // Limpiar los botones existentes
@@ -157,3 +156,78 @@ function nuevaFase2() {
     document.getElementById('objetivo').innerHTML = `<p>Color objetivo: ${colorObjetivo}</p>`;
     actualizarBotones(['rojo', 'verde', 'azul', 'amarillo', 'cian', 'magenta']);
 }
+
+function nuevaFase3() {
+    fase1 = false;
+    fase2 = false;
+    fase3 = true;
+
+    // Actualizar instrucciones para la fase 3
+    const objetivo = document.getElementById('objetivo');
+    objetivo.innerHTML = `<p>Crea el blanco seleccionando hasta tres cuadros.</p>`;
+    objetivo.style.display = 'block';
+
+    const botonesDiv = document.getElementById('botones');
+    botonesDiv.innerHTML = ''; // Limpiar el div para la nueva fase
+
+    let coloresSeleccionados = [];
+    let posicionBlanco = Math.floor(Math.random() * 400); // Posición aleatoria para el cuadrado blanco
+
+    // Configurar el grid dentro del div botones
+    botonesDiv.style.display = 'grid';
+    botonesDiv.style.gridTemplateColumns = 'repeat(20, 20px)';
+    botonesDiv.style.gridGap = '2px';
+
+    for (let i = 0; i < 400; i++) {
+        const colorCuadro = document.createElement('div');
+        colorCuadro.classList.add('color-cuadro');
+        colorCuadro.style.width = '20px';
+        colorCuadro.style.height = '20px';
+        colorCuadro.style.backgroundColor = i === posicionBlanco ? 'white' : generarHexAleatorio();
+        colorCuadro.onclick = function() {
+            if (coloresSeleccionados.length < 3) {
+                this.style.border = '2px solid black';
+                coloresSeleccionados.push({ index: i, color: this.style.backgroundColor });
+            } else {
+                alert('Ya has seleccionado tres colores, presiona comprobar para ver si ganaste.');
+            }
+        };
+        botonesDiv.appendChild(colorCuadro);
+    }
+
+    // Crear o reutilizar el botón de comprobación
+    let checkBtn = document.getElementById('checkBtn');
+    if (!checkBtn) {
+        checkBtn = document.createElement('button');
+        checkBtn.id = 'checkBtn';
+        checkBtn.textContent = 'Comprobar';
+        document.body.appendChild(checkBtn); // Asegurar que el botón se añade fuera del grid
+    }
+
+    checkBtn.onclick = () => {
+        comprobarSeleccionFase3(coloresSeleccionados, posicionBlanco);
+        coloresSeleccionados = []; // Limpiar selecciones después de comprobar
+    };
+}
+
+function comprobarSeleccionFase3(seleccionados, posicionBlanco) {
+    if (seleccionados.length === 1 && seleccionados[0].index === posicionBlanco) {
+        alert('¡Has ganado! Has creado el blanco.');
+    } else {
+        alert('¡Has fallado!');
+    }
+    // Restablecer el grid sin borrarlo completamente, solo resetear los bordes
+    let cuadros = document.querySelectorAll('.color-cuadro');
+    cuadros.forEach(cuadro => {
+        cuadro.style.border = 'none';
+    });
+}
+
+function generarHexAleatorio() {
+    const hexMax = 0xFFFFFF; // 16777215 en decimal
+    const randomNumber = Math.floor(Math.random() * hexMax);
+    const randomColor = randomNumber.toString(16);
+    return '#' + randomColor.padStart(6, '0');
+}
+
+
