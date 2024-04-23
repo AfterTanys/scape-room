@@ -69,7 +69,7 @@ function resetTimer() {
     clearInterval(timerInterval);
     timerMinutes = minutes;
     timerSeconds = 0;
-    timerText.innerHTML = formatTime(timerMinutes, timerSeconds);
+//  timerText.innerHTML = formatTime(timerMinutes, timerSeconds);
     startTime = new Date();
     saveStartTime();
     timerInterval = setInterval(updateTimer, 1000);

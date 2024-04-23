@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (currentSlide < slides.length) {
                 updateSlide();
             } else {
+                resetTimer();
                 window.location.href = "room1.html"; // Redirige si es la última diapositiva
             }
         }
