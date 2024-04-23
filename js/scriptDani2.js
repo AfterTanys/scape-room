@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {});
 //Constantes
 const container = document.getElementById("simon-container");
 const cells = document.getElementsByClassName("simon-tile");
+const start_button = document.getElementById("start-button");
 
 //Visualizacion
 cells[0].style.backgroundColor = "#56742e";
@@ -108,6 +109,7 @@ function resetGame() {
   document.getElementById("simon-score").innerHTML = `Round ${
     current_round + 1
   }`;
+  start_button.innerHTML="Start";
 }
 
 //Funcion de jugar una ronda
@@ -116,6 +118,9 @@ function playRound() {
   for (let i = 0; i < rounds[current_round].percution; i++) {
     correct.push(Math.floor(Math.random() * rounds[current_round].round));
   }
+  start_button.innerHTML="Playing...";
+  start_button.disabled= true;
+  start_button.style.pointerEvents = "none";
   animateSequence(0);
   response_position = 0;
 }
@@ -125,6 +130,9 @@ function checkSequence(introducido) {
   if (introducido === correct[response_position]) {
     response_position++;
     if (response_position === correct.length) {
+      start_button.innerHTML="Loading Next...";
+      start_button.disabled= true;
+      start_button.style.pointerEvents = "none";
       current_round++;
       if (current_round == 9) {
         document.getElementById("simon-score").innerHTML = `You Win`;
@@ -135,7 +143,7 @@ function checkSequence(introducido) {
         }`;
         setTimeout(() => {
           playRound();
-        }, 1000);
+        }, 2000);
       }
     }
   } else {
@@ -151,6 +159,11 @@ function animateSequence(idx) {
       cells[correct[idx]].classList.remove("simon-active");
       if (++idx < correct.length) {
         animateSequence(idx);
+      }else{
+        console.log("Acabado");
+        start_button.innerHTML="Replay";
+        start_button.disabled= false;
+        start_button.style.pointerEvents = "auto";
       }
     }, 500);
   }, 1000);
