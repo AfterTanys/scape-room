@@ -1,0 +1,184 @@
+
+#hub-body{
+    background-image: url("../resources/img/PuertaFondo1.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center; /* Para que la imagen de fondo cubra completamente el botón */
+    display: flex;
+    flex-direction: column;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    width: 100%;
+    height: 100vh;
+}
+
+#hub-title-box{
+    font-family: "FutureZ";
+    background-image: url("../resources/dialogBox/CardX5.png");
+    background-size: 55% 100%;
+    background-repeat: no-repeat;
+    background-position: center; /* Para que la imagen de fondo cubra completamente el botón */
+    color: var(--color-one);
+    width: 100%;
+    padding: 1rem;
+}
+
+#hub-title-h1{
+    padding: 0;
+    margin: 0;
+    font-size: 3rem;
+}
+
+#hub-second-row{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    padding: 1rem;
+}
+
+#hub-instructions-box{
+    font-family: "FutureZ";
+    background-image: url("../resources/cards/CardX2.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center; /* Para que la imagen de fondo cubra completamente el botón */
+    width: 30%;
+    height: 100%;
+    align-self: flex-start;
+    justify-self: start;
+    color: var(--color-one);
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+}
+
+#hub-instructions-box h1{
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#hub-instructions-box hr{
+    border: none;
+    height: 5px;
+    background-color: var(--color-one);
+}
+
+#hub-presentation-box{
+    background-image: url("../resources/cards/CardX3.png");
+    background-size: 105% 105%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.hub-promotor-card{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+.hub-promotor-card hr{
+    border: none;
+    height: 5px;
+    background-color: var(--color-one);
+}
+
+.hub-promotor-card-name{
+    font-size: 1.5rem;
+    font-family: "FutureZ";
+    color: var(--color-one);
+}
+
+.hub-promotor-card-photo{
+    border-radius: 50%;
+    height: 17rem;
+    width: 100%;
+    background-color: aliceblue;
+    margin-bottom: 2rem;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#hub-third-row{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+#hub-name-input-box{
+    width: 30%;
+    height: 100%;
+}
+
+#hub-name-input{
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background: transparent;
+    background-image: url("../resources/Button/ButtonNormal.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 90%;
+    height: 100%;
+    color: var(--color-one);
+    font-family: "FutureZ";
+    font-size: 3rem;
+    text-align: center;
+}
+
+#hub-name-input:focus{
+    background-image: url("../resources/Button/ButtonActive.png");
+}
+
+#hub-icon-selector{
+    width: 8%;
+    height: 105%;
+    background-image: url("../resources/cards/CardX3.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#hub-icon-selector img{
+    width: 80%;
+    height: 80%;
+}
+
+#hub-blank-space{
+    width: 42%;
+    height: 100%;
+}
+
+#hub-start-button-box{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hub-start-button{
+    width: 90%;
+    height: 80%;
+    padding: 0;
+    margin: 0;
+    font-size: 3rem;
+}

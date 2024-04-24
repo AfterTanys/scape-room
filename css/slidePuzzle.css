@@ -53,6 +53,7 @@
     box-sizing: border-box;
     background-repeat: no-repeat;
     z-index: 100;
+    cursor: pointer;
     &:hover {
       border: 0.1875em solid var(--color-four); /* Cambia el color del borde al hacer hover */
     }
