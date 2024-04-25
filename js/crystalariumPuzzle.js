@@ -149,9 +149,9 @@ function seleccionarColor3(cuadro, seleccionados) {
         const selectedIndex = seleccionados.findIndex(sel => sel.index === cuadroIndex);
         seleccionados.splice(selectedIndex, 1);
     } else if (seleccionados.length < 3) {
-        // Seleccionar si hay menos de tres cuadros ya seleccionados
-        const currentBorderColor = getComputedStyle(cuadro).backgroundColor;
-        cuadro.style.border = `1px solid ${invertColor(currentBorderColor)}`;
+        // esto era para que el borde se viera invertido pero queda como el culo.
+        //const currentBorderColor = getComputedStyle(cuadro).backgroundColor;
+        cuadro.style.border = `1px solid #42d142`;
         seleccionados.push({ cuadro, index: cuadroIndex });
     } else {
         titulo.textContent = 'WARNING: DO NOT SYNTHESIZE WITH MORE THAN 3';
