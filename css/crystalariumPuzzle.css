@@ -1,10 +1,62 @@
 /* Estilos generales del cuerpo del documento */
 body {
-    font-family: Arial, sans-serif; /* Tipografía más legible */
+    font-family: 'Consolas', monospace; 
     margin: 20px; /* Espaciado alrededor del contenido de la página */
     text-align: center; /* Centra el contenido textual */
 }
 
+button {
+    background-color: transparent; /* Fondo transparente */
+    color: #42d142; /* Color del texto */
+    border: 2px solid #42d142; /* Borde del color deseado */
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 10px 20px; /* Espaciado interno */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave */
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #42d14240; /* Cambia el fondo al pasar el ratón */
+    color: white; /* Cambia el color del texto al pasar el ratón */ /* Cambio de color de fondo al pasar el mouse para mejorar la interactividad */
+}
+h1{
+    font-size: 30px;
+    font-weight: bolder;
+    margin: 3px;
+}
+.text{
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+    color: #42d142;
+    
+    line-height: 1; /* Altura de línea */
+}
+.warning-text{
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+    color: #ee1b1b;
+    line-height: 1; /* Altura de línea */
+}
+
+#game-container {
+    position: absolute; /* Posición absoluta para que puedas ubicarlo en cualquier lugar */
+    top: 0; /* Alineado a la parte superior de la ventana */
+    left: 0; /* Alineado al lado izquierdo de la ventana */
+    right: 0; /* Alineado al lado derecho de la ventana */
+    bottom: 0; /* Alineado a la parte inferior de la ventana */
+    background-image: url('../resources/img/Crystalarium/CrystalariumBackgroundPhase3.png');
+    background-position: center center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    background-size: 100% 100%;  
+}
+
+#screen {
+    position: absolute;
+    top: 100px;
+    left: 590px;
+    width: 740px;
+    height: 490px;
+    /* Agrega cualquier otro estilo que necesites para la pantalla */
+}
 /* Estilos para los botones de colores */
 .color-btn {
     width: 50px; /* Ancho del botón */
@@ -14,25 +66,13 @@ body {
     cursor: pointer; /* Cursor en forma de mano al pasar el mouse sobre el botón */
     outline: none; /* Elimina el contorno al hacer clic */
     transition: box-shadow 0.3s; /* Transición suave para la sombra */
+    border-radius: 10px;
 }
 
 .color-btn:hover {
-    box-shadow: 0 0 8px rgba(0,0,0,0.6); /* Sombra al pasar el mouse para mejorar la interactividad */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6); /* Sombra al pasar el mouse para mejorar la interactividad */
 }
 
-/* Estilos para el botón de cambio de fase */
-button {
-    padding: 10px 20px; /* Espaciado interno del botón */
-    font-size: 16px; /* Tamaño de la fuente más grande para mejor legibilidad */
-    cursor: pointer; /* Cursor en forma de mano al pasar el mouse sobre el botón */
-    outline: none; /* Elimina el contorno al hacer clic */
-}
-
-button:hover {
-    background-color: #eee; /* Cambio de color de fondo al pasar el mouse para mejorar la interactividad */
-}
-
-/* Estilos para centrar el grid de la fase 3 en la pantalla */
 #botones {
     display: flex;
     justify-content: center; /* Centra horizontalmente */
@@ -40,11 +80,11 @@ button:hover {
     margin-top: 20px; /* Espacio superior */
 }
 
-/* Estilos adicionales para el grid de la fase 3 */
-#botones {
-    margin-top: 20px; /* Espacio superior */
-}
-
-.color-cuadro {
-    /* Estilos de los cuadros de color */
+#fase3-container {
+    position: absolute; /* Posiciona el contenedor de la fase 3 absolutamente dentro de #screen */
+    top: 0; /* Alinea con la parte superior de #screen */
+    left: 0; /* Alinea con el lado izquierdo de #screen */
+    width: 100%; /* Asegura que el contenedor de la fase 3 ocupe todo el ancho disponible de #screen */
+    height: 100%; /* Asegura que el contenedor de la fase 3 ocupe toda la altura disponible de #screen */
+    overflow: auto; /* Añade barras de desplazamiento si el contenido es más grande que el contenedor */
 }
