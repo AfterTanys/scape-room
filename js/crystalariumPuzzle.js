@@ -1,3 +1,13 @@
+//Codigo para abrir la ventana modal
+const modal_small_box = document.getElementById("modal-puzzle-small-box");
+
+//Cuando haces click en el elemento abre la ventana modal
+document.getElementById("small-box-glow").addEventListener("click", ()=>{
+    console.log("Abriendo modal crystalariumPuzzle");
+    openModal(modal_small_box);
+});
+
+
 // Array para rastrear los colores combinados con éxito en cada fase
 let coloresCombinadosFase1 = [];
 let coloresCombinadosFase2 = [];
@@ -52,12 +62,25 @@ function actualizarBotonesCrystal(colores) {
     }
 
     let checkBtn = screenDiv.querySelector('button#checkBtn');
+    let closeBtn = screenDiv.querySelector('button#closeBtn');
 if (!checkBtn) {
     checkBtn = document.createElement('button');
     checkBtn.id = 'checkBtn';
     checkBtn.classList.add('button-crystal');
     checkBtn.textContent = 'COMMIT';
     screenDiv.appendChild(checkBtn);
+}
+if (!closeBtn) {
+    closeBtn = document.createElement('button');
+    closeBtn.id = 'closeBtn';
+    closeBtn.classList.add('button-crystal');
+    closeBtn.textContent = 'CLOSE';
+    screenDiv.appendChild(closeBtn);
+}
+
+closeBtn.onclick = () =>{
+    console.log("Cerrando modal crystalariumPuzzle");
+    closeModal(modal_small_box);
 }
 
 checkBtn.onclick = () => {

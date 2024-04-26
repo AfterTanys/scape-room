@@ -1,10 +1,17 @@
-/* Estilos generales del cuerpo del documento */
-#body-crystal {
-    font-family: 'Consolas', monospace; 
-    margin: 20px; /* Espaciado alrededor del contenido de la página */
-    text-align: center; /* Centra el contenido textual */
-}
+/* Estilos de ventana modal*/
 
+  #modal-puzzle-small-box{
+    background-image: url('../resources/dialogBox/CardX5.png');
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 50px;
+    padding: 50px;
+    width: 80vw;
+    height: 95vh;
+  }
+
+/* Estilos generales del cuerpo del documento */
 .button-crystal {
     background-color: transparent; /* Fondo transparente */
     color: #42d142; /* Color del texto */
@@ -38,21 +45,22 @@
 }
 
 #game-container-crystal {
-    position: absolute; /* Posición absoluta para que puedas ubicarlo en cualquier lugar */
-    top: 0; /* Alineado a la parte superior de la ventana */
-    left: 0; /* Alineado al lado izquierdo de la ventana */
-    right: 0; /* Alineado al lado derecho de la ventana */
-    bottom: 0; /* Alineado a la parte inferior de la ventana */
+    position: relative; /* Posición absoluta para que puedas ubicarlo en cualquier lugar */
+    height: 100%;
+    width: 100%;
     background-image: url('../resources/img/Crystalarium/CrystalariumBackgroundPhase3.png');
-    background-position: center center; /* Centra la imagen de fondo */
+    background-position: center; /* Centra la imagen de fondo */
     background-repeat: no-repeat; /* No repetir la imagen */
     background-size: 100% 100%;  
+    font-family: 'Consolas', monospace; 
+    text-align: center; /* Centra el contenido textual */
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
 }
 
 #screen-crystal {
-    position: absolute;
-    top: 100px;
-    left: 590px;
+    position: relative;
     width: 740px;
     height: 490px;
     /* Agrega cualquier otro estilo que necesites para la pantalla */
@@ -81,7 +89,7 @@
 }
 
 #fase3-container-crystal {
-    position: absolute; /* Posiciona el contenedor de la fase 3 absolutamente dentro de #screen */
+    position: relative; /* Posiciona el contenedor de la fase 3 absolutamente dentro de #screen */
     top: 0; /* Alinea con la parte superior de #screen */
     left: 0; /* Alinea con el lado izquierdo de #screen */
     width: 100%; /* Asegura que el contenedor de la fase 3 ocupe todo el ancho disponible de #screen */

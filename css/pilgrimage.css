@@ -7,6 +7,10 @@
   font-style: normal;
 }
 
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
 :root {
   --color-one: #ccac00;
   --color-two: #003b59;

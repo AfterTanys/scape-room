@@ -17,5 +17,5 @@
     background-repeat: no-repeat;
     background-position: center;
     padding: 20px;
-    z-index: 10;
+    z-index: 9999;
 }

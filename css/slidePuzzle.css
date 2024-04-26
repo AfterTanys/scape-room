@@ -1,8 +1,4 @@
 /*ESTILO PARA VENTANA EMERGENTE*/
-
-*, *::after, *::before {
-    box-sizing: border-box;
-  }
   
   #modal-puzzle-box{
     background-image: url('../resources/dialogBox/CardX5.png');
