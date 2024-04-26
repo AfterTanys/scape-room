@@ -23,7 +23,7 @@
 
     <div class="modal-puzzle" id="modal-puzzle-box">
         <div id="jm-1">
-            <h1 id="msg-slide">Turn: <span id="turns"></span></h1>
+            <h1 id="msg-slide">Turn: <span id="slideTurns"></span></h1>
             <div id="container-slide">
                 
               <div id="game-slide">
@@ -42,6 +42,7 @@
 <script src="../js/timer.js"></script>
 <script src="../js/hud.js"></script>
 <script src="../js/slidePuzzle.js"></script>
+<script src="../js/modalOpener.js"></script>
 <script>
     
     //El siguiente script hace que no puedas hacer zoom en la pagina
@@ -50,11 +51,6 @@
             e.preventDefault();
         }
     }, {passive:false});
-
-    //Cuando carga la primera habitacion inicia el timer
-    //document.addEventListener("DOMContentLoaded", ()=>{
-    //    resetTimer();
-    //});
     
 //Codigo de abajo de testing de bolas
 document.getElementById("door-glow").addEventListener("click", ()=>{
