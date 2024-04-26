@@ -1,49 +1,35 @@
 //Programacion de la ventana
-const overlay = document.getElementById("background-overlay");
 const modal_big_box = document.getElementById("modal-puzzle-box");
 
 //Cuando haces click fuera de la ventana modal cierra la ventana modal
 document.getElementById("big-box-puzzle-close-btn").addEventListener("click", ()=>{
+  console.log("Cerrando modal slidePuzzle");
   closeModal(modal_big_box);
 });
 
 //Cuando haces click en el elemento abre la ventana modal
 document.getElementById("big-box-glow").addEventListener("click", ()=>{
-    console.log("Hola2");
+    console.log("Abriendo modal slidePuzzle");
     openModal(modal_big_box);
 });
 
-//Abre el modal
-function openModal(modal) {
-    if (modal == null) return;
-    modal.classList.add("active");
-    overlay.classList.add("active");
-}
-  
-//Cierra el modal
-function closeModal(modal) {
-    if (modal == null) return;
-    modal.classList.remove("active");
-    overlay.classList.remove("active");
-}
-
 //Programacion del juego
 //Const
-const rows = 3;
-const columns = 3;
+const slideRows = 3;
+const slideColumns = 3;
 
-const div_game = document.getElementById("game-slide");
-const span_turns = document.getElementById("turns");
+const slideDivGame = document.getElementById("game-slide");
+const slideSpanTurns = document.getElementById("slideTurns");
 
-const list_tiles = document.getElementsByClassName("tile");
+const slideListTiles = document.getElementsByClassName("tile");
 const h1_msg = document.getElementById("msg-slide");
 
 let currTile;
 let otherTile; //blank tile
 
-let turns = 0;
-let turns_lim = 100;
-let boolWin = false;
+let slideTurns = 0;
+let slideTurnLim = 100;
+let slideWin = false;
 
 //Variable that it will be false until we pick the balls
 let boolBalls;
@@ -68,31 +54,31 @@ window.onload = slideStart();
 
 function slideStart() {
   //Initialize divs;
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < columns; c++) {
+  for (let r = 0; r < slideRows; r++) {
+    for (let c = 0; c < slideColumns; c++) {
       let tile = document.createElement("div");
       tile.id = r.toString() + "-" + c.toString();
       tile.classList.add("tile");
 
       tile.classList.add("c_" + tileOrder.shift());
 
-      tile.addEventListener("click", functionClick);
+      tile.addEventListener("click", slideFunctionClick);
 
-      div_game.appendChild(tile);
+      slideDivGame.appendChild(tile);
     }
   }
 
-  span_turns.innerText = turns + "/" + turns_lim;
+  slideSpanTurns.innerText = slideTurns + "/" + slideTurnLim;
 
   checkBalls();
 }
 
-function functionClick() {
-  if(turns<turns_lim){
-  if (!boolWin) {
+function slideFunctionClick() {
+  if(slideTurns<slideTurnLim){
+  if (!slideWin) {
     currTile = this;
 
-    otherTile = getEmpty();
+    otherTile = slideGetEmpty();
 
     let currCoords = currTile.id.split("-"); //ex) "0-0" -> ["0", "0"]
     let r = parseInt(currCoords[0]);
@@ -111,23 +97,23 @@ function functionClick() {
     let isAdjacent = moveLeft || moveRight || moveUp || moveDown;
 
     if (isAdjacent) {
-      let currImg = getClass(currTile);
-      let otherImg = getClass(otherTile);
+      let currImg = slideGetClass(currTile);
+      let otherImg = slideGetClass(otherTile);
 
       currTile.classList.add(otherImg);
       otherTile.classList.add(currImg);
 
-      turns += 1;
-      span_turns.textContent = turns + "/" + turns_lim;
+      slideTurns += 1;
+      slideSpanTurns.textContent = slideTurns + "/" + slideTurnLim;
     }
 
-    boolWin = checkWon();
+    slideWin = slideCheckWon();
 
   }
 }
 }
 
-function getClass(ctile) {
+function slideGetClass(ctile) {
   let classes = ctile.classList;
   let clase = "";
 
@@ -137,10 +123,10 @@ function getClass(ctile) {
   return clase;
 }
 
-function getEmpty() {
+function slideGetEmpty() {
   let tile = "";
 
-  for (const [key, value] of Object.entries(list_tiles)) {
+  for (const [key, value] of Object.entries(slideListTiles)) {
     if (value.className.includes("c_6")) {
       tile = value;
       break;
@@ -149,31 +135,33 @@ function getEmpty() {
   return tile;
 }
 
-function checkWon() {
+function slideCheckWon() {
   let num = 1;
-  for (const [key, value] of Object.entries(list_tiles)) {
+  for (const [key, value] of Object.entries(slideListTiles)) {
     if (value.className.includes(num)) {
-      boolWin = true;
+      slideWin = true;
       num++;
     } else {
-      boolWin = false;
+      slideWin = false;
       break;
     }
   }
-  if (boolWin && boolBalls) {
+  if (slideWin && boolBalls) {
     h1_msg.childNodes[0].textContent = "You Won!! Turn: ";
-  } else if (turns >= turns_lim) {
+  } else if (slideWin && !boolBalls){
+    h1_msg.childNodes[0].textContent = "Maybe I need Balls... Turn: ";
+  }else if (slideTurns >= slideTurnLim) {
     h1_msg.childNodes[0].textContent = "You Lost!! Turn: ";
     let tOut = setTimeout(() => {
       slideRestart();
     }, 2000);
   }
-  return boolWin;
+  return slideWin;
 }
 
 function checkBalls() {
   if (boolBalls) {
-    for (const [key, value] of Object.entries(list_tiles)) {
+    for (const [key, value] of Object.entries(slideListTiles)) {
       if (value.className.includes(1)) {
         value.className = value.className.replace("c_1", "bc_1");
       } else if (value.className.includes(3)) {
@@ -189,9 +177,9 @@ function checkBalls() {
 
 function slideRestart() {
   //Initialize cons
-  turns = 0;
+  slideTurns = 0;
   tileOrder = tileOrder_backup.slice();
-  div_game.innerHTML = "";
+  slideDivGame.innerHTML = "";
   h1_msg.childNodes[0].textContent = "Turn: ";
   slideStart();
 }
