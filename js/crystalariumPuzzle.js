@@ -1,17 +1,17 @@
 // Array para rastrear los colores combinados con éxito en cada fase
 let coloresCombinadosFase1 = [];
 let coloresCombinadosFase2 = [];
-let fase1 = true;
-let fase2 = false;
-let fase3 = false;
-const titulo = document.querySelector('h1');
-const objetivo = document.getElementById('objetivo');
+let fase1Crystal = true;
+let fase2Crystal = false;
+let fase3Crystak = false;
+const tituloCrystal = document.querySelector('#h1-crystal');
+const objetivoCrystal = document.getElementById('objetivo-crystal');
 document.addEventListener('DOMContentLoaded', function() {
-    nuevaFase1();  // Inicia la primera fase del juego
+    nuevaFase1Crystal();  // Inicia la primera fase del juego
 });
 
 // Combina colores según las reglas aditivas de luz
-function combinar(col1, col2, colorObjetivo) {
+function combinarCrystal(col1, col2, colorObjetivo) {
     switch (colorObjetivo) {
         case 'yellow':
             return (col1 === 'red' && col2 === 'green') || (col1 === 'green' && col2 === 'red');
@@ -29,18 +29,19 @@ function combinar(col1, col2, colorObjetivo) {
 }
 
 // Actualiza la interfaz con botones según los colores disponibles
-function actualizarBotones(colores) {
-    const screenDiv = document.getElementById('screen'); // Referencia al contenedor de la pantalla.
-    const botonesDiv = document.getElementById('botones'); // Div donde se colocarán los botones.
+function actualizarBotonesCrystal(colores) {
+    const screenDiv = document.getElementById('screen-crystal'); // Referencia al contenedor de la pantalla.
+    const botonesDiv = document.getElementById('botones-crystal'); // Div donde se colocarán los botones.
     botonesDiv.innerHTML = '';  // Limpiar los botones existentes.
     let coloresSeleccionados = [];
 
     colores.forEach(color => {
         const colorBtn = document.createElement('button');
-        colorBtn.classList.add('color-btn');
+        colorBtn.classList.add('color-btn-crystal');
+        colorBtn.classList.add('button-crystal')
         colorBtn.style.backgroundColor = color;  // Traduce el color al nombre reconocido por CSS.
         colorBtn.onclick = () => {
-            seleccionarColor(color, colorBtn, coloresSeleccionados);
+            seleccionarColorCrystal(color, colorBtn, coloresSeleccionados);
         };
         botonesDiv.appendChild(colorBtn);
     });
@@ -54,28 +55,29 @@ function actualizarBotones(colores) {
 if (!checkBtn) {
     checkBtn = document.createElement('button');
     checkBtn.id = 'checkBtn';
+    checkBtn.classList.add('button-crystal');
     checkBtn.textContent = 'COMMIT';
     screenDiv.appendChild(checkBtn);
 }
 
 checkBtn.onclick = () => {
         if (coloresSeleccionados.length === 2) {
-            if(fase1){
-                comprobarCombinacionFase1(coloresSeleccionados);
-            } else if(fase2){
-                comprobarCombinacionFase2(coloresSeleccionados);
+            if(fase1Crystal){
+                comprobarCombinacionFase1Crystal(coloresSeleccionados);
+            } else if(fase2Crystal){
+                comprobarCombinacionFase2Crystal(coloresSeleccionados);
             } 
             coloresSeleccionados = [];  // Restablece la selección de colores.
         } else {
-            titulo.textContent = 'ERROR: NEED 2 COLORS';
-            titulo.classList.remove('text');
-        titulo.classList.add('warning-text');
+            tituloCrystal.textContent = 'ERROR: NEED 2 COLORS';
+            tituloCrystal.classList.remove('text-crystal');
+        tituloCrystal.classList.add('warning-text-crystal');
         }
     };
     screenDiv.appendChild(checkBtn); // Asegúrate de que el botón de comprobar esté dentro de screenDiv.
 }
-function actualizarBotonesFase2() {
-    const botonesDiv = document.getElementById('botones');
+function actualizarBotonesFase2Crystal() {
+    const botonesDiv = document.getElementById('botones-crystal');
     botonesDiv.innerHTML = '';  // Limpiar el contenedor de botones
     let coloresSeleccionados = [];
     // Configurar el grid dentro del div botones para la fase 2
@@ -92,41 +94,43 @@ function actualizarBotonesFase2() {
     // Añadir los botones de la primera fila
     fila1.forEach(color => {
         const colorBtn = document.createElement('button');
-        colorBtn.classList.add('color-btn');
+        colorBtn.classList.add('color-btn-crystal');
+        colorBtn.classList.add('button-crystal');
         colorBtn.style.backgroundColor = color;
         botonesDiv.appendChild(colorBtn);
         colorBtn.onclick = () => {
-            seleccionarColor(color, colorBtn, coloresSeleccionados);
+            seleccionarColorCrystal(color, colorBtn, coloresSeleccionados);
         };
     });
 
     // Añadir los botones de la segunda fila
     fila2.forEach(color => {
         const colorBtn = document.createElement('button');
-        colorBtn.classList.add('color-btn');
+        colorBtn.classList.add('color-btn-crystal');
+        colorBtn.classList.add('button-crystal');
         colorBtn.style.backgroundColor = color;
         botonesDiv.appendChild(colorBtn);
         colorBtn.onclick = () => {
-            seleccionarColor(color, colorBtn, coloresSeleccionados);
+            seleccionarColorCrystal(color, colorBtn, coloresSeleccionados);
         };
     });
     checkBtn.onclick = () => {
         if (coloresSeleccionados.length === 2) {
-            if(fase1){
-                comprobarCombinacionFase1(coloresSeleccionados);
-            } else if(fase2){
-                comprobarCombinacionFase2(coloresSeleccionados);
+            if(fase1Crystal){
+                comprobarCombinacionFase1Crystal(coloresSeleccionados);
+            } else if(fase2Crystal){
+                comprobarCombinacionFase2Crystal(coloresSeleccionados);
             } 
             coloresSeleccionados = [];  // Restablece la selección de colores.
         } else {
-            titulo.textContent = 'ERROR: NEED 2 COLORS';
-            titulo.classList.remove('text');
-        titulo.classList.add('warning-text');
+            tituloCrystal.textContent = 'ERROR: NEED 2 COLORS';
+            tituloCrystal.classList.remove('text-crystal');
+        tituloCrystal.classList.add('warning-text-crystal');
         }
     };
 }
 
-function seleccionarColor(color, btn, seleccionados) {
+function seleccionarColorCrystal(color, btn, seleccionados) {
     const index = seleccionados.indexOf(color);
     if (index !== -1) {
         seleccionados.splice(index, 1);  // Deselecciona el color
@@ -135,12 +139,12 @@ function seleccionarColor(color, btn, seleccionados) {
         seleccionados.push(color);  // Agrega el color si no hay más de dos ya seleccionados
         btn.style.border = '4px solid #42d142';  // Pone un borde al seleccionar
     } else {
-        titulo.textContent = 'OVERLOAD, ONLY 2 COLORS';
-        titulo.classList.remove('text');
-        titulo.classList.add('warning-text');
+        tituloCrystal.textContent = 'OVERLOAD, ONLY 2 COLORS';
+        tituloCrystal.classList.remove('text-crystal');
+        tituloCrystal.classList.add('warning-text-crystal');
     }
 }
-function seleccionarColor3(cuadro, seleccionados) {
+function seleccionarColor3Crystal(cuadro, seleccionados) {
     const cuadroIndex = Array.from(cuadro.parentNode.children).indexOf(cuadro);
     // Comprobar si el cuadro ya está en la lista de seleccionados
     if (seleccionados.some(sel => sel.index === cuadroIndex)) {
@@ -154,99 +158,99 @@ function seleccionarColor3(cuadro, seleccionados) {
         cuadro.style.border = `1px solid #42d142`;
         seleccionados.push({ cuadro, index: cuadroIndex });
     } else {
-        titulo.textContent = 'WARNING: DO NOT SYNTHESIZE WITH MORE THAN 3';
-        titulo.classList.remove('text');
-        titulo.classList.add('warning-text');
+        tituloCrystal.textContent = 'WARNING: DO NOT SYNTHESIZE WITH MORE THAN 3';
+        tituloCrystal.classList.remove('text-crystal');
+        tituloCrystal.classList.add('warning-text-crystal');
     }
 }
-function comprobarCombinacionFase1(seleccionados) {
-    const colorObjetivo = objetivo.textContent.split(':')[1].trim();
-    const resultado = combinar(seleccionados[0], seleccionados[1], colorObjetivo);
+function comprobarCombinacionFase1Crystal(seleccionados) {
+    const colorObjetivo = objetivoCrystal.textContent.split(':')[1].trim();
+    const resultado = combinarCrystal(seleccionados[0], seleccionados[1], colorObjetivo);
     if (resultado) {
-        titulo.textContent = 'RESTORED SECONDARY COLOR';
-        titulo.classList.remove('warning-text');
-        titulo.classList.add('text');
+        tituloCrystal.textContent = 'RESTORED SECONDARY COLOR';
+        tituloCrystal.classList.remove('warning-text-crystal');
+        tituloCrystal.classList.add('text-crystal');
         if (coloresCombinadosFase1.includes(colorObjetivo)) {
-            titulo.textContent = 'COLOR FUNCTION ALREADY RESTORED';
+            tituloCrystal.textContent = 'COLOR FUNCTION ALREADY RESTORED';
         } else {
             coloresCombinadosFase1.push(colorObjetivo); // Agrega el color al registro de la fase 1
-            resetearBotones();
+            resetearBotonesCrystal();
             if (coloresCombinadosFase1.length === 3) {
-                titulo.textContent = 'INTEGRATING NEW FUNCTIONS';
-                fase1 = false;
-                nuevaFase2(); // Función que inicia la fase 2
+                tituloCrystal.textContent = 'INTEGRATING NEW FUNCTIONS';
+                fase1Crystal = false;
+                nuevaFase2Crystal(); // Función que inicia la fase 2
             } else {
-                nuevaFase1();  // Verifica si es tiempo de avanzar a la siguiente fase
+                nuevaFase1Crystal();  // Verifica si es tiempo de avanzar a la siguiente fase
             }
         }
     } else {
-        titulo.textContent = 'ERROR';
-        titulo.classList.remove('text');
-        titulo.classList.add('warning-text');
-        resetearBotones();
+        tituloCrystal.textContent = 'ERROR';
+        tituloCrystal.classList.remove('text-crystal');
+        tituloCrystal.classList.add('warning-text-crystal');
+        resetearBotonesCrystal();
     }
 }
-function comprobarCombinacionFase2(seleccionados) {
-    const colorObjetivo = objetivo.textContent.split(':')[1].trim();
-    const resultado = combinar(seleccionados[0], seleccionados[1], colorObjetivo);
+function comprobarCombinacionFase2Crystal(seleccionados) {
+    const colorObjetivo = objetivoCrystal.textContent.split(':')[1].trim();
+    const resultado = combinarCrystal(seleccionados[0], seleccionados[1], colorObjetivo);
     if (resultado) {
-        titulo.textContent = 'RESTORED TERTIARY COLOR';
-        titulo.classList.remove('warning-text');
-        titulo.classList.add('text');
+        tituloCrystal.textContent = 'RESTORED TERTIARY COLOR';
+        tituloCrystal.classList.remove('warning-text-crystal');
+        tituloCrystal.classList.add('text-crystal');
         if (coloresCombinadosFase2.includes(colorObjetivo)) {
-            titulo.textContent = 'COLOR FUNCTION ALREADY RESTORED';
+            tituloCrystal.textContent = 'COLOR FUNCTION ALREADY RESTORED';
         } else {
             coloresCombinadosFase2.push(colorObjetivo); // Agrega el color al registro de la fase 1
-            resetearBotones();
+            resetearBotonesCrystal();
             if (coloresCombinadosFase2.length === 2) {
-                titulo.textContent = 'CRYSTALARIUM';
-                fase1 = false;
-                nuevaFase3(); 
+                tituloCrystal.textContent = 'CRYSTALARIUM';
+                fase1Crystal = false;
+                nuevaFase3Crystal(); 
             } else {
-                nuevaFase2();  
+                nuevaFase2Crystal();  
             }
         }
     } else {
-        titulo.textContent = 'ERROR';
-        titulo.classList.remove('text');
-        titulo.classList.add('warning-text');
-        resetearBotones();
+        tituloCrystal.textContent = 'ERROR';
+        tituloCrystal.classList.remove('text-crystal');
+        tituloCrystal.classList.add('warning-text-crystal');
+        resetearBotonesCrystal();
     }
 }
-function resetearBotones() {
-    const botones = document.querySelectorAll('.color-btn');
+function resetearBotonesCrystal() {
+    const botones = document.querySelectorAll('.color-btn-crystal');
     botones.forEach(btn => {
         btn.style.border = 'none'; // Asumiendo que 'none' es el estado deseleccionado.
     });
 }
-function nuevaFase1() {
+function nuevaFase1Crystal() {
     const coloresFase1 = ['magenta', 'cyan', 'yellow'];
     // Filtra los colores que ya han sido combinados con éxito
     const coloresDisponibles = coloresFase1.filter(color => !coloresCombinadosFase1.includes(color));
     const colorObjetivo = coloresDisponibles[Math.floor(Math.random() * coloresDisponibles.length)];
-    objetivo.innerHTML = `<p>color not found: ${colorObjetivo}</p>`;
-    actualizarBotones(['red', 'green', 'blue']);
+    objetivoCrystal.innerHTML = `<p class='text-crystal' >color not found: ${colorObjetivo}</p>`;
+    actualizarBotonesCrystal(['red', 'green', 'blue']);
 }
 
-function nuevaFase2() {
-    fase2 = true;
+function nuevaFase2Crystal() {
+    fase2Crystal = true;
     const coloresFase2 = ['orange', 'purple'];
     const coloresDisponibles = coloresFase2.filter(color => !coloresCombinadosFase2.includes(color));
     const colorObjetivo = coloresDisponibles[Math.floor(Math.random() * coloresDisponibles.length)];
-    objetivo.innerHTML = `<p>Color Not found: ${colorObjetivo}</p>`;
-    actualizarBotonesFase2();
+    objetivoCrystal.innerHTML = `<p class='text-crystal'>Color Not found: ${colorObjetivo}</p>`;
+    actualizarBotonesFase2Crystal();
 }
 
-function nuevaFase3() {
-    fase1 = false;
-    fase2 = false;
-    fase3 = true;
+function nuevaFase3Crystal() {
+    fase1Crystal = false;
+    fase2Crystal = false;
+    Crystak = true;
 
     // Actualizar instrucciones para la fase 3
-    objetivo.innerHTML = `<p>Choose a max of 3 colors.</p>`;
-    objetivo.style.display = 'block';
+    objetivoCrystal.innerHTML = `<p class='text-crystal'>Choose a max of 3 colors.</p>`;
+    objetivoCrystal.style.display = 'block';
 
-    const botonesDiv = document.getElementById('botones');
+    const botonesDiv = document.getElementById('botones-crystal');
     botonesDiv.innerHTML = ''; // Limpiar el div para la nueva fase
     botonesDiv.style.gridTemplateRows = 'none';
     let coloresSeleccionados = [];
@@ -263,9 +267,9 @@ function nuevaFase3() {
         colorCuadro.style.width = '15px';
         colorCuadro.style.height = '15px';
         colorCuadro.style.boxSizing = 'border-box';
-        colorCuadro.style.backgroundColor = i === posicionBlanco ? 'white' : generarHexAleatorio();
+        colorCuadro.style.backgroundColor = i === posicionBlanco ? 'white' : generarHexAleatorioCrystal();
         colorCuadro.onclick = function() {
-            seleccionarColor3(this, coloresSeleccionados);
+            seleccionarColor3Crystal(this, coloresSeleccionados);
         };
         botonesDiv.appendChild(colorCuadro);
     }
@@ -280,20 +284,44 @@ function nuevaFase3() {
     }
 
     checkBtn.onclick = () => {
-        comprobarSeleccionFase3(coloresSeleccionados, posicionBlanco);
+        comprobarCombinacionFase3Crystal(coloresSeleccionados, posicionBlanco);
         coloresSeleccionados = []; // Limpiar selecciones después de comprobar
     };
 }
 
-function comprobarSeleccionFase3(seleccionados, posicionBlanco) {
+function comprobarCombinacionFase3Crystal(seleccionados, posicionBlanco) {
     
     if (seleccionados.length === 1 && seleccionados[0].index === posicionBlanco) {
-       titulo.textContent = 'SYNTHESIZED WHITE CRYSTAL ';
-       objetivo.textContent = '[SiO2]';
+       tituloCrystal.textContent = 'SYNTHESIZED WHITE CRYSTAL ';
+       objetivoCrystal.textContent = '[SiO2] \n WARNING, ENERGY SUPPLY LOW. HYBERNATION MODE ACTIVATED.';
+       objetivoCrystal.classList.add('text-crystal');
+       tituloCrystal.classList.remove('warning-text-crystal');
+        tituloCrystal.classList.add('text-crystal');
+        const botonesDiv = document.getElementById('botones-crystal');
+        botonesDiv.innerHTML = '';
+        const imagen = document.createElement('img');
+
+        // Configurar la fuente de la imagen
+        imagen.src = '../resources/img/Crystalarium/lowBattery.png';  // Asegúrate de poner la ruta correcta de la imagen
+     imagen.alt = 'Descripción de la imagen';  // Texto alternativo para la imagen
+
+     // Opcional: Añadir clases o estilos adicionales
+              // Si tienes estilos específicos en CSS
+        imagen.style.width = '400px';  // Establece el ancho de la imagen
+        imagen.style.height = 'auto';  // Mantiene la proporción de la imagen
+
+    // Añadir la imagen al div
+    botonesDiv.appendChild(imagen);
+        const checkBtn = document.getElementById('checkBtn'); 
+        if (checkBtn) {
+        checkBtn.remove(); // Esto elimina el botón del DOM.
+}
+
     } else {
-        titulo.textContent = 'ERROR: EXTREMELY VOLATILE CRYSTAL';
-        titulo.classList.remove('text');
-        titulo.classList.add('warning-text');
+        tituloCrystal.textContent = 'ERROR: EXTREMELY VOLATILE CRYSTAL';
+        tituloCrystal.classList.remove('text-crystal');
+        tituloCrystal.classList.add('warning-text-crystal');
+        
     }
     // Restablecer el grid sin borrarlo completamente, solo resetear los bordes
     let cuadros = document.querySelectorAll('.color-cuadro');
@@ -302,7 +330,7 @@ function comprobarSeleccionFase3(seleccionados, posicionBlanco) {
     });
 }
 
-function generarHexAleatorio() {
+function generarHexAleatorioCrystal() {
     const hexMax = 0xFFFFFF; // 16777215 en decimal
     const randomNumber = Math.floor(Math.random() * hexMax);
     const randomColor = randomNumber.toString(16);
@@ -310,7 +338,7 @@ function generarHexAleatorio() {
 }
 
 
-function invertColor(rgb) {
+function invertColorCrystal(rgb) {
     // Extraer los valores de rojo, verde y azul del formato RGB
     const rgbParts = rgb.match(/\d+/g);
 

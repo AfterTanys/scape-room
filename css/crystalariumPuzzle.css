@@ -1,11 +1,11 @@
 /* Estilos generales del cuerpo del documento */
-body {
+#body-crystal {
     font-family: 'Consolas', monospace; 
     margin: 20px; /* Espaciado alrededor del contenido de la página */
     text-align: center; /* Centra el contenido textual */
 }
 
-button {
+.button-crystal {
     background-color: transparent; /* Fondo transparente */
     color: #42d142; /* Color del texto */
     border: 2px solid #42d142; /* Borde del color deseado */
@@ -16,28 +16,28 @@ button {
     margin: 10px;
 }
 
-button:hover {
+.button-crystal:hover {
     background-color: #42d14240; /* Cambia el fondo al pasar el ratón */
     color: white; /* Cambia el color del texto al pasar el ratón */ /* Cambio de color de fondo al pasar el mouse para mejorar la interactividad */
 }
-h1{
+#h1-crystal{
     font-size: 30px;
     font-weight: bolder;
     margin: 3px;
 }
-.text{
+.text-crystal{
     text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
     color: #42d142;
     
     line-height: 1; /* Altura de línea */
 }
-.warning-text{
+.warning-text-crystal{
     text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
     color: #ee1b1b;
     line-height: 1; /* Altura de línea */
 }
 
-#game-container {
+#game-container-crystal {
     position: absolute; /* Posición absoluta para que puedas ubicarlo en cualquier lugar */
     top: 0; /* Alineado a la parte superior de la ventana */
     left: 0; /* Alineado al lado izquierdo de la ventana */
@@ -49,7 +49,7 @@ h1{
     background-size: 100% 100%;  
 }
 
-#screen {
+#screen-crystal {
     position: absolute;
     top: 100px;
     left: 590px;
@@ -58,7 +58,7 @@ h1{
     /* Agrega cualquier otro estilo que necesites para la pantalla */
 }
 /* Estilos para los botones de colores */
-.color-btn {
+.color-btn-crystal {
     width: 50px; /* Ancho del botón */
     height: 50px; /* Altura del botón */
     border: none; /* Sin borde */
@@ -69,18 +69,18 @@ h1{
     border-radius: 10px;
 }
 
-.color-btn:hover {
+.color-btn-crystal:hover {
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.6); /* Sombra al pasar el mouse para mejorar la interactividad */
 }
 
-#botones {
+#botones-crystal {
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
     margin-top: 20px; /* Espacio superior */
 }
 
-#fase3-container {
+#fase3-container-crystal {
     position: absolute; /* Posiciona el contenedor de la fase 3 absolutamente dentro de #screen */
     top: 0; /* Alinea con la parte superior de #screen */
     left: 0; /* Alinea con el lado izquierdo de #screen */
