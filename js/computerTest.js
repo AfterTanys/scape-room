@@ -20,40 +20,45 @@ document.addEventListener('DOMContentLoaded', function() {
         const wordContainer = document.getElementById('word-container');
         wordContainer.innerHTML = '';
         updateAttempts(attempts);
-    
-        selectedWords.forEach(word => {
-            const wordElement = document.createElement('div');
-            wordElement.textContent = word;
-            wordElement.classList.add('word');
-            wordElement.addEventListener('click', function() { 
-                if (!wordElement.classList.contains('disabled')) {
-                    checkWord(word, wordElement, correctWord, attempts); 
+
+        let wordsWithSymbols = addSymbols(selectedWords); // Agregar símbolos entre las palabras
+
+        const paragraph = document.createElement('p');
+        paragraph.textContent = wordsWithSymbols;
+        wordContainer.appendChild(paragraph);
+
+        // Agregar evento de clic al párrafo entero
+        paragraph.addEventListener('click', function(event) {
+            if (event.target.textContent.trim() === correctWord) {
+                document.getElementById('word-container').innerHTML = 'Access granted.';
+            } else {
+                attempts--;
+                updateAttempts(attempts);
+                if (attempts <= 0) {
+                    document.getElementById('word-container').innerHTML = 'Terminal locked.';
                 }
-            });
-            wordContainer.appendChild(wordElement);
+            }
         });
     }
-    
-    function checkWord(selectedWord, wordElement, correctWord) {
-        if (selectedWord === correctWord) {
-            document.getElementById('word-container').innerHTML = 'Access granted.';
-        } else {
-            let attempts = parseInt(document.getElementById('attempts').textContent) - 1;
-            document.getElementById('attempts').textContent = `${attempts} ATTEMPT(S) LEFT`; // Actualiza el valor global
-            wordElement.classList.add('disabled'); // Deshabilitar la palabra después de seleccionarla
-            if (attempts <= 0) {
-                document.getElementById('word-container').innerHTML = 'Terminal locked.';
-            } else {
-                let correctLetters = getCorrectLetters(selectedWord, correctWord);
-                wordElement.innerHTML = `${selectedWord} (${correctLetters}/${correctWord.length} correct)`;
+
+    function addSymbols(words) {
+        const symbols = ['@', '%', ',', '!', '-','+','#', '>', '<', '/', '|', '?', '~','[',']', ':', ';']; // Símbolos aleatorios
+        let result = '';
+        for (let i = 0; i < words.length; i++) {
+            result += words[i];
+            let numSymbols = Math.floor(Math.random() * 31) + 10; // Entre 10 y 40 símbolos aleatorios entre cada palabra
+            for (let j = 0; j < numSymbols; j++) {
+                result += symbols[Math.floor(Math.random() * symbols.length)]; // Agregar un símbolo aleatorio
             }
         }
+        return result;
     }
 
     function updateAttempts(attempts) {
         const attemptsDiv = document.getElementById('attempts');
         attemptsDiv.textContent = `${attempts} ATTEMPT(S) LEFT`;
     }
+
 
     function getCorrectLetters(word1, word2) {
         let correct = 0;
