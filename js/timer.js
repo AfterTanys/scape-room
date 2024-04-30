@@ -6,10 +6,12 @@ let timerSeconds = 0;
 let timerMinutes = minutes;
 let timerInterval;
 let startTime;
+let timerEnd;
 
 document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem('startTime')) {
         const storedTime = JSON.parse(localStorage.getItem('startTime'));
+        timerEnd = JSON.parse(localStorage.getItem("timerEnd"));
         startTime = new Date(storedTime);
         const currentTime = new Date();
 
@@ -29,7 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     timerText.innerHTML = formatTime(timerMinutes, timerSeconds);
 
-    timerInterval = setInterval(updateTimer, 1000);
+    if(timerEnd===false){
+        timerInterval = setInterval(updateTimer, 1000);
+    }
     //Descomentar la linea de abajo para reiniciar el timer en click
     //timerText.addEventListener("click", resetTimer);
     //Descomentar la linea de abajo para reiniciar el timer en click
@@ -66,6 +70,8 @@ function saveStartTime() {
 
 //Con esta funcion se resetea el timer a 40 minutos
 function resetTimer() {
+    timerEnd = false;
+    localStorage.setItem('timerEnd', JSON.stringify(timerEnd));
     clearInterval(timerInterval);
     timerMinutes = minutes;
     timerSeconds = 0;
@@ -73,6 +79,12 @@ function resetTimer() {
     startTime = new Date();
     saveStartTime();
     timerInterval = setInterval(updateTimer, 1000);
+}
+
+function stopTimer(){
+    clearInterval(timerInterval);
+    timerEnd=true;
+    localStorage.setItem('timerEnd', JSON.stringify(timerEnd));
 }
 
 
