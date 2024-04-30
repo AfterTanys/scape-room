@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/pilgrimage.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/pilgrimage.css" />
     <link rel="stylesheet" href="../css/timer.css" />
     <title>Room 4 (Darkness)</title>
-</head>
-<body class="room4-background">
+  </head>
+  <body class="room4-background">
     <div class="timer"></div>
-</body>
-<script src="../js/timer.js"></script>
+    <div class="right-arrow-room" onclick="jumpToRoom1(4)"></div>
+  </body>
+  <script src="../js/timer.js"></script>
+  <script>
+    function jumpToRoom1(i) {
+      window.location.href = `puzzleCorridor.html?fromRoom=${i}&boolRoom=1`;
+    }
+  </script>
 </html>
