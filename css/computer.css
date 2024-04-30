@@ -25,7 +25,7 @@ user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge,
     pointer-events: none;
 }
 
-#scan{
+#scan-computer{
     opacity: 80%
 }
 
