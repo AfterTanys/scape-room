@@ -1,0 +1,45 @@
+#modal-puzzle-door{
+    background-image: url('../resources/dialogBox/CardX5.png');
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 50px;
+    padding: 50px;
+    padding-top: 70px;
+    width: 60vw;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+#door-puzzle-container{
+    background-image: url('../resources/finalDoor/door-background-texture.png');
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    border: solid 2px black;
+    border-radius: 50px;
+    padding: 30px;
+    width: 70%;
+    height: 95%;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3,1fr);
+}
+
+.door-tile{
+    border-radius: 20px;
+    background-image: url('../resources/finalDoor/door-input-texture-1.png');
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 5px;
+}
+
+.door-rune{
+    width: 100%;
+    height: auto;
+}

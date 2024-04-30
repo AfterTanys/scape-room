@@ -16,7 +16,7 @@ document.addEventListener("keydown", function (event) {
     closeModal();
     setTimeout(() => {
         window.location.href = 'html/intro.html'; // Redirige a intro.html
-    }, 5000);
+    }, 500);
   }
 });
 

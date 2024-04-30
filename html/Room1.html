@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/hud.css">
     <link rel="stylesheet" href="../css/slidePuzzle.css" />
     <link rel="stylesheet" href="../css/crystalariumPuzzle.css" />
+    <link rel="stylesheet" href="../css/doorPuzzle.css" />
     <title>Habitación 1</title>
 </head>
 <body id="room1-background">
@@ -45,6 +46,14 @@
             </div>
         </div>
     </div>
+    <div class="modal-puzzle" id="modal-puzzle-door">
+        <div id="door-puzzle-container">
+
+        </div>
+        <div>
+            <button class="close-modal-btn" id="door-puzzle-close-btn">CLOSE</button>
+        </div>
+    </div>
 
     <div id="background-overlay"></div>
     
@@ -54,6 +63,7 @@
 <script src="../js/slidePuzzle.js"></script>
 <script src="../js/crystalariumPuzzle.js"></script>
 <script src="../js/modalOpener.js"></script>
+<script src="../js/doorPuzzle.js"></script>
 <script>
     
     //El siguiente script hace que no puedas hacer zoom en la pagina
@@ -64,6 +74,7 @@
     }, {passive:false});
     
 //Codigo de abajo de testing de bolas
+/*
 document.getElementById("door-glow").addEventListener("click", ()=>{
         let bolas = true;
         if(localStorage.getItem('bolas')){
@@ -74,6 +85,7 @@ document.getElementById("door-glow").addEventListener("click", ()=>{
             localStorage.setItem('bolas', JSON.stringify(bolas));
         }
     });
+*/
 </script>
 <!--
     Script de pantalla completa de prueba
