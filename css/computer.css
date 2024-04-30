@@ -1,0 +1,39 @@
+.noselect{
+-webkit-touch-callout: none; /* 105 Safari*/
+-webkit-user-select: none; /*Safari*/
+-khtml-user-select: none; /*Konqueror HTHL*/
+-moz-user-select: none; /*Old versions of Firefox*/
+-ms-user-select: none; /*Internet Explorer/Edge*/
+user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox*/
+}
+
+
+
+#screen-computer{
+    position:relative;
+    width: 800px;
+    height: 500px;
+    background-color: green;
+}
+
+#scan-computer, #bezel-computer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+#scan{
+    opacity: 80%
+}
+
+#content-computer{
+    font-family: VT323;
+    padding: 50px;
+    color: rgb(177, 253, 0);
+    font-size: 20px;
+    text-shadow: 1px 1px 2px rgb(150, 167, 124), 0 0 1em rgb(150, 167, 124), 0 0 0.2em rgb(150, 167, 124);
+
+}
