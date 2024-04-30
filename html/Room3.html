@@ -13,6 +13,8 @@
 <body id="room3-background">
     <div class="timer"></div>
 
+    <div class="left-arrow-room" onclick="jumpToRoom1()"></div>
+
     <div id="jeep-door-glow"></div>
 
     <div id="jeep-tower-glow"></div>
@@ -56,4 +58,16 @@
 <script src="../js/hud.js"></script>
 <script src="../js/jeepPuzzle.js"></script>
 <script src="../js/modalOpener.js"></script>
+<script>
+    //El siguiente script hace que no puedas hacer zoom en la pagina
+    window.addEventListener("wheel", (e)=>{
+        if(e.ctrlKey){
+            e.preventDefault();
+        }
+    }, {passive:false});
+
+    function jumpToRoom1(){
+        window.location.href = 'Room1.html';
+    }
+</script>
 </html>
