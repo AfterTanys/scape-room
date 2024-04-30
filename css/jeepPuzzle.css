@@ -60,6 +60,7 @@
   height: 18.3vh;
   width: 11.3vw;
   border: solid 3.5px var(--color-four);
+  cursor: pointer;
 }
 
 .simon-second-row {
