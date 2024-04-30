@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/slidePuzzle.css" />
     <link rel="stylesheet" href="../css/crystalariumPuzzle.css" />
     <link rel="stylesheet" href="../css/doorPuzzle.css" />
+    <link rel="stylesheet" href="../css/inventory.css" />
     <title>Room 1 (Door Room)</title>
 </head>
 <body id="room1-background">
@@ -68,6 +69,7 @@
 <script src="../js/crystalariumPuzzle.js"></script>
 <script src="../js/modalOpener.js"></script>
 <script src="../js/doorPuzzle.js"></script>
+<script src="../js/inventory.js"></script>
 <script>
     
     //El siguiente script hace que no puedas hacer zoom en la pagina
@@ -85,42 +87,5 @@
     function jumpToRoom4(){
         window.location.href = 'Room4.html';
     }
-    
-//Codigo de abajo de testing de bolas
-/*
-document.getElementById("door-glow").addEventListener("click", ()=>{
-        let bolas = true;
-        if(localStorage.getItem('bolas')){
-            console.log("Borrando bolas");
-            localStorage.removeItem("bolas");
-        }else{
-            console.log("Añadiendo bolas");
-            localStorage.setItem('bolas', JSON.stringify(bolas));
-        }
-    });
-*/
 </script>
-<!--
-    Script de pantalla completa de prueba
-<script>
-    document.getElementById("door-glow").addEventListener('click', function() {
-        var elemento = document.documentElement; // Obtener el elemento raíz
-
-        if (elemento.requestFullscreen) {
-            elemento.requestFullscreen();
-        } else if (elemento.mozRequestFullScreen) { // Firefox
-            elemento.mozRequestFullScreen();
-        } else if (elemento.webkitRequestFullscreen) { // Chrome, Safari & Opera
-            elemento.webkitRequestFullscreen();
-        } else if (elemento.msRequestFullscreen) { // IE/Edge
-            elemento.msRequestFullscreen();
-        }
-    });
-    document.addEventListener('fullscreenchange', function(event) {
-        if (!document.fullscreenElement) {
-        window.location.href = '../misterioso-juego-black-jack/index.html';
-        }
-    });
-</script>
--->
 </html>

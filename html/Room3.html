@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/room3.css" />
     <link rel="stylesheet" href="../css/hud.css">
     <link rel="stylesheet" href="../css/jeepPuzzle.css">
+    <link rel="stylesheet" href="../css/inventory.css" />
     <title>Room 3 (Jeep)</title>
 </head>
 <body id="room3-background">
@@ -58,6 +59,7 @@
 <script src="../js/hud.js"></script>
 <script src="../js/jeepPuzzle.js"></script>
 <script src="../js/modalOpener.js"></script>
+<script src="../js/inventory.js"></script>
 <script>
     //El siguiente script hace que no puedas hacer zoom en la pagina
     window.addEventListener("wheel", (e)=>{
@@ -65,6 +67,14 @@
             e.preventDefault();
         }
     }, {passive:false});
+
+    document.getElementById("slide-blue-ball").addEventListener("click", ()=>{
+
+    });
+
+    document.getElementById("slide-black-ball").addEventListener("click", ()=>{
+
+    });
 
     function jumpToRoom1(){
         window.location.href = 'Room1.html';

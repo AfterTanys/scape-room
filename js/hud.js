@@ -97,6 +97,9 @@ document.body.appendChild(dialogBox);
         dialogBox.classList.add('hidden');
         activeDialog =false;
     }
+     
+    // Ejemplo de dialogo (como se utiliza)
+    // dialog("DIALOG", "NAME","../resources/sprites/ejemplo.jpg");
 
     // Añadir un controlador de eventos al botón de opciones
     document.getElementById('optionsButton').addEventListener('click', function() {
@@ -108,4 +111,21 @@ document.body.appendChild(dialogBox);
     });
 
     // Aquí puedes añadir otros controladores de eventos y lógica adicional
+    let activeInventory=false
+    inventoryButton.addEventListener("click", ()=>{
+        if(activeInventory==false){
+            openInventory();
+            activeInventory=true;
+        }else{
+            closeInventory();
+            activeInventory=false;
+        }
+    });
+
+
+    //Metodo provisional para borrar el inventario
+    hintButton.addEventListener("click", ()=>{
+        resetInventory();
+    });
+
 });
