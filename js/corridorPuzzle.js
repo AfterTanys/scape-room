@@ -30,19 +30,24 @@ const posVisited = calcVisited(mazearray, 1);
 let numVisited;
 let pjPosition;
 let doorPosition;
+let boolCompleted;
 
 const url = "../html/Room";
 
-let boolRoom = 3; //pilla al que va
-let fromRoom=1;//del que viene
-let boolCompleted;
+// Obtener la cadena de consulta de la URL actual
+let queryString = window.location.search;
+
+// Crear un objeto URLSearchParams con la cadena de consulta
+let params = new URLSearchParams(queryString);
+
+let boolRoom = parseInt(params.get("boolRoom")); //pilla al que va
+let fromRoom = parseInt(params.get("fromRoom")); //del que viene
 
 function goInRoom() {
   if (boolCompleted) {
     window.location.href = url + boolRoom + ".html";
   } else {
-      window.location.href = url + fromRoom + ".html";
-
+    window.location.href = url + fromRoom + ".html";
   }
 }
 
@@ -61,18 +66,14 @@ function calcVisited(arr, elem) {
 function setStartPosition(x, y) {
   pj.style.top = x + "px"; //0 1140
   pj.style.left = y + "px"; //0 1140
-
 }
-function setDoorPosition(x, y) {
-
+function setEndPosition(x, y) {
   door.style.bottom = x + "px"; //2
   door.style.right = y + "px"; //2
-
-
 }
 
 function setColor(cell) {
-  if (boolRoom != 1) {
+  if (boolRoom == 1) {
     cell.classList.add("road1");
   } else {
     cell.classList.add("road2");
@@ -129,7 +130,7 @@ function createMaze() {
       row.appendChild(cell);
 
       // pj = 3 ,door = 4, replace 3 with 0,0 of mazearray ---------------------------------
-      if (boolRoom == 1) {
+      if (boolRoom != 1) {
         if (i == 0 && j == 0) {
           mazearray_copy[i][j] = 3;
         } else if (
@@ -151,7 +152,7 @@ function createMaze() {
       maze.appendChild(row);
     }
   }
-  if (boolRoom == 1) {
+  if (boolRoom != 1) {
     setStartPosition(0, 0);
     setEndPosition(2, 2);
   } else {
@@ -181,17 +182,17 @@ function getPosition(array_copy, elem) {
 
 function updateRoad(pjPosition) {
   let road = document.getElementById(`${pjPosition[0]}-${pjPosition[1]}`);
-  if(!boolCompleted){
-  if (boolRoom == 1) {
-    if (road.classList.replace("road2", "road1") == false) {
-      resetMaze();
-    }
-  } else {
-    if (road.classList.replace("road1", "road2") == false) {
-      resetMaze();
+  if (!boolCompleted) {
+    if (boolRoom != 1) {
+      if (road.classList.replace("road2", "road1") == false) {
+        resetMaze();
+      }
+    } else {
+      if (road.classList.replace("road1", "road2") == false) {
+        resetMaze();
+      }
     }
   }
-}
 }
 
 function resetMaze() {
@@ -268,7 +269,7 @@ document.addEventListener("keydown", function (e) {
     pjPosition = getPosition(mazearray_copy, 3);
     numVisited++;
   }
-  if (boolMoves&&numVisited > 0) {
+  if (boolMoves && numVisited > 0) {
     checkCompleted();
     updateRoad(pjPosition);
   }
@@ -277,8 +278,8 @@ document.addEventListener("keydown", function (e) {
 function checkCompleted() {
   if (
     pjPosition[0] == doorPosition[0] &&
-    pjPosition[1] == doorPosition[1] &&
-    numVisited == posVisited
+    pjPosition[1] == doorPosition[1]/* &&
+    numVisited == posVisited*/
   ) {
     btnRoom.innerText = "Its Open!!";
     boolCompleted = true;

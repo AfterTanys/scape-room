@@ -2,23 +2,41 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/hud.css" />
+    <link rel="stylesheet" href="../css/pilgrimage.css" />
+    <link rel="stylesheet" href="../css/timer.css" />
+    <link rel="stylesheet" href="../css/inventory.css" />
     <link rel="stylesheet" href="../css/styleCorridor.css" />
-    <link rel="stylesheet" href="../css/pilgrimage.css">
     <title>Corridor</title>
   </head>
 
   <body onload="createMaze()">
+    <div class="timer"></div>
+
     <div id="jm-2">
       <h1>Corridor</h1>
       <div id="maze-header">
         <button id="enterRoom" class="close-modal-btn">Go back in</button>
       </div>
-      <div id="maze-container">
-
-      </div>
+      <div id="maze-container"></div>
     </div>
   </body>
+  <script src="../js/timer.js"></script>
+  <script src="../js/hud.js"></script>
   <script src="../js/corridorPuzzle.js"></script>
+  <script src="../js/inventory.js"></script>
+
+  <script>
+    //El siguiente script hace que no puedas hacer zoom en la pagina
+    window.addEventListener(
+      "wheel",
+      (e) => {
+        if (e.ctrlKey) {
+          e.preventDefault();
+        }
+      },
+      { passive: false }
+    );
+  </script>
 </html>
