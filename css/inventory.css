@@ -1,0 +1,28 @@
+#inventory-modal{
+    position: fixed;
+    background-image: url('../resources/dialogBox/CardX5.png');
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    top: 19vh;
+    left: 22vw;
+}
+
+.inventory-item{
+    width: 200px;
+    height: 200px;
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    color: var(--color-one);
+    font-family: "FutureZ";
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
