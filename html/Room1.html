@@ -15,6 +15,10 @@
 <body id="room1-background">
     <div class="timer"></div>
 
+    <div class="right-arrow-room" onclick="jumpToRoom3()"></div>
+
+    <div class="left-arrow-room" onclick="jumpToRoom4()"></div>
+
     <div id="door-glow"></div>
 
     <div id="small-box-glow"></div>
@@ -72,6 +76,15 @@
             e.preventDefault();
         }
     }, {passive:false});
+
+    //Funciones para saltar
+    function jumpToRoom3(){
+        window.location.href = 'Room3.html';
+    }
+
+    function jumpToRoom4(){
+        window.location.href = 'Room4.html';
+    }
     
 //Codigo de abajo de testing de bolas
 /*
