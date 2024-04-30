@@ -101,3 +101,41 @@ html {
   opacity: 1;
   pointer-events: all;
 }
+
+/*Flechas para cambiar de habitacion*/
+
+.right-arrow-room{
+  position: fixed;
+  background-image: url("../resources/cards/RightArrow.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 40vh;
+  right: 0rem;
+  width: 150px;
+  height: 300px;
+  cursor: pointer;
+  transition: background-image 500ms ease;
+}
+
+.right-arrow-room:hover{
+  background-image: url("../resources/cards/rightArrowCard.png");
+}
+
+.left-arrow-room{
+  position: fixed;
+  background-image: url("../resources/cards/leftArrow.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 40vh;
+  left: 0rem;
+  width: 150px;
+  height: 300px;
+  cursor: pointer;
+  transition: background-image 500ms ease;
+}
+
+.left-arrow-room:hover{
+  background-image: url("../resources/cards/leftArrowCard.png");
+}
