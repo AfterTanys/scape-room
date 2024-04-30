@@ -277,8 +277,8 @@ document.addEventListener("keydown", function (e) {
 function checkCompleted() {
   if (
     pjPosition[0] == doorPosition[0] &&
-    pjPosition[1] == doorPosition[1]/* &&
-    numVisited == posVisited*/
+    pjPosition[1] == doorPosition[1] &&
+    numVisited == posVisited
   ) {
     btnRoom.innerText = "Its Open!!";
     boolCompleted = true;
