@@ -5,11 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/pilgrimage.css">
     <link rel="stylesheet" href="../css/timer.css" />
-    <title>Habitación 1</title>
+    <link rel="stylesheet" href="../css/room3.css" />
+    <link rel="stylesheet" href="../css/hud.css">
+    <link rel="stylesheet" href="../css/jeepPuzzle.css">
+    <title>Room 3 (Jeep)</title>
 </head>
-<body class="room3-background">
+<body id="room3-background">
     <div class="timer"></div>
-    <script src="../js/pilgrimage.js"></script>
+
+    <div id="jeep-door-glow"></div>
+
+    <div id="jeep-tower-glow"></div>
+
+    <div id="slide-blue-ball"></div>
+
+    <div id="slide-black-ball"></div>
+
+    <!--TODO: Lo de abajo-->
+    <div class="modal-puzzle" id="modal-puzzle-jeep">
+        <div id="simon-container">
+            <div class="simon-score" id="simon-score">Round 1</div>
+            <div id="simon-start-button">
+                <button class="close-modal-btn" id="start-button" onclick="playRound()">START</button>
+                <button class="close-modal-btn" id="jeep-puzzle-close-btn">CLOSE</button>
+            </div>
+            <div class="simon-first-row">
+                <div class="simon-tile" id="simon-first-row-green"></div>
+                <div class="simon-tile" id="simon-first-row-red"></div>
+                <div class="simon-tile" id="simon-first-row-yellow"></div>
+                <div class="simon-tile" id="simon-first-row-green"></div>
+            </div>
+            <div class="simon-second-row">
+                <div class="simon-tile" id="simon-second-row-left"></div>
+                <div class="simon-tile" id="simon-second-row-up"></div>
+                <div class="simon-tile" id="simon-second-row-right"></div>
+                <div class="simon-tile" id="simon-second-row-down"></div>
+            </div>
+            <div class="simon-third-row">
+                <div class="simon-tile" id="simon-third-row-rune1"></div>
+                <div class="simon-tile" id="simon-third-row-rune2"></div>
+                <div class="simon-tile" id="simon-third-row-rune3"></div>
+                <div class="simon-tile" id="simon-third-row-rune4"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="background-overlay"></div>
 </body>
 <script src="../js/timer.js"></script>
+<script src="../js/hud.js"></script>
+<script src="../js/jeepPuzzle.js"></script>
+<script src="../js/modalOpener.js"></script>
 </html>

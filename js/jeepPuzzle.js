@@ -1,6 +1,17 @@
-//Inicio del juego (Temporal)
+//Abrir ventana modal
 
-document.addEventListener("DOMContentLoaded", () => {});
+const modal_jeep = document.getElementById("modal-puzzle-jeep");
+
+document.getElementById("jeep-door-glow").addEventListener("click", ()=>{
+    console.log("Opening jeep modal");
+    openModal(modal_jeep);
+});
+
+document.getElementById("jeep-puzzle-close-btn").addEventListener("click", ()=>{
+    console.log("Closing jeep modal");
+    closeModal(modal_jeep);
+});
+
 
 //Constantes
 const container = document.getElementById("simon-container");
