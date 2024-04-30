@@ -149,7 +149,7 @@ function slideCheckWon() {
   if (slideWin && boolBalls) {
     h1_msg.childNodes[0].textContent = "You Won!! Turn: ";
   } else if (slideWin && !boolBalls){
-    h1_msg.childNodes[0].textContent = "Maybe I need Balls... Turn: ";
+    h1_msg.childNodes[0].textContent = "Looks like something is missing... Turn: ";
   }else if (slideTurns >= slideTurnLim) {
     h1_msg.childNodes[0].textContent = "You Lost!! Turn: ";
     let tOut = setTimeout(() => {
