@@ -30,4 +30,15 @@ function closeModal() {
   overlay.style.display="none";
 }
 
+let selected_img=0;
+document.getElementById("hub-icon-selector-img").src=`resources/sprites/Player Icons/Portrait Science Fantasy (${selected_img})-320px.png`;
+
+document.getElementById("hub-icon-selector").addEventListener("click", ()=>{
+  selected_img++;
+  if(selected_img==25){
+    selected_img=0;
+  }
+  document.getElementById("hub-icon-selector-img").src=`resources/sprites/Player Icons/Portrait Science Fantasy (${selected_img})-320px.png`;
+});
+
 
