@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('../js/words.json')
         .then(response => response.json())
         .then(data => {
-            let selectedWords = shuffle(data.words).slice(0, 12);
+            let selectedWords = shuffle(data.words.filter(word => word.length === 6)).slice(0, 12); // Filtrar palabras de longitud 6
             let correctWord = selectedWords[Math.floor(Math.random() * selectedWords.length)];
             let attempts = 4;
             initGame(selectedWords, correctWord, attempts);
@@ -20,22 +20,27 @@ document.addEventListener('DOMContentLoaded', function() {
         const wordContainer = document.getElementById('word-container');
         wordContainer.innerHTML = '';
         updateAttempts(attempts);
-
+    
         selectedWords.forEach(word => {
             const wordElement = document.createElement('div');
             wordElement.textContent = word;
             wordElement.classList.add('word');
-            wordElement.addEventListener('click', function() { checkWord(word, wordElement, correctWord, attempts); });
+            wordElement.addEventListener('click', function() { 
+                if (!wordElement.classList.contains('disabled')) {
+                    checkWord(word, wordElement, correctWord, attempts); 
+                }
+            });
             wordContainer.appendChild(wordElement);
         });
     }
-
-    function checkWord(selectedWord, wordElement, correctWord, attempts) {
+    
+    function checkWord(selectedWord, wordElement, correctWord) {
         if (selectedWord === correctWord) {
             document.getElementById('word-container').innerHTML = 'Access granted.';
         } else {
-            attempts--;
-            updateAttempts(attempts);
+            let attempts = parseInt(document.getElementById('attempts').textContent) - 1;
+            document.getElementById('attempts').textContent = `${attempts} ATTEMPT(S) LEFT`; // Actualiza el valor global
+            wordElement.classList.add('disabled'); // Deshabilitar la palabra después de seleccionarla
             if (attempts <= 0) {
                 document.getElementById('word-container').innerHTML = 'Terminal locked.';
             } else {
