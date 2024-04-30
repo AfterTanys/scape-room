@@ -31,20 +31,18 @@ let numVisited;
 let pjPosition;
 let doorPosition;
 
-const url = "../html/puzzleCorridor";
+const url = "../html/Room";
 
-let boolRoom = 1; //pilla del que viene
+let boolRoom = 3; //pilla al que va
+let fromRoom=1;//del que viene
 let boolCompleted;
 
 function goInRoom() {
   if (boolCompleted) {
-    if (boolRoom == 2) {
-      window.location.href = url + 1 + ".html";
-    } else {
-      window.location.href = url + 2 + ".html";
-    }
-  } else {
     window.location.href = url + boolRoom + ".html";
+  } else {
+      window.location.href = url + fromRoom + ".html";
+
   }
 }
 
@@ -60,13 +58,17 @@ function calcVisited(arr, elem) {
   return roads - 1;
 }
 
-function setPjPosition(x, y) {
+function setStartPosition(x, y) {
   pj.style.top = x + "px"; //0 1140
   pj.style.left = y + "px"; //0 1140
+
 }
 function setDoorPosition(x, y) {
+
   door.style.bottom = x + "px"; //2
   door.style.right = y + "px"; //2
+
+
 }
 
 function setColor(cell) {
@@ -127,7 +129,7 @@ function createMaze() {
       row.appendChild(cell);
 
       // pj = 3 ,door = 4, replace 3 with 0,0 of mazearray ---------------------------------
-      if (boolRoom != 2) {
+      if (boolRoom == 1) {
         if (i == 0 && j == 0) {
           mazearray_copy[i][j] = 3;
         } else if (
@@ -149,11 +151,11 @@ function createMaze() {
       maze.appendChild(row);
     }
   }
-  if (boolRoom != 2) {
-    setPjPosition(0, 0);
-    setDoorPosition(2, 2);
+  if (boolRoom == 1) {
+    setStartPosition(0, 0);
+    setEndPosition(2, 2);
   } else {
-    setPjPosition(1140, 1140);
+    setStartPosition(950, 950);
     door.style.top = 0 + "px"; //0 1140
     door.style.left = 0 + "px"; //0 1140
   }
@@ -179,15 +181,17 @@ function getPosition(array_copy, elem) {
 
 function updateRoad(pjPosition) {
   let road = document.getElementById(`${pjPosition[0]}-${pjPosition[1]}`);
+  if(!boolCompleted){
   if (boolRoom == 1) {
     if (road.classList.replace("road2", "road1") == false) {
       resetMaze();
     }
-  } else if (boolRoom == 2) {
+  } else {
     if (road.classList.replace("road1", "road2") == false) {
       resetMaze();
     }
   }
+}
 }
 
 function resetMaze() {
@@ -214,10 +218,10 @@ document.addEventListener("keydown", function (e) {
   //console.log(doorleft, doortop);
   if (
     e.key == "d" &&
-    pjleft < (mazearray_copy.length - 1) * 60 &&
+    pjleft < (mazearray_copy.length - 1) * 50 &&
     mazearray_copy[pjPosition[0]][pjPosition[1] + 1] == 1
   ) {
-    pjleft += 60;
+    pjleft += 50;
     pj.style.left = pjleft + "px";
     mazearray_copy[pjPosition[0]][pjPosition[1]] = 1;
     mazearray_copy[position[0]][pjPosition[1] + 1] = 3;
@@ -229,7 +233,7 @@ document.addEventListener("keydown", function (e) {
     pjleft > 0 &&
     mazearray_copy[pjPosition[0]][pjPosition[1] - 1] == 1
   ) {
-    pjleft -= 60;
+    pjleft -= 50;
     pj.style.left = pjleft + "px";
     mazearray_copy[pjPosition[0]][pjPosition[1]] = 1;
     mazearray_copy[pjPosition[0]][pjPosition[1] - 1] = 3;
@@ -241,7 +245,7 @@ document.addEventListener("keydown", function (e) {
     pjtop > 0 &&
     mazearray_copy[pjPosition[0] - 1][pjPosition[1]] == 1
   ) {
-    pjtop -= 60;
+    pjtop -= 50;
     pj.style.top = pjtop + "px";
     mazearray_copy[pjPosition[0]][pjPosition[1]] = 1;
     mazearray_copy[pjPosition[0] - 1][pjPosition[1]] = 3;
@@ -250,10 +254,10 @@ document.addEventListener("keydown", function (e) {
 
   if (
     e.key == "s" &&
-    pjtop < (mazearray_copy.length - 1) * 60 &&
+    pjtop < (mazearray_copy.length - 1) * 50 &&
     mazearray_copy[pjPosition[0] + 1][pjPosition[1]] == 1
   ) {
-    pjtop += 60;
+    pjtop += 50;
     pj.style.top = pjtop + "px";
     mazearray_copy[pjPosition[0]][pjPosition[1]] = 1;
     mazearray_copy[pjPosition[0] + 1][pjPosition[1]] = 3;
@@ -263,18 +267,18 @@ document.addEventListener("keydown", function (e) {
   if (boolMoves) {
     pjPosition = getPosition(mazearray_copy, 3);
     numVisited++;
-    updateRoad(pjPosition);
   }
-  if (numVisited > 0) {
+  if (boolMoves&&numVisited > 0) {
     checkCompleted();
+    updateRoad(pjPosition);
   }
 });
 
 function checkCompleted() {
   if (
     pjPosition[0] == doorPosition[0] &&
-    pjPosition[1] == doorPosition[1] &&
-    numVisited == posVisited
+    pjPosition[1] == doorPosition[1]/* &&
+    numVisited == posVisited*/
   ) {
     btnRoom.innerText = "Its Open!!";
     boolCompleted = true;
