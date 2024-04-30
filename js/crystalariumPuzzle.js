@@ -354,11 +354,46 @@ function comprobarCombinacionFase3Crystal(seleccionados, posicionBlanco) {
 }
 
 function generarHexAleatorioCrystal() {
-    const hexMax = 0xFFFFFF; // 16777215 en decimal
-    const randomNumber = Math.floor(Math.random() * hexMax);
-    const randomColor = randomNumber.toString(16);
-    return '#' + randomColor.padStart(6, '0');
+    // Establece el valor mínimo y máximo para cada componente
+    const minComponent = 0x00; // Permite la completa gama desde el punto más oscuro
+    const maxComponent = 0xDF; // Límite superior para evitar blancura
+
+    // Genera cada componente dentro del rango permitido
+    let red = Math.floor(Math.random() * (maxComponent - minComponent + 1)) + minComponent;
+    let green = Math.floor(Math.random() * (maxComponent - minComponent + 1)) + minComponent;
+    let blue = Math.floor(Math.random() * (maxComponent - minComponent + 1)) + minComponent;
+
+    // Verifica si alguno de los componentes supera 150
+    if (red > 150 || green > 150 || blue > 150) {
+        // Elige aleatoriamente uno de los dos otros componentes para ser ajustado a 0
+        let toZero = Math.floor(Math.random() * 3); // Genera un número entre 0 y 2
+        if (toZero === 0) { // Ajusta el verde o azul
+            if (red > 150) {
+                green = 0;
+                blue = Math.random() > 0.5 ? 0 : blue; // 50% de probabilidad de también poner azul a 0
+            }
+        } else if (toZero === 1) { // Ajusta el rojo o azul
+            if (green > 150) {
+                red = 0;
+                blue = Math.random() > 0.5 ? 0 : blue; // 50% de probabilidad de también poner azul a 0
+            }
+        } else { // Ajusta el rojo o verde
+            if (blue > 150) {
+                red = 0;
+                green = Math.random() > 0.5 ? 0 : green; // 50% de probabilidad de también poner verde a 0
+            }
+        }
+    }
+
+    // Convierte los valores a hexadecimal
+    let hexRed = red.toString(16);
+    let hexGreen = green.toString(16);
+    let hexBlue = blue.toString(16);
+
+    // Retorna el color en formato hexadecimal
+    return '#' + hexRed.padStart(2, '0') + hexGreen.padStart(2, '0') + hexBlue.padStart(2, '0');
 }
+
 
 
 function invertColorCrystal(rgb) {
