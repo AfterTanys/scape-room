@@ -1,7 +1,7 @@
 const fotos = document.getElementsByClassName("hub-promotor-card-photo");
-fotos[0].style.backgroundImage="url(resources/img/miguel-photo.jpg)";
-fotos[1].style.backgroundImage="url(resources/img/eris-photo.png)";
-fotos[2].style.backgroundImage="url(resources/img/tanys-photo.png)";
+fotos[0].style.backgroundImage="url(resources/img/pfpHub/miguel-photo.jpg)";
+fotos[1].style.backgroundImage="url(resources/img/pfpHub/eris-photo.png)";
+fotos[2].style.backgroundImage="url(resources/img/pfpHub/tanys-photo.png)";
 
 const overlay = document.getElementById("fullscreen-window-warning-overlay");
 
