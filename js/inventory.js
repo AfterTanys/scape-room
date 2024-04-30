@@ -45,11 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (slideBallsItem < 4) {
     inventoryItem1.style.backgroundImage =
-      "url('../resources/img/inventory-balls-empty.png')";
+      "url('../resources/img/items/inventory-balls-empty.png')";
     inventoryItem1.innerHTML = slideBallsItem;
   } else {
     inventoryItem1.style.backgroundImage =
-      "url('../resources/img/inventory-balls.png')";
+      "url('../resources/img/items/inventory-balls.png')";
   }
 
   let inventoryItem2 = document.createElement("div");
@@ -57,9 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
   inventoryModal.appendChild(inventoryItem2);
 
   if (crystalariumLanternItem != 0) {
-    //Linterna encendida
+    inventoryItem2.style.backgroundImage="url('../resources/img/items/inventory-crystal.png')";
   } else {
-    //Linterna apagada
+    inventoryItem2.style.backgroundImage="url('../resources/img/items/inventory-crystal-empty.png')";
   }
 
   let inventoryItem3 = document.createElement("div");
@@ -68,10 +68,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (jeepKeysItem != 0) {
     inventoryItem3.style.backgroundImage =
-      "url('../resources/img/jeep-keys.png')";
+      "url('../resources/img/items/jeep-keys.png')";
   } else {
     inventoryItem3.style.backgroundImage =
-      "url('../resources/img/jeep-keys-empty.png')";
+      "url('../resources/img/items/jeep-keys-empty.png')";
   }
 });
 
