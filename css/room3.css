@@ -1,0 +1,66 @@
+#room3-background {
+    background-image: url(../resources/img/jeep-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#jeep-door-glow{
+    position: fixed;
+    background-image: url(../resources/glows/jeep-door-glow.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 46vh;
+    left: 45.4vw;
+    height: 169px;
+    width: 71px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#jeep-door-glow:hover{
+    opacity: 1;
+}
+
+#jeep-tower-glow{
+    position: fixed;
+    background-image: url(../resources/glows/jeep-tower-glow.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 61vh;
+    left: 26.75vw;
+    height: 240px;
+    width: 228px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#jeep-tower-glow:hover{
+    opacity: 1;
+}
+
+#slide-blue-ball{
+    position: fixed;
+    left: 43vw;
+    top: 62.5vh;
+    width: 40px;
+    height: 40px;
+    /*border: solid 2px blanchedalmond;*/
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#slide-black-ball{
+    position: fixed;
+    left: 68.8vw;
+    top: 88.5vh;
+    width: 40px;
+    height: 40px;
+    /*border: solid 2px rgb(255, 153, 0);*/
+    border-radius: 50px;
+    cursor: pointer;
+}

@@ -148,7 +148,7 @@
 
 
 #hub-icon-selector{
-    width: 8%;
+    width: 5%;
     height: 105%;
     background-image: url("../resources/cards/CardX3.png");
     background-size: 100% 100%;
@@ -157,11 +157,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
+
 
 #hub-icon-selector img{
     width: 80%;
     height: 80%;
+}
+
+#hub-icon-selector img:hover{
+    border: solid 2px var(--color-four);
 }
 
 #hub-blank-space{
