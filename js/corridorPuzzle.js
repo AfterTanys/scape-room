@@ -110,18 +110,19 @@ function createMaze() {
       cell.classList.add("cell");
       cell.id = i + "-" + j;
 
-      setColor(cell);
-
       if (mazearray_copy[i][j] == 0) {
         cell.classList.add("wall");
       }
+
       if (i == 0 && j == 0) {
-        cell.classList.add("road1");
+        cell.classList.add("road2");
       } else if (
         i == mazearray_copy.length - 1 &&
         j == mazearray_copy[i].length - 1
       ) {
-        cell.classList.add("road2");
+        cell.classList.add("road1");
+      } else {
+        setColor(cell);
       }
       row.appendChild(cell);
 
@@ -264,8 +265,8 @@ document.addEventListener("keydown", function (e) {
     numVisited++;
     updateRoad(pjPosition);
   }
-  if(numVisited>0){
-  checkCompleted();
+  if (numVisited > 0) {
+    checkCompleted();
   }
 });
 
