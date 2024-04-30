@@ -9,12 +9,12 @@
   </head>
   <body class="room4-background">
     <div class="timer"></div>
-    <div class="right-arrow-room" onclick="jumpToRoom1(4)"></div>
+    <div class="right-arrow-room" onclick="jumpToRoom(1)"></div>
   </body>
   <script src="../js/timer.js"></script>
   <script>
-    function jumpToRoom1(i) {
-      window.location.href = `puzzleCorridor.html?fromRoom=${i}&boolRoom=1`;
+    function jumpToRoom(i) {
+      window.location.href = `Room${i}.html`;
     }
   </script>
 </html>

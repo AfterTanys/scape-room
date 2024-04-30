@@ -4,11 +4,11 @@ let crystalariumLanternItem;
 let jeepKeysItem;
 
 document.addEventListener("DOMContentLoaded", () => {
-  //Comprobación de items
+  //Comprobación de items cuando carga cualquier pagina
   if (localStorage.getItem("slideBallsItem")) {
     slideBallsItem = JSON.parse(localStorage.getItem("slideBallsItem"));
   } else {
-    slideBallsItem = 0;
+    slideBallsItem = new Array();
     localStorage.setItem("slideBallsItem", JSON.stringify(slideBallsItem));
   }
 
@@ -43,19 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
   inventoryItem1.classList.add("inventory-item");
   inventoryModal.appendChild(inventoryItem1);
 
-  if (slideBallsItem < 4) {
-    inventoryItem1.style.backgroundImage =
-      "url('../resources/img/items/inventory-balls-empty.png')";
-    inventoryItem1.innerHTML = slideBallsItem;
-  } else {
-    inventoryItem1.style.backgroundImage =
-      "url('../resources/img/items/inventory-balls.png')";
-  }
+  updateSlideBallsItem(inventoryItem1);
 
   let inventoryItem2 = document.createElement("div");
   inventoryItem2.classList.add("inventory-item");
   inventoryModal.appendChild(inventoryItem2);
 
+  //Meter lo de abajo en funcion
   if (crystalariumLanternItem != 0) {
     inventoryItem2.style.backgroundImage="url('../resources/img/items/inventory-crystal.png')";
   } else {
@@ -66,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   inventoryItem3.classList.add("inventory-item");
   inventoryModal.appendChild(inventoryItem3);
 
+  //Meter lo de abajo en funcion
   if (jeepKeysItem != 0) {
     inventoryItem3.style.backgroundImage =
       "url('../resources/img/items/jeep-keys.png')";
@@ -87,4 +82,15 @@ function resetInventory(){
     localStorage.removeItem("slideBallsItem");
     localStorage.removeItem("jeepKeys");
     localStorage.removeItem("crystalariumLantern");
+}
+
+function updateSlideBallsItem(inventoryItem1){
+  if (slideBallsItem.length < 4) {
+    inventoryItem1.style.backgroundImage =
+      "url('../resources/img/items/inventory-balls-empty.png')";
+    inventoryItem1.innerHTML = slideBallsItem.length;
+  } else {
+    inventoryItem1.style.backgroundImage =
+      "url('../resources/img/items/inventory-balls.png')";
+  }
 }

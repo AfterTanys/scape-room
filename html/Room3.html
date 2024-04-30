@@ -14,7 +14,7 @@
   <body id="room3-background">
     <div class="timer"></div>
 
-    <div class="left-arrow-room" onclick="jumpToRoom1(3)"></div>
+    <div class="left-arrow-room" onclick="jumpToRoom(1)"></div>
 
     <div id="jeep-door-glow"></div>
 
@@ -80,16 +80,40 @@
       { passive: false }
     );
 
+    //Metodo para recoger la bola azul (Mejorable)
     document
       .getElementById("slide-blue-ball")
-      .addEventListener("click", () => {});
+      .addEventListener("click", () => {
+        slideBallsItem = JSON.parse(localStorage.getItem("slideBallsItem"));
+        if(slideBallsItem.includes("blue")){
+          console.log("ya tienes la bola azul");
+        }else{
+          console.log("Has pillado la bola azul");
+          slideBallsItem.push("blue");
+          localStorage.setItem("slideBallsItem", JSON.stringify(slideBallsItem));
+        }
+        updateSlideBallsItem(document.getElementsByClassName("inventory-item")[0]);
+      });
 
+    //Metodo para recoger la bola negra (Mejorable)
     document
       .getElementById("slide-black-ball")
-      .addEventListener("click", () => {});
+      .addEventListener("click", () => {
+        slideBallsItem = JSON.parse(localStorage.getItem("slideBallsItem"));
+        if(slideBallsItem.includes("black")){
+          console.log("ya tienes la bola negra");
+        }else{
+          console.log("Has pillado la bola negra");
+          slideBallsItem.push("black");
+          localStorage.setItem("slideBallsItem", JSON.stringify(slideBallsItem));
+        }
+        updateSlideBallsItem(document.getElementsByClassName("inventory-item")[0]);
+      });
 
-    function jumpToRoom1(i) {
-      window.location.href = `puzzleCorridor.html?fromRoom=${i}&boolRoom=1`;
+    //Metodo para saltar de habitación
+    function jumpToRoom(i) {
+      window.location.href = `Room${i}.html`;
+      //window.location.href = `puzzleCorridor.html?fromRoom=${i}&boolRoom=1`;
     }
   </script>
 </html>

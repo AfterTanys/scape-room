@@ -93,8 +93,7 @@ document.body.appendChild(dialogBox);
 
     // Función para ocultar la caja de diálogo
     function hideDialog() {
-        const dialogBox = document.getElementById('dialogBox');
-        dialogBox.classList.add('hidden');
+        document.getElementById('dialogBox').classList.add('hidden');
         activeDialog =false;
     }
      
