@@ -37,6 +37,12 @@
     background-repeat: no-repeat;
     background-position: center;
     padding: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.door-tile:hover{
+    border: solid 2px var(--color-four);
 }
 
 .door-rune{
