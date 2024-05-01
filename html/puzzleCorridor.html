@@ -11,21 +11,24 @@
     <title>Corridor</title>
   </head>
 
-  <body onload="createMaze()">
+  <body id="corridor-background" onload="createMaze()">
     <div class="timer"></div>
-
-    <div id="jm-2">
-      <h1>Corridor</h1>
-      <div id="maze-header">
-        <button id="enterRoom" class="close-modal-btn">Go back in</button>
+    <div class="container-corridor">
+      <button id="enterRoom" class="close-modal-btn">Go back in</button>
+      
+      <div id="jm-2">
+        
+        <div id="maze-container"></div>
       </div>
-      <div id="maze-container"></div>
     </div>
+    <div id="background-overlay"></div>
   </body>
   <script src="../js/timer.js"></script>
   <script src="../js/hud.js"></script>
-  <script src="../js/corridorPuzzle.js"></script>
+  <script src="../js/modalOpener.js"></script>
   <script src="../js/inventory.js"></script>
+  <script src="../js/corridorPuzzle.js"></script>
+
 
   <script>
     //El siguiente script hace que no puedas hacer zoom en la pagina

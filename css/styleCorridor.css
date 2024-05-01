@@ -1,62 +1,120 @@
 
 
+#corridor-background{
+
+    background-image: url(../resources/img/Room1.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    align-items: start;
+    margin-left: 8em;
+    overflow: hidden;
+    z-index: -5;
+}
+
+.timer{
+    width: 18%;
+    max-width: 18%;
+    font-size: 2.5vw;
+    text-align: center;
+
+}
+
+.container-corridor{
+
+    background-image: url('../resources/dialogBox/CardX5.png');
+    background-size: 90% 103.5%; 
+    backface-visibility: visible;
+    background-repeat: no-repeat;
+
+    align-items: center;
+    display: flex;
+    width: 1400px;
+    height: 110vh;
+    max-width: 90%;
+    max-height: 100%;
+
+    z-index: -4;
+}
+
 #jm-2 {
-    background-color: #f46060;
+    transform: scale(0.80);
+    position: absolute;
+    top:-65px;
+    left:19.5%;
+    
+}
+
+#enterRoom{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    justify-content: center;
+    height: 14em;
+    width: 8.8em;
+    margin-left: 1.54em;
 
-}
-
-#maze-header{
-    width: 200px; /* Ancho inicial del contenedor */
-    height: 200px; /* Altura inicial del contenedor */
-    position: relative;
-    margin: 10px;
-}
-#enterRoom{
-    display: block; /* Ocultar el botón inicialmente */
-    position: absolute; /* Posicionamiento absoluto para que ocupe espacio */
-    left:50%;
-    transform: translate(-50%, -50%); /* Centrar con respecto al contenedor */
-}
-
-h1 {
-    font-size: 50px;
-    color: white;
-    margin-bottom: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    &&:disabled{
+        pointer-events: none;
+        color: grey;
+    }
 }
 
 #maze-container {
+
     border: 10px solid black;
     position: relative;
     display: flex;
     flex-direction: column;
-    width: max-content;
-    height: max-content;
+
     border-radius: 10px;
+    box-sizing: border-box;
+    
+
+
 }
+@media screen { 
+    body {
+      transform: scale(calc(1 + (100vw - 600px) / 400));
+      transform-origin: top left; /* Mantén el origen de la transformación en la esquina superior izquierda */
+    }
+  }
 
 .row {
+    
     display: flex;
 }
 
 .cell {
+    
     width: 50px;
     height: 50px;
     border: 5px solid whitesmoke;
-}
-
-.road2{
-    background-color: rgb(194, 194, 194);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .road1{
-    background-color:rgb(142, 211, 73);
+    /*background-color:rgb(142, 211, 73);*/
+    background-image: url('../resources/corridor/floorGlow.png');
 }
+
+.road11{
+    background-image: url('../resources/corridor/floor2Glow.png');
+}
+
+.road2{
+    /*background-color: rgb(194, 194, 194);*/
+    background-image: url('../resources/corridor/floor2Off.png'); 
+}
+
+.road21{
+    background-image: url('../resources/corridor/floorOff.png');   
+}
+
+
 
 .wall {
     border: 5px solid black;
@@ -67,7 +125,7 @@ h1 {
     position: absolute;
     top: 0px;
     left: 0px;
-    z-index: 1;
+    z-index: 2;
 }
 
 .door {

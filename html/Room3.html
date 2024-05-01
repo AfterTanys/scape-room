@@ -14,7 +14,7 @@
   <body id="room3-background">
     <div class="timer"></div>
 
-    <div class="left-arrow-room" onclick="jumpToRoom(1)"></div>
+    <div class="left-arrow-room" onclick="jumpToCorridor(1,3)"></div>
 
     <div id="jeep-door-glow"></div>
 
@@ -120,6 +120,9 @@
     function jumpToRoom(i) {
       window.location.href = `Room${i}.html`;
       //window.location.href = `puzzleCorridor.html?fromRoom=${i}&boolRoom=1`;
+    }
+    function jumpToCorridor(i,j){
+        window.location.href = `puzzleCorridor.html?fromRoom=${j}&boolRoom=${i}`;
     }
   </script>
 </html>
