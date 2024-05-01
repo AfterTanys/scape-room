@@ -1,115 +1,67 @@
-
-
 #corridor-background{
-
-    background-image: url(../resources/img/Room1.webp);
+    background-image: url(../resources/img/dark-room-background-alt.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    display: block;
-    align-items: start;
-    overflow: hidden;
-    z-index: -5;
-
-    /*margin-left: 8em;*/
-    margin-left: 13em;
 }
-
-/*.timer{
-    width: 18%;
-    max-width: 18%;
-    font-size: 2.5vw;
-    text-align: center;
-
-}*/
-
-
 
 .container-corridor{
-
     background-image: url('../resources/dialogBox/CardX5.png');
-    backface-visibility: visible;
+    background-size: 100% 100%; 
     background-repeat: no-repeat;
-
-    align-items: center;
+    background-position: center;
     display: flex;
-    height: 110vh;
-   
-  
-    /*background-size: 90% 103.5%; 
-    max-height: 100%;
-    width: 1800px;
-    max-width: 100%;*/
-
-    background-size: 90% 103.5%; 
-    max-height: 96%;
-    max-width: 93%;
-
-
-    z-index: -4;
-}
-
-#jm-2 {
-    position: absolute;
-
-    /*transform: scale(0.80);
-    top:-65px;
-    left:19.5%;*/
-
-    transform: scale(0.94);
-    top:26px;
-    left:29.5%;
-    
-}
-
-#enterRoom{
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 14em;
-    /*
-    width: 8.8em;
-    margin-left: 1.54em;
-    */
-
-    width: 12.8em;
-    margin-left: 2.40em;
-
+    height: 100vh;
+    width: 80vw;
+    margin-right: 6rem;
+    padding-left: 4rem;
+    padding-right: 3.5rem;
+}
+#corridor-controlls-container{
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+#corridor-tutorial{
+    background-image: url('../resources/corridor/corridor-controlls.jpg');
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 25%;
+    border-radius: 40px;
+}
+#jm-2 {
+    transform: scale(0.95);
+}
+#enterRoom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10rem;
+    width: 20rem;
     &&:disabled{
         pointer-events: none;
         color: grey;
     }
 }
-
 #maze-container {
-
     border: 10px solid black;
     position: relative;
     display: flex;
     flex-direction: column;
-
     border-radius: 10px;
-    box-sizing: border-box;
-    
-
-
 }
-/*Intento de responsividad entre navegadores(No va)*/
-@media screen { 
-    body {
-      transform: scale(calc(1 + (100vw - 600px) / 400));
-      transform-origin: top left; /* Mantén el origen de la transformación en la esquina superior izquierda */
-    }
-  }
-
 .row {
-    
     display: flex;
 }
-
 .cell {
-    
     width: 50px;
     height: 50px;
     border: 5px solid rgba(55, 125, 183, 0.573);
@@ -117,54 +69,26 @@
     background-repeat: no-repeat;
     background-position: center;
 }
-
 .road1{
-    /*background-color:rgb(142, 211, 73);*/
     background-image: url('../resources/corridor/floorGlow.png');
 }
-
 .road11{
     background-image: url('../resources/corridor/floor2Glow.png');
 }
-
 .road2{
-    /*background-color: rgb(194, 194, 194);*/
     background-image: url('../resources/corridor/floor2Off.png'); 
 }
-
 .road21{
     background-image: url('../resources/corridor/floorOff.png');   
 }
-
-
-
 .wall {
     border: 5px solid black;
     background-color: black;
 }
-
 .pj {
     position: absolute;
-    top: 0px;
-    left: 0px;
     z-index: 2;
 }
-
 .door {
     position: absolute;
-    bottom: 0px;
-    right: 0px;
-}
-
-
-button {
-    width: 150px;
-    border-radius: 20px;
-    border: none;
-    margin-bottom: 20px;
-    font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    padding: 10px 20px;
-    display: block;
-    
 }

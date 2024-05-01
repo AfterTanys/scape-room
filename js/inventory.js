@@ -82,6 +82,10 @@ function resetInventory(){
     localStorage.removeItem("slideBallsItem");
     localStorage.removeItem("jeepKeys");
     localStorage.removeItem("crystalariumLantern");
+    //Se resetea username al pulsar el boton de tips
+    localStorage.removeItem("username");
+    //Se resetea el timer al pulsar tips
+    //resetTimer();
 }
 
 function updateSlideBallsItem(inventoryItem1){
