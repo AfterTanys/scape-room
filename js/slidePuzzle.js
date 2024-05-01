@@ -2,15 +2,17 @@
 const modal_big_box = document.getElementById("modal-puzzle-box");
 
 //Cuando haces click fuera de la ventana modal cierra la ventana modal
-document.getElementById("big-box-puzzle-close-btn").addEventListener("click", ()=>{
-  console.log("Cerrando modal slidePuzzle");
-  closeModal(modal_big_box);
-});
+document
+  .getElementById("big-box-puzzle-close-btn")
+  .addEventListener("click", () => {
+    console.log("Cerrando modal slidePuzzle");
+    closeModal(modal_big_box);
+  });
 
 //Cuando haces click en el elemento abre la ventana modal
-document.getElementById("big-box-glow").addEventListener("click", ()=>{
-    console.log("Abriendo modal slidePuzzle");
-    openModal(modal_big_box);
+document.getElementById("big-box-glow").addEventListener("click", () => {
+  console.log("Abriendo modal slidePuzzle");
+  openModal(modal_big_box);
 });
 
 //Programacion del juego
@@ -31,27 +33,39 @@ let slideTurns = 0;
 let slideTurnLim = 80;
 let slideWin = false;
 
+const tileOrder = ["2", "4", "8", "5", "3", "6", "9", "1", "7"];
+
+const tileOrder_solved = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]; //test
+
 //Variable that it will be false until we pick the balls
 let boolBalls;
-let slideBallsProve = JSON.parse(localStorage.getItem('slideBallsItem')).length;
-//Cuando carga la pagina se comprueba si hay o no bolas
-if(slideBallsProve === 4){
-  boolBalls=true;
-}else{
-  boolBalls=false;
-}
+//Variable de resolver el problema antes de recoger bolas
+let tileOrder_local;
+let boolSlideSolved;
 
-let tileOrder = ["2", "4", "8", "5", "3", "6", "9", "1", "7"];
-let tileOrder_backup=["2", "4", "8", "5", "3", "6", "9", "1", "7"];
+document.addEventListener("DOMContentLoaded", () => {
+  
+  let slideBallsProve = JSON.parse(localStorage.getItem('slideBallsItem')).length;
 
+  if (slideBallsProve === 4) {
+    boolBalls = true;
+  } else {
+    boolBalls = false;
+  }
 
-//let tileOrder = ["1", "2", "3", "4", "6", "5", "7", "8", "9"]; //test
-//const tileOrder_backup = ["1", "2", "3", "4", "6", "5", "7", "8", "9"]; //test
-
-//Probably we need to put it on the display button.
-window.onload = slideStart(); 
-//Preguntar a miguel si puede cambiar el puzzle para que se borre porque se genera puzzle debajo del puzzle
-//Las bolas si no las encuentras en la pagina es una liada
+  if (localStorage.getItem("boolSlideSolved") != null) {
+    tileOrder_local = JSON.parse(JSON.stringify(tileOrder_solved));
+    boolSlideSolved = true;
+    slideWin=true;
+  } else {
+    tileOrder_local = JSON.parse(JSON.stringify(tileOrder));
+    boolSlideSolved = false;
+  }
+  //Probably we need to put it on the display button.
+  slideStart();
+  //Preguntar a miguel si puede cambiar el puzzle para que se borre porque se genera puzzle debajo del puzzle
+  //Las bolas si no las encuentras en la pagina es una liada
+});
 
 function slideStart() {
   //Initialize divs;
@@ -61,7 +75,7 @@ function slideStart() {
       tile.id = r.toString() + "-" + c.toString();
       tile.classList.add("tile");
 
-      tile.classList.add("c_" + tileOrder.shift());
+      tile.classList.add("c_" + tileOrder_local.shift());
 
       tile.addEventListener("click", slideFunctionClick);
 
@@ -75,43 +89,41 @@ function slideStart() {
 }
 
 function slideFunctionClick() {
-  if(slideTurns<slideTurnLim){
-  if (!slideWin) {
-    currTile = this;
+  if (slideTurns < slideTurnLim) {
+    if (!boolSlideSolved) {
+      currTile = this;
 
-    otherTile = slideGetEmpty();
+      otherTile = slideGetEmpty();
 
-    let currCoords = currTile.id.split("-"); //ex) "0-0" -> ["0", "0"]
-    let r = parseInt(currCoords[0]);
-    let c = parseInt(currCoords[1]);
+      let currCoords = currTile.id.split("-"); //ex) "0-0" -> ["0", "0"]
+      let r = parseInt(currCoords[0]);
+      let c = parseInt(currCoords[1]);
 
-    let otherCoords = otherTile.id.split("-");
-    let r2 = parseInt(otherCoords[0]);
-    let c2 = parseInt(otherCoords[1]);
+      let otherCoords = otherTile.id.split("-");
+      let r2 = parseInt(otherCoords[0]);
+      let c2 = parseInt(otherCoords[1]);
 
-    let moveLeft = r == r2 && c2 == c - 1;
-    let moveRight = r == r2 && c2 == c + 1;
+      let moveLeft = r == r2 && c2 == c - 1;
+      let moveRight = r == r2 && c2 == c + 1;
 
-    let moveUp = c == c2 && r2 == r - 1;
-    let moveDown = c == c2 && r2 == r + 1;
+      let moveUp = c == c2 && r2 == r - 1;
+      let moveDown = c == c2 && r2 == r + 1;
 
-    let isAdjacent = moveLeft || moveRight || moveUp || moveDown;
+      let isAdjacent = moveLeft || moveRight || moveUp || moveDown;
 
-    if (isAdjacent) {
-      let currImg = slideGetClass(currTile);
-      let otherImg = slideGetClass(otherTile);
+      if (isAdjacent) {
+        let currImg = slideGetClass(currTile);
+        let otherImg = slideGetClass(otherTile);
 
-      currTile.classList.add(otherImg);
-      otherTile.classList.add(currImg);
+        currTile.classList.add(otherImg);
+        otherTile.classList.add(currImg);
 
-      slideTurns += 1;
-      slideSpanTurns.textContent = slideTurns + "/" + slideTurnLim;
+        slideTurns += 1;
+        slideSpanTurns.textContent = slideTurns + "/" + slideTurnLim;
+      }
+      slideWin = slideCheckWon();
     }
-
-    slideWin = slideCheckWon();
-
   }
-}
 }
 
 function slideGetClass(ctile) {
@@ -138,6 +150,7 @@ function slideGetEmpty() {
 
 function slideCheckWon() {
   let num = 1;
+  if(!boolSlideSolved){
   for (const [key, value] of Object.entries(slideListTiles)) {
     if (value.className.includes(num)) {
       slideWin = true;
@@ -147,15 +160,35 @@ function slideCheckWon() {
       break;
     }
   }
+}
   if (slideWin && boolBalls) {
-    h1_msg.childNodes[0].textContent = "You Won!! Turn: ";
-  } else if (slideWin && !boolBalls){
-    h1_msg.childNodes[0].textContent = "Looks like something is missing... Turn: ";
-  }else if (slideTurns >= slideTurnLim) {
+    if (boolSlideSolved) {
+      h1_msg.textContent = "You Won by Introducing the balls!!";
+    } else {
+      h1_msg.childNodes[0].textContent = "You Won!! Turn: ";
+    }
+    //Mensaje o añadir boton para ver pista o lo que querais
+    //
+    
+
+  } else if (slideWin && !boolBalls) {
+    h1_msg.childNodes[0].textContent =
+      "Looks like something is missing... Turn: ";
+    boolSlideSolved = true;
+    if (localStorage.getItem("boolSlideSolved") == null) {
+      localStorage.setItem("boolSlideSolved", JSON.stringify(boolSlideSolved));
+    }
+  } else if (slideTurns >= slideTurnLim) {
     h1_msg.childNodes[0].textContent = "You Lost!! Turn: ";
     let tOut = setTimeout(() => {
       slideRestart();
     }, 2000);
+  } else {
+    if (boolSlideSolved) {
+      h1_msg.textContent = "Looks like something is missing...";
+    }else{
+    h1_msg.childNodes[0].textContent = "Turn: ";
+    }
   }
   return slideWin;
 }
@@ -174,15 +207,14 @@ function checkBalls() {
       }
     }
   }
+  slideCheckWon();
 }
 
 function slideRestart() {
   //Initialize cons
   slideTurns = 0;
-  tileOrder = tileOrder_backup.slice();
+  tileOrder_local = JSON.parse(JSON.stringify(tileOrder));
   slideDivGame.innerHTML = "";
   h1_msg.childNodes[0].textContent = "Turn: ";
   slideStart();
 }
-
-
