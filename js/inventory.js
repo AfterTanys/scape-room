@@ -86,6 +86,7 @@ function resetInventory(){
     localStorage.removeItem("username");
     //Se resetea el timer al pulsar tips
     //resetTimer();
+    localStorage.removeItem("boolSlideSolved");
 }
 
 function updateSlideBallsItem(inventoryItem1){
