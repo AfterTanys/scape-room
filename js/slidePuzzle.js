@@ -34,7 +34,7 @@ let slideWin = false;
 //Variable that it will be false until we pick the balls
 let boolBalls;
 //Cuando carga la pagina se comprueba si hay o no bolas
-if(localStorage.getItem('bolas')){
+if(localStorage.getItem('slideBallsItem').length > 4){
   boolBalls=true;
 }else{
   boolBalls=false;

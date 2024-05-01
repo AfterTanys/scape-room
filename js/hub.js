@@ -14,6 +14,7 @@ document.addEventListener("keydown", function (event) {
   if (event.key === "F11") {
     console.log("El usuario presionó F11 para pantalla completa.");
     closeModal();
+    localStorage.setItem("username", JSON.stringify(document.getElementById("hub-name-input").value));
     setTimeout(() => {
         window.location.href = 'html/intro.html'; // Redirige a intro.html
     }, 500);
