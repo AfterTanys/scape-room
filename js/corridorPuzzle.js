@@ -278,7 +278,7 @@ function checkCompleted() {
 //Listeners
 ///
 
-document.addEventListener("keypress", function (e) {
+document.addEventListener("keydown", function (e) {
   let pj = document.getElementById("pj");
   let door = document.getElementById("door");
   let pjleft = pj.offsetLeft;
@@ -291,7 +291,7 @@ document.addEventListener("keypress", function (e) {
   //console.log(pjleft, pjtop);
   //console.log(doorleft, doortop);
   if (
-    e.key == "d" &&
+    (e.key == "d" || e.key=="ArrowRight") &&
     pjleft < (mazearray_copy.length - 1) * 50 &&
     mazearray_copy[pjPosition[0]][pjPosition[1] + 1] == 1
   ) {
@@ -303,7 +303,7 @@ document.addEventListener("keypress", function (e) {
   }
 
   if (
-    e.key == "a" &&
+    (e.key == "a" || e.key==="ArrowLeft") &&
     pjleft > 0 &&
     mazearray_copy[pjPosition[0]][pjPosition[1] - 1] == 1
   ) {
@@ -315,7 +315,7 @@ document.addEventListener("keypress", function (e) {
   }
 
   if (
-    e.key == "w" &&
+    (e.key == "w" || e.key==="ArrowUp") &&
     pjtop > 0 &&
     mazearray_copy[pjPosition[0] - 1][pjPosition[1]] == 1
   ) {
@@ -327,7 +327,7 @@ document.addEventListener("keypress", function (e) {
   }
 
   if (
-    e.key == "s" &&
+    (e.key == "s" || e.key==="ArrowDown") &&
     pjtop < (mazearray_copy.length - 1) * 50 &&
     mazearray_copy[pjPosition[0] + 1][pjPosition[1]] == 1
   ) {
