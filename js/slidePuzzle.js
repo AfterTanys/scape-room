@@ -43,9 +43,13 @@ let boolBalls;
 let tileOrder_local;
 let boolSlideSolved;
 
+let slideBallsProve=0;
+
+//No me convence lo de que se carguen los items en carga del dom porque da lugar a glitches raros...
+//Carga en 2 F5
 document.addEventListener("DOMContentLoaded", () => {
   
-  let slideBallsProve = JSON.parse(localStorage.getItem('slideBallsItem')).length;
+  slideBallsProve = JSON.parse(localStorage.getItem('slideBallsItem')).length;
 
   if (slideBallsProve === 4) {
     boolBalls = true;
