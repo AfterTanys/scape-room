@@ -185,10 +185,10 @@ function createMaze() {
   if (boolRoom != 1) {
     setStartPosition(pj, 0, 0);
     setEndPosition(door, 2, 2);
-    setStartPosition(entry, 0, 0);
+    setStartPosition(entry, 0, -2);
   } else {
     setStartPosition(pj, 950, 950);
-    setStartPosition(door, 0, 0);
+    setStartPosition(door, 0, -2);
     setStartPosition(entry, 950, 950); //0 1140
   }
   console.log(mazearray);
@@ -278,7 +278,7 @@ function checkCompleted() {
 //Listeners
 ///
 
-document.addEventListener("keydown", function (e) {
+document.addEventListener("keypress", function (e) {
   let pj = document.getElementById("pj");
   let door = document.getElementById("door");
   let pjleft = pj.offsetLeft;

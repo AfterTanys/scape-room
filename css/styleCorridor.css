@@ -8,41 +8,57 @@
     background-position: center;
     display: block;
     align-items: start;
-    margin-left: 8em;
     overflow: hidden;
     z-index: -5;
+
+    /*margin-left: 8em;*/
+    margin-left: 13em;
 }
 
-.timer{
+/*.timer{
     width: 18%;
     max-width: 18%;
     font-size: 2.5vw;
     text-align: center;
 
-}
+}*/
+
+
 
 .container-corridor{
 
     background-image: url('../resources/dialogBox/CardX5.png');
-    background-size: 90% 103.5%; 
     backface-visibility: visible;
     background-repeat: no-repeat;
 
     align-items: center;
     display: flex;
-    width: 1400px;
     height: 110vh;
-    max-width: 90%;
+   
+  
+    /*background-size: 90% 103.5%; 
     max-height: 100%;
+    width: 1800px;
+    max-width: 100%;*/
+
+    background-size: 90% 103.5%; 
+    max-height: 96%;
+    max-width: 93%;
+
 
     z-index: -4;
 }
 
 #jm-2 {
-    transform: scale(0.80);
     position: absolute;
+
+    /*transform: scale(0.80);
     top:-65px;
-    left:19.5%;
+    left:19.5%;*/
+
+    transform: scale(0.94);
+    top:26px;
+    left:29.5%;
     
 }
 
@@ -52,8 +68,13 @@
     align-items: center;
     justify-content: center;
     height: 14em;
+    /*
     width: 8.8em;
     margin-left: 1.54em;
+    */
+
+    width: 12.8em;
+    margin-left: 2.40em;
 
     &&:disabled{
         pointer-events: none;
@@ -74,6 +95,7 @@
 
 
 }
+/*Intento de responsividad entre navegadores(No va)*/
 @media screen { 
     body {
       transform: scale(calc(1 + (100vw - 600px) / 400));
@@ -90,7 +112,7 @@
     
     width: 50px;
     height: 50px;
-    border: 5px solid whitesmoke;
+    border: 5px solid rgba(55, 125, 183, 0.573);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
