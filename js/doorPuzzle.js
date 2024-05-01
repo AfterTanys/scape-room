@@ -51,10 +51,9 @@ let door_puzzle_runes = [
 let door_correct_combination = [2,1,15,7,14,18,3,4,6];
 let door_current_combination =[0,0,0,0,0,0,0,0,0];
 
-for(let i = 0; i<2; i++){
-    let correct_rune_position = Math.floor(Math.random()*9);
-    door_current_combination[correct_rune_position]=door_correct_combination[correct_rune_position];
-}
+//Se pone una runa sola por defecto
+let correct_rune_position = Math.floor(Math.random()*9);
+door_current_combination[correct_rune_position]=door_correct_combination[correct_rune_position];
 
 for(let i =0; i<9; i++){
     let door_tile = document.createElement("div");

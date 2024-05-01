@@ -28,13 +28,14 @@ let currTile;
 let otherTile; //blank tile
 
 let slideTurns = 0;
-let slideTurnLim = 100;
+let slideTurnLim = 80;
 let slideWin = false;
 
 //Variable that it will be false until we pick the balls
 let boolBalls;
+let slideBallsProve = JSON.parse(localStorage.getItem('slideBallsItem')).length;
 //Cuando carga la pagina se comprueba si hay o no bolas
-if(localStorage.getItem('slideBallsItem').length > 4){
+if(slideBallsProve === 4){
   boolBalls=true;
 }else{
   boolBalls=false;
