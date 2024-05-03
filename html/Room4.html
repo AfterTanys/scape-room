@@ -5,16 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/pilgrimage.css" />
     <link rel="stylesheet" href="../css/timer.css" />
+    <link rel="stylesheet" href="../css/estiloDani.css" />
     <title>Room 4 (Darkness)</title>
   </head>
   <body class="room4-background">
+    <div id="flashlight"></div>
     <div class="timer"></div>
     <div class="right-arrow-room" onclick="jumpToRoom(1)"></div>
   </body>
   <script src="../js/timer.js"></script>
+  <script src="../js/scriptDani.js"></script>
   <script>
     function jumpToRoom(i) {
       window.location.href = `Room${i}.html`;
     }
+    window.addEventListener(
+      "wheel",
+      (e) => {
+        if (e.ctrlKey) {
+          e.preventDefault();
+        }
+      },
+      { passive: false }
+    );
   </script>
 </html>
