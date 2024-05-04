@@ -14,6 +14,7 @@ user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge,
     width: 800px;
     height: 500px;
     background-color: green;
+    overflow: hidden; 
 }
 
 #scan-computer, #bezel-computer{
@@ -35,7 +36,15 @@ user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge,
     color: rgb(177, 253, 0);
     font-size: 20px;
     text-shadow: 1px 1px 2px rgb(150, 167, 124), 0 0 1em rgb(150, 167, 124), 0 0 0.2em rgb(150, 167, 124);
+    overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido es muy largo */
+    word-wrap: break-word; /* Asegura que las palabras largas no desborden el contenedor */
+    height: 500px;
+    margin-bottom: 30px; /* Agrega espacio al final para el botón 'Volver' */
+    height: calc(100% - 100px);
 
+}
+.log-computer{
+    white-space: pre-wrap; /* Conserva los espacios y saltos de línea, pero permite el wrap */
 }
 #word-container-computer p {
     text-align: justify;
@@ -53,4 +62,49 @@ user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge,
 #word-container-computer p span:hover {
     background-color: rgb(177, 253, 0);
     color: green;
+}
+
+.entry:hover{
+    background-color: rgb(177, 253, 0);
+    color: green;
+}
+
+#text-back:hover{
+    background-color: rgb(177, 253, 0);
+    color: green;
+}
+#password-computer {
+    font-family: VT323;
+    width: 250px;
+    padding: 10px;
+    margin: 5px 0;
+    text-shadow: 1px 1px 2px rgb(150, 167, 124), 0 0 1em rgb(150, 167, 124), 0 0 0.2em rgb(150, 167, 124);
+    background-color: green;
+    border: 2px solid rgb(177, 253, 0);
+    color: rgb(177, 253, 0);
+}
+#password-computer:focus {
+    
+    border-color:rgb(177, 253, 0) ;
+    
+}
+#password-computer::placeholder {
+    font-family: VT323;
+    color: rgb(177, 253, 0);
+}
+#password-computer:focus::placeholder {
+    font-family: VT323;
+    color: rgb(177, 253, 0);
+}
+
+#submit-computer:hover{
+    background-color: rgb(177, 253, 0);
+    color: green;
+}
+.password-screen-computer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
 }
