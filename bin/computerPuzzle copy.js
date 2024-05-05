@@ -1,3 +1,6 @@
+//Abrir la ventana modal
+
+//Cosas del puzzle
 document.addEventListener('DOMContentLoaded', function() {
     let logs = {};
     let initialStateHTML = ''; // Almacena el HTML inicial de los logs
