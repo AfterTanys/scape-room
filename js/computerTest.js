@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
            contentDiv.innerHTML = logText.replace(/\\n/g, '<br>') + createBackLink();
            attachBackEvent();
             }
-        
     }
+
     function displayPasswordInput(contentDiv) {
         contentDiv.innerHTML = ''; // Limpiar contenido anterior
     

@@ -1,0 +1,82 @@
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const slides = [
+        { 
+            text: "Despite your friends' efforts, they couldn't hold the Hostage long enough.\nAfter killing them one by one as they resisted, he reached the chamber and pierced your heart with ease."
+        },
+        { 
+            text: "As your consciousness fades, you can only think about your defeat, how close you were to achieving it, and how it slipped through your fingers.\nFinally, your suffering ends as the heat of a massive explosion consumes your flesh and destroys the remains of the ship. Humanity's hope is lost."
+        }, 
+        {
+            text: "GAME OVER"
+        }
+        
+    ];
+    let currentSlide = 0;
+    let textIndex = 0;
+    let timeoutId = null;
+    let isTypingComplete = false; // Nuevo indicador para completar la animación
+
+    const blurryBackground = document.getElementById('blurryBackground');
+    const centerImage = document.getElementById('centerImage');
+    const cinematicDialogBox = document.getElementById('cinematicDialogBox');
+    const cinematicdialogText = document.getElementById('cinematicdialogText');
+    const nextArrow = document.getElementById('cinematicNextArrow');
+
+   
+    function updateSlide() {
+        cinematicDialogBox.classList.remove('hidden');
+        cinematicdialogText.textContent = '';
+        centerImage.style.backgroundImage = `url(../resources/img/badEnding.webp)`;
+        blurryBackground.style.backgroundImage = `url(../resources/img/badEnding.webp)`;
+        textIndex = 0;
+        isTypingComplete = false; // Restablecer la bandera cuando se actualiza el slide
+        typeWriter();
+    }
+
+    function typeWriter() {
+        if (textIndex < slides[currentSlide].text.length) {
+            cinematicdialogText.textContent += slides[currentSlide].text.charAt(textIndex);
+            textIndex++;
+            timeoutId = setTimeout(typeWriter, 50);
+        } else {
+            isTypingComplete = true; // Marcar la animación como completa
+        }
+    }
+
+    nextArrow.addEventListener('click', function() {
+        if (!isTypingComplete) {
+            // Si la animación aún no está completa, la terminamos inmediatamente
+            clearTimeout(timeoutId);
+            cinematicdialogText.textContent = slides[currentSlide].text;
+            isTypingComplete = true; // Actualizar la bandera
+            timeoutId = null;
+        } else {
+            // Si la animación está completa, avanzamos al siguiente slide
+            currentSlide++;
+            if (currentSlide < slides.length-1) {
+                updateSlide();
+            }else if(currentSlide == 2){
+                updateSlide();
+                finalText();
+            } else {
+                
+                window.location.href = "index.html"; // Redirige si es la última diapositiva
+            }
+        }
+    });
+   function finalText(){
+    centerImage.style.backgroundImage = '';
+    blurryBackground.style.backgroundImage = '';
+    document.body.style.textAlign = "center";       
+    document.body.style.fontSize = "4rem";        
+    document.body.style.fontWeight = "bold";  
+    cinematicDialogBox.style.backgroundImage= 'url(../resources/dialogBox/CardX4.png)';
+    cinematicDialogBox.style.bottom= '60%';
+    cinematicDialogBox.style.left= '56%';
+    nextArrow.style.bottom='53.2%';
+    nextArrow.style.right='38%';
+   }
+        
+    updateSlide(); 
+});
