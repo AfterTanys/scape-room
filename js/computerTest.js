@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
            contentDiv.innerHTML = logText.replace(/\\n/g, '<br>') + createBackLink();
            attachBackEvent();
             }
-        
     }
+
     function displayPasswordInput(contentDiv) {
         contentDiv.innerHTML = ''; // Limpiar contenido anterior
     
@@ -251,6 +251,9 @@ function setupPrintTitaniaCode() {
     // Añadir evento para cambiar el contenido al hacer clic
     printLink.onclick = function() {
         contentDiv.textContent = 'PRINTING...'; // Cambiar texto del div
+        const clueDiv = document.createElement('div');
+        clueDiv.id = "clue-computer";
+        contentDiv.appendChild(clueDiv);
     };
 
     // Agregar el texto clicable al div
