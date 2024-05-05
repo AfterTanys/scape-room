@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // Metodo provisional para probar los dialogos en el boton de opciones
     optionsButton
     .addEventListener("click", function () {
-      dialog("DIALOG", "NAME", "../resources/sprites/ejemplo.jpg");
+      showDialog("DEBUG", "NAME(DEBUG)", "../resources/sprites/ejemplo.jpg");
     });
 
   // Aquí puedes añadir otros controladores de eventos y lógica adicional
@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   //Metodo provisional para borrar el inventario en el boton de hints
   hintButton.addEventListener("click", () => {
+    showDialog("ERASING INVENTORY DEBUG", `SILA (${JSON.parse(localStorage.getItem("username"))})`, "../resources/sprites/Sila/Sila_triste.png");
     resetInventory();
   });
 });
@@ -95,7 +96,15 @@ function dialog(text, speakerName, speakerSpritePath) {
 }
 // Función para mostrar la caja de diálogo
 function showDialog(text, speakerName, speakerSpritePath) {
-  overlay.classList.add("active");
+
+  const dialogBackgroundOverlay = document.createElement("div");
+  dialogBackgroundOverlay.id="dialog-background-overlay";
+  if(document.getElementById("dialog-background-overlay")){
+    //Nothing
+  }else{
+    document.body.appendChild(dialogBackgroundOverlay);
+  }
+
   const dialogBox = document.getElementById("dialogBox");
   const dialogText = document.getElementById("dialogText");
   const speakerNameElement = document.getElementById("speakerName");
@@ -112,13 +121,17 @@ function showDialog(text, speakerName, speakerSpritePath) {
     speakerSprite.classList.add("hidden");
   }
 
+  dialogBox.addEventListener("click", hideDialog);
+
   dialogBox.classList.remove("hidden");
   activeDialog = true;
 }
 
 // Función para ocultar la caja de diálogo
 function hideDialog() {
-  overlay.classList.remove("active");
-  document.getElementById("dialogBox").classList.add("hidden");
+  document.getElementById("dialog-background-overlay").remove();
+  const dialogBox = document.getElementById("dialogBox");
+  dialogBox.classList.add("hidden");
+  dialogBox.removeEventListener("click", hideDialog);
   activeDialog = false;
 }

@@ -17,19 +17,21 @@
 
     <div id="dark-room-exit-button" onclick="jumpToRoom(1)"></div>
 
-    <div id="slide-blue-ball"></div>
+    <div id="slide-green-ball"></div>
 
-    <div id="slide-black-ball"></div>
+    <div id="slide-red-ball"></div>
 
     <div id="dark-room-no-lantern"></div>
+
+    <div id="dark-room-lights-off"></div>
 
     <div id="background-overlay"></div>
   </body>
   <script src="../js/timer.js"></script>
-  <script src="../js/darkRoom.js"></script>
   <script src="../js/modalOpener.js"></script>
   <script src="../js/inventory.js"></script>
   <script src="../js/hud.js"></script>
+  <script src="../js/darkRoom.js"></script>
   <script>
     function jumpToRoom(i) {
       window.location.href = `Room${i}.html`;
@@ -43,5 +45,36 @@
       },
       { passive: false }
     );
+    //Metodo para recoger la bola azul (Mejorable)
+    document
+      .getElementById("slide-green-ball")
+      .addEventListener("click", () => {
+        slideBallsItem = JSON.parse(localStorage.getItem("slideBallsItem"));
+        if(slideBallsItem.includes("green")){
+          showDialog("I think I have already checked this spot...", `SILA (${JSON.parse(localStorage.getItem("username"))})`, "../resources/sprites/Sila/Sila_Neutra.png");
+        }else{
+          showDialog("Yey the GREEN Ball", `SILA (${JSON.parse(localStorage.getItem("username"))})`, "../resources/sprites/Sila/Sila_Feliz.png");
+          console.log("Has pillado la bola verde");
+          slideBallsItem.push("green");
+          localStorage.setItem("slideBallsItem", JSON.stringify(slideBallsItem));
+        }
+        updateSlideBallsItem(document.getElementsByClassName("inventory-item")[0]);
+      });
+
+    //Metodo para recoger la bola negra (Mejorable)
+    document
+      .getElementById("slide-red-ball")
+      .addEventListener("click", () => {
+        slideBallsItem = JSON.parse(localStorage.getItem("slideBallsItem"));
+        if(slideBallsItem.includes("red")){
+          showDialog("I think I just saw what was behind this book", `SILA (${JSON.parse(localStorage.getItem("username"))})`, "../resources/sprites/Sila/Sila_Neutra.png");
+        }else{
+          showDialog("Yey the RED Ball", `SILA (${JSON.parse(localStorage.getItem("username"))})`, "../resources/sprites/Sila/Sila_Feliz.png");
+          console.log("Has pillado la bola roja");
+          slideBallsItem.push("red");
+          localStorage.setItem("slideBallsItem", JSON.stringify(slideBallsItem));
+        }
+        updateSlideBallsItem(document.getElementsByClassName("inventory-item")[0]);
+      });
   </script>
 </html>

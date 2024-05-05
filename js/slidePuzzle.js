@@ -173,7 +173,11 @@ function slideCheckWon() {
     }
     //Mensaje o añadir boton para ver pista o lo que querais
     //
+    document.getElementById("game-slide").remove();
+    let slideClue = document.createElement("div");
     
+    document.getElementById("container-slide").appendChild(slideClue);
+    //Meter aqui una variable global de solucionado
 
   } else if (slideWin && !boolBalls) {
     h1_msg.childNodes[0].textContent =

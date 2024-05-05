@@ -19,17 +19,18 @@
     rgba(0, 0, 0, 0),
     rgba(0, 0, 0, 1)
   );
+  z-index: 2;
 }
 
 #dark-room-exit-button{
   position: fixed;
-  /*border: 2px solid red;*/
+  border: 2px solid red;
   width: 50px;
   height: 50px;
   border-radius: 50px;
   top: 21vh;
   left: 83.5vw;
-  z-index: 10;
+  z-index: 1;
   opacity: 0;
   transition: opacity 5s ease;
   cursor: pointer;
@@ -39,4 +40,48 @@
   opacity: 1;
 }
 
+#slide-red-ball{
+  position: fixed;
+  left: 83vw;
+  top: 67.8vh;
+  width: 40px;
+  height: 40px;
+  border: solid 2px darkred;
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 5s ease;
+}
+
+#slide-red-ball:hover{
+  opacity: 1;
+}
+
+#slide-green-ball{
+  position: fixed;
+  left: 27.2vw;
+  top: 55vh;
+  width: 40px;
+  height: 40px;
+  border: solid 2px darkgreen;
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 5s ease;
+}
+#slide-green-ball:hover{
+  opacity: 1;
+}
+
+#dark-room-lights-off{
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+  background: black;
+}
 

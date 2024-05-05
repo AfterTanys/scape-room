@@ -1,4 +1,3 @@
-
 let slideBallsItem;
 let crystalariumLanternItem;
 let jeepKeysItem;
@@ -25,10 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   } else {
     crystalariumLanternItem = 0;
-    localStorage.setItem(
-      "crystalariumLantern",
-      JSON.stringify(crystalariumLanternItem)
-    );
+    localStorage.setItem("crystalariumLantern",JSON.stringify(crystalariumLanternItem));
   }
 
   //Creacion del modal
@@ -49,25 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
   inventoryItem2.classList.add("inventory-item");
   inventoryModal.appendChild(inventoryItem2);
 
-  //Meter lo de abajo en funcion
-  if (crystalariumLanternItem != 0) {
-    inventoryItem2.style.backgroundImage="url('../resources/img/items/inventory-crystal.png')";
-  } else {
-    inventoryItem2.style.backgroundImage="url('../resources/img/items/inventory-crystal-empty.png')";
-  }
+  updateCrystalariumLanternItemItem(inventoryItem2);
 
   let inventoryItem3 = document.createElement("div");
   inventoryItem3.classList.add("inventory-item");
   inventoryModal.appendChild(inventoryItem3);
 
-  //Meter lo de abajo en funcion
-  if (jeepKeysItem != 0) {
-    inventoryItem3.style.backgroundImage =
-      "url('../resources/img/items/jeep-keys.png')";
-  } else {
-    inventoryItem3.style.backgroundImage =
-      "url('../resources/img/items/jeep-keys-empty.png')";
-  }
+  updateJeepKeysItem(inventoryItem3);
+  
 });
 
 function openInventory() {
@@ -79,14 +64,18 @@ function closeInventory() {
 }
 //Con esta funcion borras todo lo que haya en el inventario
 function resetInventory(){
+    //Reset de inventario
     localStorage.removeItem("slideBallsItem");
     localStorage.removeItem("jeepKeys");
     localStorage.removeItem("crystalariumLantern");
-    //Se resetea username al pulsar el boton de tips
+    //Reset de nombre
     localStorage.removeItem("username");
-    //Se resetea el timer al pulsar tips
+    //Reset de timer
     //resetTimer();
+    //Reset de puzzle de miguel solucionado
     localStorage.removeItem("boolSlideSolved");
+    //Reset de puzzles solucionados
+
 }
 
 function updateSlideBallsItem(inventoryItem1){
@@ -97,5 +86,24 @@ function updateSlideBallsItem(inventoryItem1){
   } else {
     inventoryItem1.style.backgroundImage =
       "url('../resources/img/items/inventory-balls.png')";
+      inventoryItem1.innerHTML = "";
+  }
+}
+
+function updateCrystalariumLanternItemItem(inventoryItem2){
+  if (crystalariumLanternItem == 1) {
+    inventoryItem2.style.backgroundImage="url('../resources/img/items/inventory-crystal.png')";
+  } else {
+    inventoryItem2.style.backgroundImage="url('../resources/img/items/inventory-crystal-empty.png')";
+  }
+}
+
+function updateJeepKeysItem(inventoryItem3){
+  if (jeepKeysItem == 1) {
+    inventoryItem3.style.backgroundImage =
+      "url('../resources/img/items/jeep-keys.png')";
+  } else {
+    inventoryItem3.style.backgroundImage =
+      "url('../resources/img/items/jeep-keys-empty.png')";
   }
 }
