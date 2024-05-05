@@ -71,11 +71,12 @@ function resetInventory(){
     //Reset de nombre
     localStorage.removeItem("username");
     //Reset de timer
-    //resetTimer();
+    resetTimer();
     //Reset de puzzle de miguel solucionado
     localStorage.removeItem("boolSlideSolved");
     //Reset de puzzles solucionados
-
+    localStorage.removeItem("solvedSlide");
+    localStorage.removeItem("solvedSimon");
 }
 
 function updateSlideBallsItem(inventoryItem1){

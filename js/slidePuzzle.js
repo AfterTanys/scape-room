@@ -65,10 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
     tileOrder_local = JSON.parse(JSON.stringify(tileOrder));
     boolSlideSolved = false;
   }
-  //Probably we need to put it on the display button.
-  slideStart();
-  //Preguntar a miguel si puede cambiar el puzzle para que se borre porque se genera puzzle debajo del puzzle
-  //Las bolas si no las encuentras en la pagina es una liada
+
+  if(JSON.parse(localStorage.getItem("solvedSlide"))==1){
+    slideStart();
+    h1_msg.childNodes[0].textContent = "You Won!!";
+    slideSpanTurns.innerText ="";
+    completeSlidePuzzle();
+  }else{
+    slideStart();
+  }
 });
 
 function slideStart() {
@@ -170,14 +175,21 @@ function slideCheckWon() {
       h1_msg.textContent = "You Won by Introducing the balls!!";
     } else {
       h1_msg.childNodes[0].textContent = "You Won!! Turn: ";
+      //Se muestra el dialogo de solucion solo si lo solucionas con las bolas del tiron
+      showDialog(
+      "This old scroll cost us half of the science wing of the ship. And that's considering Nila's great negotiating skills got it for half the price...",
+      `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+      "../resources/sprites/Sila/Sila_Enfadada.png"
+    );
     }
-    //Mensaje o añadir boton para ver pista o lo que querais
-    //
-    document.getElementById("game-slide").remove();
-    let slideClue = document.createElement("div");
-    
-    document.getElementById("container-slide").appendChild(slideClue);
-    //Meter aqui una variable global de solucionado
+    //Metodo para completar el slide y mostrar la pista
+    completeSlidePuzzle();
+    //Se almacena que esta solucionado
+    localStorage.setItem("solvedSlide", JSON.stringify(1));
+    //Se almacenan las llaves del jeep
+    localStorage.setItem("jeepKeys", JSON.stringify(1));
+    //Se actualiza el item al momento de acabar
+    updateJeepKeysItem(document.getElementsByClassName("inventory-item")[2]);
 
   } else if (slideWin && !boolBalls) {
     h1_msg.childNodes[0].textContent =
@@ -225,4 +237,12 @@ function slideRestart() {
   slideDivGame.innerHTML = "";
   h1_msg.childNodes[0].textContent = "Turn: ";
   slideStart();
+}
+
+function completeSlidePuzzle(){
+    document.getElementById("game-slide").remove();
+    let slideClue = document.createElement("div");
+    slideClue.classList.add("slide-solved-clue");
+    document.getElementById("container-slide").appendChild(slideClue);
+    document.getElementById("container-slide").style.width="40em";
 }
