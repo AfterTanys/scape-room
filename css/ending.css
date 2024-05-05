@@ -1,0 +1,70 @@
+.cinematicBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center center;
+    transition: background-image 0.5s ease; /* Transición suave de la opacidad */
+}
+
+#blurryBackground {
+    filter: blur(8px);
+    z-index: 1;
+    opacity: 1;
+    
+}
+
+#centerImageContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#centerImage {
+    background-size: contain;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto; /* Esto mantendrá la imagen en su tamaño original hasta el máximo permitido */
+    height: auto;
+    
+}
+
+
+#cinematicDialogBox {
+    position: absolute; /* Esto permite posicionar absolutamente los elementos hijos respecto a este */
+    z-index: 2; /* Asegúrate de que este valor sea mayor que el del sprite para que la caja de diálogo aparezca encima */
+    bottom: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 59.5625rem; /* 953px / 16px */
+    height: 24.9375rem; /* 399px / 16px */
+    max-height: 9.375rem; /* 150px / 16px */
+    background: url('../resources/dialogBox/CardX5.png') no-repeat center center;
+    background-size: 100% 100%;
+
+}
+#cinematicdialogText{
+    font-size: 1em;  /* Establece el tamaño de la fuente a 20px */
+    line-height: 1.5; /* Establece el interlineado a 2*/
+    text-align: justify; /* Justifica el texto del párrafo */
+    margin: 40px;
+    margin:2.5em;
+}
+#cinematicNextArrow {
+    position: absolute;
+    bottom: 3%;
+    right: 27%;
+    z-index: 4;
+    cursor: pointer;
+   
+}

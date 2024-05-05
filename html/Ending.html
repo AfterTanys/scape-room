@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/timer.css" />
+    <title>END</title>
+    <link rel="stylesheet" href="../css/ending.css" />
     <link rel="stylesheet" href="../css/pilgrimage.css">
-    <style>
-        body{
-            background-color: black;
-        }
-        #final-div{
-            font-family: "FutureZ";
-            font-size: 15rem;
-            color: var(--color-one);
-        }
-    </style>
-</head>
-<body>
-    <div class="timer"></div>
-    <div id="final-div">YOU WIN</div>
-</body>
+    <link rel="stylesheet" href="../css/timer.css" /> 
+    
+    <body  style="background-color: black;">
+        <div class="timer"></div>
+        <div id="cinematicContainer">
+            <div id="blurryBackground" class="cinematicBackground"></div>
+            <div id="centerImageContainer">
+                <div id="centerImage" class="cinematicBackground"></div>
+            </div>
+            <div id="cinematicDialogBox" class="hidden">
+                <p id="cinematicdialogText"></p>
+            </div>
+            <img id="cinematicNextArrow" src="../resources/Icons/10.png" alt="Siguiente">
+        </div>
+        
+<script src="../js/ending.js"></script>
 <script src="../js/timer.js"></script>
 <script>
     //El siguiente script hace que no puedas hacer zoom en la pagina
