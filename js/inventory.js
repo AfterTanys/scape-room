@@ -69,7 +69,7 @@ function resetInventory(){
     localStorage.removeItem("jeepKeys");
     localStorage.removeItem("crystalariumLantern");
     //Reset de nombre
-    localStorage.removeItem("username");
+    //localStorage.removeItem("username");
     //Reset de timer
     resetTimer();
     //Reset de puzzle de miguel solucionado
