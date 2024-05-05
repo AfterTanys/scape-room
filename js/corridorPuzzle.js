@@ -22,7 +22,7 @@ const mazearray = [
 ];
 
 //Bool Testeo [Change for doing it Faster]
-let boolTesting=true;
+let boolTesting=false;
 //
 
 let mazearray_copy;

@@ -30,7 +30,7 @@ let currTile;
 let otherTile; //blank tile
 
 let slideTurns = 0;
-let slideTurnLim = 80;
+let slideTurnLim = 100;
 let slideWin = false;
 
 const tileOrder = ["2", "4", "8", "5", "3", "6", "9", "1", "7"];
