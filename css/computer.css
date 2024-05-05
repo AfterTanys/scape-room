@@ -1,61 +1,57 @@
-.noselect{
--webkit-touch-callout: none; /* 105 Safari*/
--webkit-user-select: none; /*Safari*/
--khtml-user-select: none; /*Konqueror HTHL*/
--moz-user-select: none; /*Old versions of Firefox*/
--ms-user-select: none; /*Internet Explorer/Edge*/
-user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox*/
+.noselect {
+    -webkit-touch-callout: none; /* Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera, and Firefox */
 }
 
-
-
-#screen-computer{
-    position:relative;
-    width: 800px;
-    height: 500px;
+#screen-computer {
+    position: relative;
+    width: 50em; /* previously 800px */
+    height: 31.25em; /* previously 500px */
     background-color: green;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
-#scan-computer, #bezel-computer{
-    position: absolute;
+#scan-computer, #bezel-computer {
+    position: relative;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
     pointer-events: none;
+    z-index: 1;
 }
 
-#scan-computer{
-    opacity: 80%
+#scan-computer {
+    opacity: 80%;
 }
-
-#content-computer{
+#bezel-computer{
+    transform: translate(0, -100%); 
+}
+#content-computer {
+    position: relative;
     font-family: VT323;
-    padding: 50px;
+    padding: 3.125em; /* previously 50px */
     color: rgb(177, 253, 0);
-    font-size: 20px;
-    text-shadow: 1px 1px 2px rgb(150, 167, 124), 0 0 1em rgb(150, 167, 124), 0 0 0.2em rgb(150, 167, 124);
-    overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido es muy largo */
-    word-wrap: break-word; /* Asegura que las palabras largas no desborden el contenedor */
-    height: 500px;
-    margin-bottom: 30px; /* Agrega espacio al final para el botón 'Volver' */
-    height: calc(100% - 100px);
+    font-size: 1.25em; /* previously 20px */
+    text-shadow: 0.0625em 0.0625em 0.125em rgb(150, 167, 124), 0 0 1em rgb(150, 167, 124), 0 0 0.125em rgb(150, 167, 124);
+    overflow-y: auto;
+    word-wrap: break-word;
+    height: calc(100% - 6.25em); /* Adjust for padding */
+    transform: translate(0, -200%);
+}
 
-}
-.log-computer{
-    white-space: pre-wrap; /* Conserva los espacios y saltos de línea, pero permite el wrap */
-}
+
 #word-container-computer p {
     text-align: justify;
 }
 
 #word-container-computer p span {
     display: inline-block;
-    
-    padding: 2px 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
+    padding: 0.125em 0.3125em; /* adjusted from 2px 5px */
+    margin-right: 0.3125em; /* adjusted from 5px */
+    margin-bottom: 0.3125em; /* adjusted from 5px */
     cursor: pointer;
 }
 
@@ -64,47 +60,45 @@ user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge,
     color: green;
 }
 
-.entry:hover{
+#text-back-computer:hover {
     background-color: rgb(177, 253, 0);
     color: green;
 }
 
-#text-back:hover{
-    background-color: rgb(177, 253, 0);
-    color: green;
-}
 #password-computer {
     font-family: VT323;
-    width: 250px;
-    padding: 10px;
-    margin: 5px 0;
-    text-shadow: 1px 1px 2px rgb(150, 167, 124), 0 0 1em rgb(150, 167, 124), 0 0 0.2em rgb(150, 167, 124);
+    width: 15.625em; /* previously 250px */
+    padding: 0.625em; /* previously 10px */
+    margin: 0.3125em 0; /* previously 5px */
+    text-shadow: 0.0625em 0.0625em 0.125em rgb(150, 167, 124), 0 0 1em rgb(150, 167, 124), 0 0 0.125em rgb(150, 167, 124);
     background-color: green;
-    border: 2px solid rgb(177, 253, 0);
-    color: rgb(177, 253, 0);
-}
-#password-computer:focus {
-    
-    border-color:rgb(177, 253, 0) ;
-    
-}
-#password-computer::placeholder {
-    font-family: VT323;
-    color: rgb(177, 253, 0);
-}
-#password-computer:focus::placeholder {
-    font-family: VT323;
+    border: 0.125em solid rgb(177, 253, 0);
     color: rgb(177, 253, 0);
 }
 
-#submit-computer:hover{
+#password-computer:focus {
+    border-color: rgb(177, 253, 0);
+}
+
+#password-computer::placeholder {
+    color: rgb(177, 253, 0);
+}
+
+#submit-computer:hover {
     background-color: rgb(177, 253, 0);
     color: green;
 }
-.password-screen-computer{
+
+.password-screen-computer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  
+}
+.log-computer {
+    white-space: pre-wrap;
+}
+.entry-computer:hover {
+    background-color: rgb(177, 253, 0);
+    color: green;
 }

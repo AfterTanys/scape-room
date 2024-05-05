@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function setupComputerEntries() {
         const container = document.getElementById('content-computer');
         container.addEventListener('click', function(event) {
-            const entry = event.target.closest('.entry');
+            const entry = event.target.closest('.entry-computer');
             if (entry) {
                 const key = entry.getAttribute('data-key');
                 displayLogs(key);
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         let backText = document.createElement('span');
         backText.textContent = '> BACK...';
-        backText.id= 'text-back';
+        backText.id= 'text-back-computer';
 
         // Crear un texto cliclable para enviar la contraseña
         let submitText = document.createElement('span');
@@ -87,11 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function createBackLink() {
-        return '<span id="text-back" >\n > BACK... </span>';
+        return '<span id="text-back-computer" >\n > BACK... </span>';
     }
 
     function attachBackEvent() {
-        const backButton = document.querySelector('#text-back');
+        const backButton = document.querySelector('#text-back-computer');
         if (backButton) {
             backButton.onclick = function() {
                 restoreInitialState();
