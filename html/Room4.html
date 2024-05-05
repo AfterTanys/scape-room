@@ -5,16 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/pilgrimage.css" />
     <link rel="stylesheet" href="../css/timer.css" />
-    <link rel="stylesheet" href="../css/estiloDani.css" />
+    <link rel="stylesheet" href="../css/darkRoom.css" />
+    <link rel="stylesheet" href="../css/hud.css" />
+    <link rel="stylesheet" href="../css/inventory.css" />
     <title>Room 4 (Darkness)</title>
   </head>
-  <body class="room4-background">
+  <body id="room4-background">
     <div id="flashlight"></div>
+
     <div class="timer"></div>
-    <div class="right-arrow-room" onclick="jumpToRoom(1)"></div>
+
+    <div id="dark-room-exit-button" onclick="jumpToRoom(1)"></div>
+
+    <div id="slide-blue-ball"></div>
+
+    <div id="slide-black-ball"></div>
+
+    <div id="dark-room-no-lantern"></div>
+
+    <div id="background-overlay"></div>
   </body>
   <script src="../js/timer.js"></script>
-  <script src="../js/scriptDani.js"></script>
+  <script src="../js/darkRoom.js"></script>
+  <script src="../js/modalOpener.js"></script>
+  <script src="../js/inventory.js"></script>
+  <script src="../js/hud.js"></script>
   <script>
     function jumpToRoom(i) {
       window.location.href = `Room${i}.html`;
