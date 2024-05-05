@@ -22,4 +22,12 @@
     <div id="final-div">YOU WIN</div>
 </body>
 <script src="../js/timer.js"></script>
+<script>
+    //El siguiente script hace que no puedas hacer zoom en la pagina
+    window.addEventListener("wheel", (e)=>{
+        if(e.ctrlKey){
+            e.preventDefault();
+        }
+    }, {passive:false});
+</script>
 </html>
