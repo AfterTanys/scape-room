@@ -48,7 +48,7 @@ function handleKeyDown(event) {
   keysPressed[event.key] = true;
 
   // Verificamos si se han presionado todas las teclas requeridas al mismo tiempo
-  if (keysPressed["u"] && keysPressed["v"] && keysPressed["q"]) {
+  if ((keysPressed["u"]||keysPressed["U"]) && (keysPressed["v"]||keysPressed["V"]) && (keysPressed["q"]||keysPressed["Q"])) {
     console.log("Luces encendidas");
     document.getElementById("room4-background").style.cursor = "auto";
     flashlight.remove();
