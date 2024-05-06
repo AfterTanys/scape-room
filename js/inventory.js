@@ -77,6 +77,7 @@ function resetInventory(){
     //Reset de puzzles solucionados
     localStorage.removeItem("solvedSlide");
     localStorage.removeItem("solvedSimon");
+    localStorage.removeItem("solvedComputer")
     //Reset de dialogos que solo salen una vez
     localStorage.removeItem("firstDialog");
 }
