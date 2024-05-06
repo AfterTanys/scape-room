@@ -96,3 +96,13 @@
     height: 100%; /* Asegura que el contenedor de la fase 3 ocupe toda la altura disponible de #screen */
     overflow: auto; /* Añade barras de desplazamiento si el contenido es más grande que el contenedor */
 }
+
+.crystal-solved-img{
+    border: 3px solid #42d142;
+    position: absolute;
+    border-radius: 20px;
+    width: 350px;
+    height: auto;
+    left: 26.5%;
+    top: 30%;
+}

@@ -22,7 +22,7 @@ const mazearray = [
 ];
 
 //Bool Testeo [Change for doing it Faster]
-let boolTesting=true;
+let boolTesting=false;
 //
 
 let mazearray_copy;
@@ -30,6 +30,7 @@ let mazearray_copy;
 const maze = document.getElementById("maze-container");
 const btnRoom = document.getElementById("enterRoom");
 const posVisited = calcVisited(mazearray, 1);
+const corridorBackground = document.getElementById("corridor-background");
 
 let numVisited;
 let pjPosition;
@@ -53,7 +54,6 @@ function goInRoom() {
   } else {
     window.location.href = url + fromRoom + ".html";
   }
-
 }
 
 function calcVisited(arr, elem) {
@@ -183,10 +183,12 @@ function createMaze() {
     }
   }
   if (boolRoom != 1) {
+    corridorBackground.style.backgroundImage = "url(../resources/img/dark-room-background-alt.jpg)";
     setStartPosition(pj, 0, 0);
     setEndPosition(door, 2, 2);
     setStartPosition(entry, 0, -2);
   } else {
+    corridorBackground.style.backgroundImage = "url(../resources/img/dark-room-background-alt-clue.jpg)";
     setStartPosition(pj, 950, 950);
     setStartPosition(door, 0, -2);
     setStartPosition(entry, 950, 950); //0 1140

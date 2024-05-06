@@ -12,6 +12,21 @@ document
 //Cuando haces click en el elemento abre la ventana modal
 document.getElementById("big-box-glow").addEventListener("click", () => {
   console.log("Abriendo modal slidePuzzle");
+  if (JSON.parse(localStorage.getItem("solvedSlide")) == 1) {
+    //Si esta solucionado muestra dialogo de solucion
+    showDialog(
+      "This old scroll cost us half of the science wing of the ship. And that's considering Nila's great negotiating skills got it for half the price...",
+      `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+      "../resources/sprites/Sila/Sila_Enfadada.png"
+    );
+  }else{
+    //Si no esta solucionado muestra dialogo de puzzle
+    showDialog(
+      "This is the V-45 storage unit, the most advanced cryostasis model for radioactive elements, delicate items, and all kinds of food. We use it to store everything we find across the solar system. Its biometric recognition system allows any of the 10 of us to access it easily. However, Vik doesn't trust technology; he's obsessed with the idea that a robot could easily breach the system if it wanted to, so he's installed his ridiculous puzzles as an additional lock just in case. I'll need to find the balls and solve it if I want to unlock and open the box.",
+      `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+      "../resources/sprites/Sila/Sila_Neutra.png"
+    );
+  }
   openModal(modal_big_box);
 });
 
@@ -43,13 +58,12 @@ let boolBalls;
 let tileOrder_local;
 let boolSlideSolved;
 
-let slideBallsProve=0;
+let slideBallsProve = 0;
 
 //No me convence lo de que se carguen los items en carga del dom porque da lugar a glitches raros...
 //Carga en 2 F5
 document.addEventListener("DOMContentLoaded", () => {
-  
-  slideBallsProve = JSON.parse(localStorage.getItem('slideBallsItem')).length;
+  slideBallsProve = JSON.parse(localStorage.getItem("slideBallsItem")).length;
 
   if (slideBallsProve === 4) {
     boolBalls = true;
@@ -60,15 +74,20 @@ document.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("boolSlideSolved") != null) {
     tileOrder_local = JSON.parse(JSON.stringify(tileOrder_solved));
     boolSlideSolved = true;
-    slideWin=true;
+    slideWin = true;
   } else {
     tileOrder_local = JSON.parse(JSON.stringify(tileOrder));
     boolSlideSolved = false;
   }
-  //Probably we need to put it on the display button.
-  slideStart();
-  //Preguntar a miguel si puede cambiar el puzzle para que se borre porque se genera puzzle debajo del puzzle
-  //Las bolas si no las encuentras en la pagina es una liada
+
+  if (JSON.parse(localStorage.getItem("solvedSlide")) == 1) {
+    slideStart();
+    h1_msg.childNodes[0].textContent = "You Won!!";
+    slideSpanTurns.innerText = "";
+    completeSlidePuzzle();
+  } else {
+    slideStart();
+  }
 });
 
 function slideStart() {
@@ -154,30 +173,44 @@ function slideGetEmpty() {
 
 function slideCheckWon() {
   let num = 1;
-  if(!boolSlideSolved){
-  for (const [key, value] of Object.entries(slideListTiles)) {
-    if (value.className.includes(num)) {
-      slideWin = true;
-      num++;
-    } else {
-      slideWin = false;
-      break;
+  if (!boolSlideSolved) {
+    for (const [key, value] of Object.entries(slideListTiles)) {
+      if (value.className.includes(num)) {
+        slideWin = true;
+        num++;
+      } else {
+        slideWin = false;
+        break;
+      }
     }
   }
-}
   if (slideWin && boolBalls) {
     if (boolSlideSolved) {
       h1_msg.textContent = "You Won by Introducing the balls!!";
     } else {
       h1_msg.childNodes[0].textContent = "You Won!! Turn: ";
+      //[FIXED] Se muestra el dialogo de solucion solo si lo solucionas con las bolas del tiron
+      showDialog(
+        "This old scroll cost us half of the science wing of the ship. And that's considering Nila's great negotiating skills got it for half the price...",
+        `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+        "../resources/sprites/Sila/Sila_Enfadada.png"
+      );
     }
-    //Mensaje o añadir boton para ver pista o lo que querais
-    //
-    
-
+    //Metodo para completar el slide y mostrar la pista
+    completeSlidePuzzle();
+    //Se almacena que esta solucionado
+    localStorage.setItem("solvedSlide", JSON.stringify(1));
+    //Se almacenan las llaves del jeep
+    localStorage.setItem("jeepKeys", JSON.stringify(1));
+    //Se actualiza el item al momento de acabar
+    updateJeepKeysItem(document.getElementsByClassName("inventory-item")[2]);
   } else if (slideWin && !boolBalls) {
-    h1_msg.childNodes[0].textContent =
-      "Looks like something is missing... Turn: ";
+    let slideMsg = "Looks like something is missing...";
+    if (slideTurns > 1) {
+      h1_msg.childNodes[0].textContent = slideMsg + " Turn: ";
+    } else {
+      h1_msg.innerText = slideMsg;
+    }
     boolSlideSolved = true;
     if (localStorage.getItem("boolSlideSolved") == null) {
       localStorage.setItem("boolSlideSolved", JSON.stringify(boolSlideSolved));
@@ -190,8 +223,8 @@ function slideCheckWon() {
   } else {
     if (boolSlideSolved) {
       h1_msg.textContent = "Looks like something is missing...";
-    }else{
-    h1_msg.childNodes[0].textContent = "Turn: ";
+    } else {
+      h1_msg.childNodes[0].textContent = "Turn: ";
     }
   }
   return slideWin;
@@ -221,4 +254,12 @@ function slideRestart() {
   slideDivGame.innerHTML = "";
   h1_msg.childNodes[0].textContent = "Turn: ";
   slideStart();
+}
+
+function completeSlidePuzzle() {
+  document.getElementById("game-slide").remove();
+  let slideClue = document.createElement("div");
+  slideClue.classList.add("slide-solved-clue");
+  document.getElementById("container-slide").appendChild(slideClue);
+  document.getElementById("container-slide").style.width = "40em";
 }

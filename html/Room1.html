@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=VT323&display-swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/pilgrimage.css">
     <link rel="stylesheet" href="../css/timer.css" />
     <link rel="stylesheet" href="../css/room1.css">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="../css/crystalariumPuzzle.css" />
     <link rel="stylesheet" href="../css/doorPuzzle.css" />
     <link rel="stylesheet" href="../css/inventory.css" />
+    <link rel="stylesheet" href="../css/computer.css">
     <title>Room 1 (Door Room)</title>
 </head>
 <body id="room1-background">
@@ -59,19 +61,59 @@
             <button class="close-modal-btn" id="door-puzzle-close-btn">CLOSE</button>
         </div>
     </div>
+    
+    <div class="modal-puzzle" id="modal-puzzle-computer">
+        <div id="screen-computer">
+            <img src="../resources/img/PC/scanlines.png" id="scan-computer"class="noselect"/>
+            <img src="../resources/img/PC/bezel.png" id="bezel-computer" class="noselect"/>
+            <div id="content-computer" class="noselect">
+              <div id="attempts">
+              </div> <!-- Contenedor para intentos -->
+              <div id="word-container-computer"></div> <!-- Contenedor para palabras -->
+    
+              <div id="computer" style="display: none;">
+                <h2>Computer</h2>
+                <div id="computer-entries">
+                  <div class="entry-computer" data-key="1">Phobos, 4998</div>
+                  <div class="entry-computer" data-key="2">Ceres, 4999</div>
+                  <div class="entry-computer" data-key="3">Titania, 4999</div>
+                  <div class="entry-computer" data-key="4">ADMIN ONLY</div>
+                  <div class="entry-computer" data-key="5">Mail</div>
+                </div>
+            </div>
+            </div>       
+        </div>
+        <div>
+            <button class="close-modal-btn" id="computer-puzzle-close-btn">CLOSE</button>
+        </div>
+    </div>
 
     <div id="background-overlay"></div>
     
 </body>
 <script src="../js/timer.js"></script>
+<script src="../js/inventory.js"></script>
 <script src="../js/hud.js"></script>
+<script src="../js/modalOpener.js"></script>
 <script src="../js/slidePuzzle.js"></script>
 <script src="../js/crystalariumPuzzle.js"></script>
-<script src="../js/modalOpener.js"></script>
 <script src="../js/doorPuzzle.js"></script>
-<script src="../js/inventory.js"></script>
+<script src="../js/computerPuzzle.js"></script>
 <script>
     
+    document.addEventListener("DOMContentLoaded", ()=>{
+        if(JSON.parse(localStorage.getItem("firstDialog"))!=1){
+            showDialog(
+            `As I walked down the vast corridor of the spaceship, I could hear the rumble of jeeps' wheels fading into the distance, leaving me stranded in the heart of our civilization. Despite this, what truly tightened the knot in my throat was the possibility of never seeing any of them again. Nine of the finest Beacon bearers were out there, buying me precious minutes against the enemy. Among them was my own father.
+            
+            I need to open the large door at the end of this corridor. I estimate they can buy me an hour of time. We've struggled to gather all the necessary clues, but I should be able to crack the code.`,
+            `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+            "../resources/sprites/Sila/Sila_asustada.png"
+          );
+          localStorage.setItem("firstDialog", JSON.stringify(1));
+        }
+    });
+
     //El siguiente script hace que no puedas hacer zoom en la pagina
     window.addEventListener("wheel", (e)=>{
         if(e.ctrlKey){

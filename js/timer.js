@@ -44,6 +44,7 @@ function updateTimer() {
     if (timerSeconds === 0 && timerMinutes === 0) {
         clearInterval(timerInterval);
         timerText.innerHTML = "HAS PERDIDO";
+        window.location.href = "badEnding.html";
         return;
     }
 

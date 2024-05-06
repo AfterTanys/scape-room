@@ -1,3 +1,21 @@
+/*Ventana modal*/
+
+#modal-puzzle-computer{
+    background-image: url('../resources/dialogBox/CardX5.png');
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 50px;
+    width: 70vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+  }
+
+/*Cosas del pc*/
 .noselect {
     -webkit-touch-callout: none; /* Safari */
     -webkit-user-select: none; /* Safari */
@@ -9,10 +27,11 @@
 
 #screen-computer {
     position: relative;
-    width: 50rem; /* updated from 50em */
-    height: 31.25rem; /* updated from 31.25em */
+    width: 70rem; /* updated from 50em */
+    height: 40rem; /* updated from 31.25em */
     background-color: green;
     overflow: hidden;
+    border-radius: 40px;
 }
 
 #scan-computer, #bezel-computer {
@@ -34,12 +53,12 @@
     font-family: VT323;
     padding: 3.125rem; /* updated from 3.125em */
     color: rgb(177, 253, 0);
-    font-size: 1.25rem; /* updated from 1.25em */
+    font-size: 1.75rem; /* updated from 1.25em */
     text-shadow: 0.0625rem 0.0625rem 0.125rem rgb(150, 167, 124), 0 0 1rem rgb(150, 167, 124), 0 0 0.125rem rgb(150, 167, 124);
     overflow-y: auto;
     word-wrap: break-word;
     height: calc(100% - 6.25rem); /* Adjust for padding, updated from 6.25em */
-    transform: translate(0, -200%);
+    transform: translate(0, -230%);
 }
 
 
@@ -67,9 +86,12 @@
 
 #password-computer {
     font-family: VT323;
-    width: 15.625rem; /* updated from 15.625em */
+    width: 20rem; /* updated from 15.625em */
+    height: 4rem;
+    font-size: 2rem;
     padding: 0.625rem; /* updated from 0.625em */
     margin: 0.3125rem 0; /* updated from 0.3125em */
+    margin-bottom: 1.5rem;
     text-shadow: 0.0625rem 0.0625rem 0.125rem rgb(150, 167, 124), 0 0 1rem rgb(150, 167, 124), 0 0 0.125rem rgb(150, 167, 124);
     background-color: green;
     border: 0.125rem solid rgb(177, 253, 0);
@@ -89,8 +111,8 @@
     color: green;
 }
 #clue-computer{
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
     background-image: url("../resources/img/pistaPC.png");
     position: relative;
     left: 33%;

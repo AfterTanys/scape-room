@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 finalText();
             } else {
                 
-                window.location.href = "index.html"; // Redirige si es la última diapositiva
+                window.location.href = "../index.html"; // Redirige si es la última diapositiva
             }
         }
     });

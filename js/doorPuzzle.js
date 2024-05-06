@@ -2,6 +2,11 @@ const modal_door = document.getElementById("modal-puzzle-door");
 
 document.getElementById("door-glow").addEventListener("click", ()=>{
     console.log("Opening door modal");
+    showDialog(
+        "This enormous door leads to the Pilgrim's Chamber. We've fought so hard to get here... Now, I just need to figure out the nine runes to open it and discover where he went. I hope Dad is right and whatever they left behind is enough to stop the Hostage. The ten of us have made tremendous sacrifices to get here: the Phobos base, the mothership, Mom... I won't let it be in vain.",
+        `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+        "../resources/sprites/Sila/Sila_triste.png"
+      );
     openModal(modal_door);
 });
 
@@ -75,7 +80,12 @@ for(let i =0; i<9; i++){
         door_tile.style.backgroundImage = `url("${door_puzzle_backgrounds[Math.floor(Math.random()*5)]}")`;
         if(doorPuzzleCheckRunes()==true){
             stopTimer();
-            window.location.href = 'Ending.html';
+            showDialog(
+                "The heavy door groaned and settled for a few seconds. Then, silence took over the room. I thought something had malfunctioned, but it resumed its operation before I could even consider what to do next. The structure cracked down the middle, revealing the three meters of its thickness and hundreds of small metallic cylinders that held both halves together perfectly. A cloud of whitish dust was pulled out, filling my mouth with a taste akin to chalk.",
+                `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+                "../resources/sprites/Sila/Sila_sorprendida.png"
+              );
+              document.getElementById("dialogBox").addEventListener("click", openFinalDoor);
         }
     });
 }
@@ -87,4 +97,9 @@ function doorPuzzleCheckRunes(){
         }
     }
     return true;
+}
+
+function openFinalDoor(){
+    document.getElementById("dialogBox").removeEventListener("click", openFinalDoor);
+    window.location.href = 'Ending.html';
 }

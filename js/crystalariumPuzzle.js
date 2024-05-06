@@ -4,6 +4,11 @@ const modal_small_box = document.getElementById("modal-puzzle-small-box");
 //Cuando haces click en el elemento abre la ventana modal
 document.getElementById("small-box-glow").addEventListener("click", ()=>{
     console.log("Abriendo modal crystalariumPuzzle");
+    showDialog(
+        "This is Tara's crystalarium; she uses it to synthesize various compounds and minerals. When we escaped from Phobos, it took more hits than it could handle, and most of its functions went offline. Vex helped design a new interface that even I could understand. Tara is a very kind person. Maybe if I restore all its functions, I could make a new white crystal for my flashlight...",
+        `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+        "../resources/sprites/Sila/Sila_Neutra.png"
+      );
     openModal(modal_small_box);
 });
 
@@ -315,6 +320,16 @@ function nuevaFase3Crystal() {
 function comprobarCombinacionFase3Crystal(seleccionados, posicionBlanco) {
     
     if (seleccionados.length === 1 && seleccionados[0].index === posicionBlanco) {
+        //Si te pasas el cristalario salta texto
+
+        showDialog("This quartz will work for the flashlight. Look, it seems Kai carved the Ceres rune into the side of the crystalarium with his knife. Lena might not appreciate her toys being scratched, but given the circumstances we were in...", `SILA (${JSON.parse(localStorage.getItem("username"))})`, "../resources/sprites/Sila/Sila_sorprendida.png");
+
+        //Se pone el cristal y se actualiza
+
+        crystalariumLanternItem = 1;
+        localStorage.setItem("crystalariumLantern",JSON.stringify(crystalariumLanternItem));
+        updateCrystalariumLanternItemItem(document.getElementsByClassName("inventory-item")[1]);
+
        tituloCrystal.textContent = 'SYNTHESIZED WHITE CRYSTAL ';
        objetivoCrystal.textContent = '[SiO2] \n WARNING, ENERGY SUPPLY LOW. HYBERNATION MODE ACTIVATED.';
        objetivoCrystal.classList.add('text-crystal');
@@ -323,22 +338,21 @@ function comprobarCombinacionFase3Crystal(seleccionados, posicionBlanco) {
         const botonesDiv = document.getElementById('botones-crystal');
         botonesDiv.innerHTML = '';
         const imagen = document.createElement('img');
+        const image_sol = document.createElement('img');
 
-        // Configurar la fuente de la imagen
-        imagen.src = '../resources/img/Crystalarium/lowBattery.png';  // Asegúrate de poner la ruta correcta de la imagen
-     imagen.alt = 'Descripción de la imagen';  // Texto alternativo para la imagen
+        //Imagen de solucion
 
-     // Opcional: Añadir clases o estilos adicionales
-              // Si tienes estilos específicos en CSS
-        imagen.style.width = '400px';  // Establece el ancho de la imagen
-        imagen.style.height = 'auto';  // Mantiene la proporción de la imagen
+        image_sol.src = '../resources/img/pistaCristalario.png';
+        image_sol.alt = 'Crystalarium Clue';
 
-    // Añadir la imagen al div
-    botonesDiv.appendChild(imagen);
+        image_sol.classList.add("crystal-solved-img");
+
+        // Añadir la imagen al div
+        botonesDiv.appendChild(image_sol);
         const checkBtn = document.getElementById('checkBtn'); 
         if (checkBtn) {
         checkBtn.remove(); // Esto elimina el botón del DOM.
-}
+        }
 
     } else {
         tituloCrystal.textContent = 'ERROR: EXTREMELY VOLATILE CRYSTAL';
