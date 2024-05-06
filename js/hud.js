@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // Metodo provisional para probar los dialogos en el boton de opciones
     optionsButton
     .addEventListener("click", function () {
-      showDialog("DEBUG", "NAME(DEBUG)", "../resources/sprites/ejemplo.jpg");
+      //showDialog("DEBUG", "NAME(DEBUG)", "../resources/sprites/ejemplo.jpg");
     });
 
   // Aquí puedes añadir otros controladores de eventos y lógica adicional
@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   //Metodo provisional para borrar el inventario en el boton de hints
   hintButton.addEventListener("click", () => {
-    showDialog("ERASING INVENTORY DEBUG", `SILA (${JSON.parse(localStorage.getItem("username"))})`, "../resources/sprites/Sila/Sila_triste.png");
-    resetInventory();
+    //showDialog("ERASING INVENTORY DEBUG", `SILA (${JSON.parse(localStorage.getItem("username"))})`, "../resources/sprites/Sila/Sila_triste.png");
+    //resetInventory();
   });
 });
 
