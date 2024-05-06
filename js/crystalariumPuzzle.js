@@ -4,6 +4,11 @@ const modal_small_box = document.getElementById("modal-puzzle-small-box");
 //Cuando haces click en el elemento abre la ventana modal
 document.getElementById("small-box-glow").addEventListener("click", ()=>{
     console.log("Abriendo modal crystalariumPuzzle");
+    showDialog(
+        "This is Tara's crystalarium; she uses it to synthesize various compounds and minerals. When we escaped from Phobos, it took more hits than it could handle, and most of its functions went offline. Vex helped design a new interface that even I could understand. Tara is a very kind person. Maybe if I restore all its functions, I could make a new white crystal for my flashlight...",
+        `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+        "../resources/sprites/Sila/Sila_Neutra.png"
+      );
     openModal(modal_small_box);
 });
 

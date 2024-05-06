@@ -4,6 +4,11 @@ const modal_pc = document.getElementById("modal-puzzle-computer");
 //Cuando haces click en el elemento abre la ventana modal
 document.getElementById("computer-glow").addEventListener("click", ()=>{
     console.log("Abriendo modal del ordenador");
+    showDialog(
+        "This is Tobin Vex's computer, our tech expert. He's a sarcastic jerk, but he knows his stuff and eventually gives in to our requests. There might be valuable information inside. He ran off to protect the ship from the Hostage forces, so he didn't give me the password. However, I've seen him hack into interfaces more times than he'd like to admit. I should be able to bypass his advanced security system—and take a jab at his ego in the process.",
+        `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+        "../resources/sprites/Sila/Sila_Neutra.png"
+      );
     openModal(modal_pc);
 });
 
@@ -193,15 +198,21 @@ document.addEventListener('DOMContentLoaded', function() {
                                     // Aquí haces visible la sección computer cuando se hayan completado todos los niveles
                                     document.getElementById('computer').style.display = 'block';
                                     document.getElementById('word-container-computer').innerHTML = 'Access granted.';
+                                    //Se muestra el dialogo de hackeo
+                                    showDialog(
+                                        "Tobin likes to take credit for hacking the system at the Titania outpost, one of Uranus' moons, but it was actually Ronin who went in, placed the transmitter, and got out undetected in 32 minutes—a personal record.",
+                                        `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+                                        "../resources/sprites/Sila/Sila_Feliz.png"
+                                      );
                                 }
                             } else {
                                 attempts--;
                                 updateAttempts(attempts);
                                 if (attempts <= 0) {
-                                    document.getElementById('word-container-computer').innerHTML = 'Terminal locked.';
+                                    document.getElementById('word-container-computer').innerHTML = 'Terminal locked. Reloading... It can take a while...';
                                 } else {
                                     const correctLetters = getCorrectLetters(selectedWord, correctWord);
-                                    correctLettersDisplay.textContent = `${correctLetters}/${correctWord.length} correct`;
+                                    correctLettersDisplay.textContent = `${correctLetters}/${correctWord.length} correct characters`;
                                     correctLettersDisplay.style.display = 'block'; // Mostrar el elemento
                                     addToAttemptsHistory(selectedWord, correctLetters, correctWord); // Agregar el intento al historial
                                 }
@@ -240,7 +251,7 @@ document.addEventListener('DOMContentLoaded', function() {
             function addToAttemptsHistory(word, correctLetters, correctWord) {
                 const attemptsHistory = document.getElementById('attempts-history');
                 const attempt = document.createElement('div');
-                attempt.textContent = `${word}: ${correctLetters}/${correctWord.length} correct`;
+                attempt.textContent = `${word}: ${correctLetters}/${correctWord.length} correct characters`;
                 attemptsHistory.insertBefore(attempt, attemptsHistory.firstChild); // Agregar al principio del historial
             }
         });

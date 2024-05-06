@@ -5,6 +5,11 @@ const modal_jeep = document.getElementById("modal-puzzle-jeep");
 document.getElementById("jeep-door-glow").addEventListener("click", ()=>{
     if(JSON.parse(localStorage.getItem("jeepKeys"))==1){
       console.log("Opening jeep modal");
+      showDialog(
+        "Thankfully, the jeep is intact. Dad and I have put a lot of effort into the spectrometer in the back. I could use it to handle the Phobos rune without worrying about damaging it; I just need to follow the synchronization sequence... It's a simple machine, but it usually requires three people to operate it.",
+        `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+        "../resources/sprites/Sila/Sila_Neutra.png"
+      );
       openModal(modal_jeep);
     }else{
       showDialog("What is happening, I am missing the keys to open the jeep? Maybe I should check on another room to search for them.", `SILA (${JSON.parse(localStorage.getItem("username"))})`, "../resources/sprites/Sila/Sila_Enfadada.png");

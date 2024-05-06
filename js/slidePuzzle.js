@@ -12,11 +12,19 @@ document
 //Cuando haces click en el elemento abre la ventana modal
 document.getElementById("big-box-glow").addEventListener("click", () => {
   console.log("Abriendo modal slidePuzzle");
-  if (localStorage.getItem("solvedSlide") != null) {
+  if (JSON.parse(localStorage.getItem("solvedSlide")) == 1) {
+    //Si esta solucionado muestra dialogo de solucion
     showDialog(
       "This old scroll cost us half of the science wing of the ship. And that's considering Nila's great negotiating skills got it for half the price...",
       `SILA (${JSON.parse(localStorage.getItem("username"))})`,
       "../resources/sprites/Sila/Sila_Enfadada.png"
+    );
+  }else{
+    //Si no esta solucionado muestra dialogo de puzzle
+    showDialog(
+      "This is the V-45 storage unit, the most advanced cryostasis model for radioactive elements, delicate items, and all kinds of food. We use it to store everything we find across the solar system. Its biometric recognition system allows any of the 10 of us to access it easily. However, Vik doesn't trust technology; he's obsessed with the idea that a robot could easily breach the system if it wanted to, so he's installed his ridiculous puzzles as an additional lock just in case. I'll need to find the balls and solve it if I want to unlock and open the box.",
+      `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+      "../resources/sprites/Sila/Sila_Neutra.png"
     );
   }
   openModal(modal_big_box);

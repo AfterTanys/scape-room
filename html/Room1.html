@@ -101,6 +101,19 @@
 <script src="../js/computerPuzzle.js"></script>
 <script>
     
+    document.addEventListener("DOMContentLoaded", ()=>{
+        if(JSON.parse(localStorage.getItem("firstDialog"))!=1){
+            showDialog(
+            `As I walked down the vast corridor of the spaceship, I could hear the rumble of jeeps' wheels fading into the distance, leaving me stranded in the heart of our civilization. Despite this, what truly tightened the knot in my throat was the possibility of never seeing any of them again. Nine of the finest Beacon bearers were out there, buying me precious minutes against the enemy. Among them was my own father.
+            
+            I need to open the large door at the end of this corridor. I estimate they can buy me an hour of time. We've struggled to gather all the necessary clues, but I should be able to crack the code.`,
+            `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+            "../resources/sprites/Sila/Sila_asustada.png"
+          );
+          localStorage.setItem("firstDialog", JSON.stringify(1));
+        }
+    });
+
     //El siguiente script hace que no puedas hacer zoom en la pagina
     window.addEventListener("wheel", (e)=>{
         if(e.ctrlKey){
