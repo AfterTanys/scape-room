@@ -78,6 +78,8 @@ function resetInventory(){
     localStorage.removeItem("solvedSlide");
     localStorage.removeItem("solvedSimon");
     localStorage.removeItem("solvedComputer")
+    //Reset conteo corridor
+    localStorage.removeItem("numPassedCorridor");
     //Reset de dialogos que solo salen una vez
     localStorage.removeItem("firstDialog");
 }
@@ -91,12 +93,28 @@ function updateSlideBallsItem(inventoryItem1){
     inventoryItem1.style.backgroundImage =
       "url('../resources/img/items/inventory-balls.png')";
       inventoryItem1.innerHTML = "";
+    inventoryItem1.style.cursor="pointer";
+    inventoryItem1.addEventListener("click",()=>{
+      showDialog(
+        "This balls will be handy to complete the slide box puzzle...",
+        `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+        "../resources/sprites/Sila/Sila_Feliz.png"
+      );
+    });
   }
 }
 
 function updateCrystalariumLanternItemItem(inventoryItem2){
   if (crystalariumLanternItem == 1) {
     inventoryItem2.style.backgroundImage="url('../resources/img/items/inventory-crystal.png')";
+    inventoryItem2.style.cursor="pointer";
+    inventoryItem2.addEventListener("click",()=>{
+      showDialog(
+        "Look at this crystal. I can use it to focus my torchlight brightness into a more precise beam.",
+        `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+        "../resources/sprites/Sila/Sila_Feliz.png"
+      );
+    });
   } else {
     inventoryItem2.style.backgroundImage="url('../resources/img/items/inventory-crystal-empty.png')";
   }
@@ -106,6 +124,14 @@ function updateJeepKeysItem(inventoryItem3){
   if (jeepKeysItem == 1) {
     inventoryItem3.style.backgroundImage =
       "url('../resources/img/items/jeep-keys.png')";
+      inventoryItem3.style.cursor="pointer";
+      inventoryItem3.addEventListener("click",()=>{
+        showDialog(
+          "Finally I can investigate what is inside the jeep.",
+          `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+          "../resources/sprites/Sila/Sila_Feliz.png"
+        );
+      });
   } else {
     inventoryItem3.style.backgroundImage =
       "url('../resources/img/items/jeep-keys-empty.png')";

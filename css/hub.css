@@ -13,7 +13,6 @@
 }
 
 #hub-title-box{
-    font-family: "FutureZ";
     background-image: url("../resources/dialogBox/CardX5.png");
     background-size: 55% 100%;
     background-repeat: no-repeat;
@@ -39,9 +38,8 @@
 }
 
 #hub-instructions-box{
-    font-family: "FutureZ";
     background-image: url("../resources/cards/CardX2.png");
-    background-size: 100% 100%;
+    background-size: 100% 103.2%;
     background-repeat: no-repeat;
     background-position: center; /* Para que la imagen de fondo cubra completamente el botón */
     width: 30%;
@@ -51,9 +49,14 @@
     color: var(--color-one);
     justify-content: center;
     align-items: center;
-    text-align: justify;
+    text-align: center;
     padding-right: 2.5rem;
     padding-left: 2.5rem;
+    overflow-y: auto; /* Mostrar scrollbar solo en dirección vertical */
+}
+
+#hub-instructions-box::-webkit-scrollbar {
+    display: none; /* Oculta la barra de desplazamiento en navegadores WebKit (Chrome, Safari, etc.) */
 }
 
 #hub-instructions-box h1{
@@ -79,6 +82,7 @@
     gap: 2rem;
     padding-left: 3rem;
     padding-right: 3rem;
+    padding-bottom: 2rem;
 }
 
 .hub-promotor-card{
@@ -96,19 +100,19 @@
 
 .hub-promotor-card-name{
     font-size: 1.5rem;
-    font-family: "FutureZ";
     color: var(--color-one);
 }
 
 .hub-promotor-card-photo{
     border-radius: 50%;
-    height: 17rem;
-    width: 100%;
+    height: 14rem;
+    width: 80%;
     background-color: aliceblue;
     margin-bottom: 2rem;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
+    align-self: center;
 }
 
 #hub-third-row{
@@ -137,7 +141,6 @@
     width: 90%;
     height: 100%;
     color: var(--color-one);
-    font-family: "FutureZ";
     font-size: 3rem;
     text-align: center;
 }
@@ -189,4 +192,22 @@
     padding: 0;
     margin: 0;
     font-size: 3rem;
+}
+
+#hub-font-button{
+    color: var(--color-one);
+    background-color: transparent;
+    border: none;
+    &&:hover{
+    cursor: pointer;
+    }
+    
+}
+
+.font-ours{
+    font-family: "FutureZ";
+}
+
+.font-normal{
+    font-family: "Arial";
 }

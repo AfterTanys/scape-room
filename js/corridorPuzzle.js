@@ -21,8 +21,8 @@ const mazearray = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1],
 ];
 
-//Bool Testeo [Change for doing it Faster]
-let boolTesting=false;
+//Bool Skip [Change for doing it Faster]
+let boolSkip = false;
 //
 
 let mazearray_copy;
@@ -36,6 +36,7 @@ let numVisited;
 let pjPosition;
 let doorPosition;
 let boolCompleted;
+let numPassed = 0;
 
 const url = "../html/Room";
 
@@ -48,8 +49,34 @@ let params = new URLSearchParams(queryString);
 let boolRoom = parseInt(params.get("boolRoom")); //pilla al que va
 let fromRoom = parseInt(params.get("fromRoom")); //del que viene
 
+
+//Llorones Skip
+document.addEventListener("DOMContentLoaded", () => {
+  if (fromRoom==1) {
+    showDialog(
+      "This way leads to the jeep they've left for me. I think I might find something interesting inside it... Damn, there's a huge radiation leak in the next room, so I'll need to put on the suit. I don't think the safety hatch on the other side will open until the radiation clears, so I'll have to be careful where I step until then. Fortunately, the emergency system is fully operational, and I'll be able to move all the contamination to the adjacent chamber, but I'll need to bring it back to this corridor if I want to return.",
+      `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+      "../resources/sprites/Sila/Sila_sorprendida.png"
+    );
+  }
+  
+  numPassed = JSON.parse(localStorage.getItem("numPassedCorridor"));
+  if (numPassed >= 2) {
+    boolSkip = true;
+  } else {
+    localStorage.setItem("numPassedCorridor", JSON.stringify(numPassed));
+  }
+});
+
 function goInRoom() {
-  if (boolCompleted || (boolTesting&&numVisited>=1)) {
+  if (boolCompleted || (boolSkip && numVisited >= 1)) {
+    numPassed = JSON.parse(localStorage.getItem("numPassedCorridor"));
+    if (numPassed >= 2) {
+      boolSkip = true;
+    } else {
+      numPassed++;
+      localStorage.setItem("numPassedCorridor", JSON.stringify(numPassed));
+    }
     window.location.href = url + boolRoom + ".html";
   } else {
     window.location.href = url + fromRoom + ".html";
@@ -183,12 +210,14 @@ function createMaze() {
     }
   }
   if (boolRoom != 1) {
-    corridorBackground.style.backgroundImage = "url(../resources/img/dark-room-background-alt.jpg)";
+    corridorBackground.style.backgroundImage =
+      "url(../resources/img/dark-room-background-alt.jpg)";
     setStartPosition(pj, 0, 0);
     setEndPosition(door, 2, 2);
     setStartPosition(entry, 0, -2);
   } else {
-    corridorBackground.style.backgroundImage = "url(../resources/img/dark-room-background-alt-clue.jpg)";
+    corridorBackground.style.backgroundImage =
+      "url(../resources/img/dark-room-background-alt-clue.jpg)";
     setStartPosition(pj, 950, 950);
     setStartPosition(door, 0, -2);
     setStartPosition(entry, 950, 950); //0 1140
@@ -270,9 +299,9 @@ function checkCompleted() {
     btnRoom.innerText = "Its Closed";
     btnRoom.setAttribute("disabled", true);
   }
-  if(boolTesting){
+  if (boolSkip) {
     btnRoom.removeAttribute("disabled");
-    btnRoom.innerText = `Testing my Friend\n ${numVisited}/${posVisited}`;
+    btnRoom.innerText = `Skip...`;
   }
 }
 
@@ -293,7 +322,7 @@ document.addEventListener("keydown", function (e) {
   //console.log(pjleft, pjtop);
   //console.log(doorleft, doortop);
   if (
-    (e.key == "d" || e.key=="ArrowRight") &&
+    (e.key == "d" || e.key == "ArrowRight") &&
     pjleft < (mazearray_copy.length - 1) * 50 &&
     mazearray_copy[pjPosition[0]][pjPosition[1] + 1] == 1
   ) {
@@ -305,7 +334,7 @@ document.addEventListener("keydown", function (e) {
   }
 
   if (
-    (e.key == "a" || e.key==="ArrowLeft") &&
+    (e.key == "a" || e.key === "ArrowLeft") &&
     pjleft > 0 &&
     mazearray_copy[pjPosition[0]][pjPosition[1] - 1] == 1
   ) {
@@ -317,7 +346,7 @@ document.addEventListener("keydown", function (e) {
   }
 
   if (
-    (e.key == "w" || e.key==="ArrowUp") &&
+    (e.key == "w" || e.key === "ArrowUp") &&
     pjtop > 0 &&
     mazearray_copy[pjPosition[0] - 1][pjPosition[1]] == 1
   ) {
@@ -329,7 +358,7 @@ document.addEventListener("keydown", function (e) {
   }
 
   if (
-    (e.key == "s" || e.key==="ArrowDown") &&
+    (e.key == "s" || e.key === "ArrowDown") &&
     pjtop < (mazearray_copy.length - 1) * 50 &&
     mazearray_copy[pjPosition[0] + 1][pjPosition[1]] == 1
   ) {

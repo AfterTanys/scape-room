@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "FutureZ";
+    src: url("../fonts/Future_Z.ttf") format("truetype"),
+         url("../fonts/Future_Z.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(177, 253, 0);
+    background-color: #000000;
+    overflow: hidden;
+    font-size: 30px;
+}
+
+.credits-container {
+    position: relative;
+    width: 100%;
+    top: 100%; /* Start below the view */
+    text-align: center;
+    animation: scrollUp 40s linear forwards;
+}
+
+@keyframes scrollUp {
+    from {
+        top: 100%;
+    }
+    to {
+        top: -100%; /* Move entire height of the content up */
+    }
+}
+
+a {
+    color: #e5f132;
+}
+a:hover {
+    text-decoration: underline;
+}
+h1 {
+    font-family: "FutureZ";
+    color: #ccac00;
+}
