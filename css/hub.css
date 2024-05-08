@@ -41,7 +41,7 @@
 #hub-instructions-box{
     font-family: "FutureZ";
     background-image: url("../resources/cards/CardX2.png");
-    background-size: 100% 100%;
+    background-size: 100% 103.2%;
     background-repeat: no-repeat;
     background-position: center; /* Para que la imagen de fondo cubra completamente el botón */
     width: 30%;
@@ -54,7 +54,11 @@
     text-align: center;
     padding-right: 2.5rem;
     padding-left: 2.5rem;
-    overflow: auto; /* Mostrar scrollbar solo en dirección vertical */
+    overflow-y: auto; /* Mostrar scrollbar solo en dirección vertical */
+}
+
+#hub-instructions-box::-webkit-scrollbar {
+    display: none; /* Oculta la barra de desplazamiento en navegadores WebKit (Chrome, Safari, etc.) */
 }
 
 #hub-instructions-box h1{
