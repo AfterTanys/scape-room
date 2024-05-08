@@ -1,6 +1,6 @@
 const timerText = document.getElementsByClassName("timer")[0];
 //Cambiar el valor de abajo para cambiar el tiempo total
-const minutes = 60;
+const minutes = 80;
 
 let timerSeconds = 0;
 let timerMinutes = minutes;
