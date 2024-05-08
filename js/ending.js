@@ -60,8 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateSlide();
                 finalText();
             } else {
-                window.location.href = "../index.html";
-                //window.location.href = "Credits.html"; // Redirige si es la última diapositiva
+                //window.location.href = "../index.html";
+                window.location.href = "Credits.html"; // Redirige si es la última diapositiva
             }
         }
     });
