@@ -5,9 +5,15 @@ fotos[2].style.backgroundImage="url(resources/img/pfpHub/tanys-photo.png)";
 
 const overlay = document.getElementById("fullscreen-window-warning-overlay");
 
+let fullscreen = false;
+
 document.getElementById('hub-start-button').addEventListener('click', function() {
+  if(fullscreen==false){
     openModal();
     document.getElementById('hub-start-button').disabled=true;
+  }else{
+    window.location.href = 'html/intro.html';
+  }
 });
 
 document.addEventListener("keydown", function (event) {
@@ -19,9 +25,8 @@ document.addEventListener("keydown", function (event) {
     }else{
       localStorage.setItem("username", JSON.stringify(document.getElementById("hub-name-input").value));
     }
-    setTimeout(() => {
-        window.location.href = 'html/intro.html'; // Redirige a intro.html
-    }, 500);
+    document.getElementById('hub-start-button').disabled=false;
+    fullscreen=true;
   }
 });
 
