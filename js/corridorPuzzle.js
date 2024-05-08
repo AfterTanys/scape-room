@@ -49,8 +49,17 @@ let params = new URLSearchParams(queryString);
 let boolRoom = parseInt(params.get("boolRoom")); //pilla al que va
 let fromRoom = parseInt(params.get("fromRoom")); //del que viene
 
+
 //Llorones Skip
 document.addEventListener("DOMContentLoaded", () => {
+  if (fromRoom==1) {
+    showDialog(
+      "This way leads to the jeep they've left for me. I think I might find something interesting inside it... Damn, there's a huge radiation leak in the next room, so I'll need to put on the suit. I don't think the safety hatch on the other side will open until the radiation clears, so I'll have to be careful where I step until then. Fortunately, the emergency system is fully operational, and I'll be able to move all the contamination to the adjacent chamber, but I'll need to bring it back to this corridor if I want to return.",
+      `SILA (${JSON.parse(localStorage.getItem("username"))})`,
+      "../resources/sprites/Sila/Sila_sorprendida.png"
+    );
+  }
+  
   numPassed = JSON.parse(localStorage.getItem("numPassedCorridor"));
   if (numPassed >= 2) {
     boolSkip = true;
