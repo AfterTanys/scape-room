@@ -78,6 +78,8 @@ function resetInventory(){
     localStorage.removeItem("solvedSlide");
     localStorage.removeItem("solvedSimon");
     localStorage.removeItem("solvedComputer")
+    //Reset conteo corridor
+    localStorage.removeItem("numPassedCorridor");
     //Reset de dialogos que solo salen una vez
     localStorage.removeItem("firstDialog");
 }
