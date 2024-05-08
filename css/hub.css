@@ -13,7 +13,6 @@
 }
 
 #hub-title-box{
-    font-family: "FutureZ";
     background-image: url("../resources/dialogBox/CardX5.png");
     background-size: 55% 100%;
     background-repeat: no-repeat;
@@ -39,7 +38,6 @@
 }
 
 #hub-instructions-box{
-    font-family: "FutureZ";
     background-image: url("../resources/cards/CardX2.png");
     background-size: 100% 103.2%;
     background-repeat: no-repeat;
@@ -102,7 +100,6 @@
 
 .hub-promotor-card-name{
     font-size: 1.5rem;
-    font-family: "FutureZ";
     color: var(--color-one);
 }
 
@@ -144,7 +141,6 @@
     width: 90%;
     height: 100%;
     color: var(--color-one);
-    font-family: "FutureZ";
     font-size: 3rem;
     text-align: center;
 }
@@ -196,4 +192,22 @@
     padding: 0;
     margin: 0;
     font-size: 3rem;
+}
+
+#hub-font-button{
+    color: var(--color-one);
+    background-color: transparent;
+    border: none;
+    &&:hover{
+    cursor: pointer;
+    }
+    
+}
+
+.font-ours{
+    font-family: "FutureZ";
+}
+
+.font-normal{
+    font-family: "Arial";
 }
