@@ -7,9 +7,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
   optionsButton.id = "optionsButton";
   optionsButton.className = "hud-button";
 
+  /*
   const hintButton = document.createElement("div");
   hintButton.id = "hintButton";
   hintButton.className = "hud-button";
+  */
 
   const inventoryButton = document.createElement("div");
   inventoryButton.id = "inventoryButton";
@@ -17,7 +19,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   // Añadir los botones al HUD
   hud.appendChild(optionsButton);
-  hud.appendChild(hintButton);
+  //hud.appendChild(hintButton);
   hud.appendChild(inventoryButton);
 
   // Crear el cuadro de diálogo
@@ -77,17 +79,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
       activeInventory = false;
     }
   });
-
-  //Metodo provisional para borrar el inventario en el boton de hints
-  hintButton.addEventListener("click", () => {
-    //showDialog("ERASING INVENTORY DEBUG", `SILA (${JSON.parse(localStorage.getItem("username"))})`, "../resources/sprites/Sila/Sila_triste.png");
-    //resetInventory();
-  });
 });
 
 let activeDialog = false;
 
-function dialog(text, speakerName, speakerSpritePath) {
+function toggleDialog(text, speakerName, speakerSpritePath) {
   if (activeDialog == false) {
     showDialog(text, speakerName, speakerSpritePath);
   } else {
