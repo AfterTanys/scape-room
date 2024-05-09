@@ -66,19 +66,31 @@ for (let i = 0; i < 4; i++) {
   });
 }
 
-document.addEventListener("keypress", function (event) {
+document.addEventListener("keydown", function (event) {
   let pulsada = -1;
   switch (event.key) {
     case "a":
       pulsada = 4;
       break;
+    case "ArrowLeft":
+      pulsada = 4;
+      break;
     case "w":
+      pulsada = 5;
+      break;
+    case "ArrowUp":
       pulsada = 5;
       break;
     case "s":
       pulsada = 6;
       break;
+    case "ArrowDown":
+      pulsada = 6;
+      break;
     case "d":
+      pulsada = 7;
+      break;
+    case "ArrowRight":
       pulsada = 7;
       break;
     case "j":
