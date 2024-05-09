@@ -138,6 +138,9 @@ function slideFunctionClick() {
         let currImg = slideGetClass(currTile);
         let otherImg = slideGetClass(otherTile);
 
+        let soundTile = new Audio("../audio/slide/slide-sound.mp3");
+        soundTile.play();
+
         currTile.classList.add(otherImg);
         otherTile.classList.add(currImg);
 
