@@ -204,7 +204,8 @@ function slideCheckWon() {
     //Se almacena que esta solucionado
     localStorage.setItem("solvedSlide", JSON.stringify(1));
     //Se almacenan las llaves del jeep
-    localStorage.setItem("jeepKeys", JSON.stringify(1));
+    jeepKeysItem=1;
+    localStorage.setItem("jeepKeys", JSON.stringify(jeepKeysItem));
     //Se actualiza el item al momento de acabar
     updateJeepKeysItem(document.getElementsByClassName("inventory-item")[2]);
   } else if (slideWin && !boolBalls) {

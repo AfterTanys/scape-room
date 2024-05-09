@@ -194,20 +194,19 @@
     font-size: 3rem;
 }
 
-#hub-font-button{
-    color: var(--color-one);
-    background-color: transparent;
-    border: none;
-    &&:hover{
-    cursor: pointer;
-    }
-    
-}
-
 .font-ours{
     font-family: "FutureZ";
 }
 
 .font-normal{
     font-family: "Arial";
+}
+
+#hub-font-container{
+    width: 10%;
+    height: 105%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
