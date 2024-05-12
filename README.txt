@@ -1,7 +1,7 @@
 This version of the game is not complete because by downloading it and playing locally you will miss on sounds and music.
 If you want the full experience play it on this link:
 
-(github link)
+https://aftertanys.github.io/scape-room/
 
 Before paying make sure to check the document that comes with this project and the requirements to play the game properly.
 
