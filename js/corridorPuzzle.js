@@ -310,6 +310,9 @@ function checkCompleted() {
 ///
 
 document.addEventListener("keydown", function (e) {
+  let corridorSound= new Audio("../audio/corridor/Retro Electric Short 03.wav");
+  corridorSound.volume=0.1;
+  corridorSound.play();
   let pj = document.getElementById("pj");
   let door = document.getElementById("door");
   let pjleft = pj.offsetLeft;

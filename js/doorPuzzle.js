@@ -1,6 +1,9 @@
 const modal_door = document.getElementById("modal-puzzle-door");
 
 document.getElementById("door-glow").addEventListener("click", ()=>{
+    let doorSound = new Audio("../audio/doorPuzzle/open-door.mp3");
+    doorSound.volume=0.5;
+    doorSound.play();
     console.log("Opening door modal");
     showDialog(
         "This enormous door leads to the Pilgrim's Chamber. We've fought so hard to get here... Now, I just need to figure out the nine runes to open it and discover where he went. I hope Dad is right and whatever they left behind is enough to stop the Hostage. The ten of us have made tremendous sacrifices to get here: the Phobos base, the mothership, Mom... I won't let it be in vain.",
@@ -11,6 +14,8 @@ document.getElementById("door-glow").addEventListener("click", ()=>{
 });
 
 document.getElementById("door-puzzle-close-btn").addEventListener("click", ()=>{
+    let doorSound = new Audio("../audio/doorPuzzle/close-door.mp3");
+    doorSound.play();
     console.log("Closing door modal");
     closeModal(modal_door);
 });
@@ -72,6 +77,8 @@ for(let i =0; i<9; i++){
     door_rune.src = door_puzzle_runes[door_current_combination[i]];
 
     door_tile.addEventListener("click", ()=>{
+        let doorSound = new Audio("../audio/doorPuzzle/door-slide.mp3");
+        doorSound.play();
         door_current_combination[i]++;
         if(door_current_combination[i]===door_puzzle_runes.length){
             door_current_combination[i]=0;

@@ -19,7 +19,7 @@
         <img id="cinematicNextArrow" src="../resources/Icons/10.png" alt="Siguiente">
     </div>
     
-    
+    <audio id="cinematicMusic" src="../audio/main/sinesita - UNBROKEN.mp3" autoplay loop></audio>
 </body>
 <script src="../js/cinematic.js"></script>
 <script src="../js/timer.js"></script>
@@ -31,5 +31,10 @@
             e.preventDefault();
         }
     }, {passive:false});
+    document.addEventListener('DOMContentLoaded', function() {
+        let cinematicMusic = document.getElementById('cinematicMusic');
+        cinematicMusic.volume=0.25;
+        cinematicMusic.play();
+    });
 </script>
 </html>

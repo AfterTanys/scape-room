@@ -4,6 +4,8 @@ const modal_pc = document.getElementById("modal-puzzle-computer");
 //Cuando haces click en el elemento abre la ventana modal
 document.getElementById("computer-glow").addEventListener("click", () => {
   console.log("Abriendo modal del ordenador");
+  let computerSound = new Audio("../audio/computer/Retro Charge StereoUP 12.wav");
+  computerSound.play();
   //Fix Saved State 
   if (localStorage.getItem("solvedComputer")==null) {
     showDialog(
@@ -24,6 +26,8 @@ document.getElementById("computer-glow").addEventListener("click", () => {
 document
   .getElementById("computer-puzzle-close-btn")
   .addEventListener("click", () => {
+    let computerSound = new Audio("../audio/computer/Retro Charge StereoUP 12.wav");
+    computerSound.play();
     console.log("Cerrando modal slidePuzzle");
     closeModal(modal_pc);
   });
@@ -120,6 +124,8 @@ document.addEventListener("DOMContentLoaded", function () {
     contentDiv.appendChild(backText);
 
     backText.onclick = function () {
+      let computerSound = new Audio("../audio/computer/computer-sound.mp3");
+      computerSound.play();
       restoreInitialState();
       document.getElementById("computer").style.display = "block";
       document
@@ -131,6 +137,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     // Agregar evento al texto cliclable
     submitText.onclick = function () {
+      let computerSound = new Audio("../audio/computer/computer-sound.mp3");
+      computerSound.play();
       if (passwordInput.value === "TaraIsHot133") {
         // Cambiar por la contraseña real del juego
         displayLogs(4);
@@ -151,6 +159,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const backButton = document.querySelector("#text-back-computer");
     if (backButton) {
       backButton.onclick = function () {
+        let computerSound = new Audio("../audio/computer/computer-sound.mp3");
+        computerSound.play();
         restoreInitialState();
         document.getElementById("computer").style.display = "block";
         document
@@ -316,6 +326,8 @@ document.addEventListener("DOMContentLoaded", function () {
     spans.forEach((span) => {
       span.addEventListener("click", function () {
         if (!span.classList.contains("clicked")) {
+          let computerSound = new Audio("../audio/computer/computer-sound.mp3");
+          computerSound.play();
           // Verificar si la palabra ya ha sido clickeada
           const selectedWord = span.textContent.trim();
           span.classList.add("clicked"); // Marcar la palabra como clickeada
@@ -432,6 +444,8 @@ function setupPrintTitaniaCode() {
 
   // Añadir evento para cambiar el contenido al hacer clic
   printLink.onclick = function () {
+    let computerSound = new Audio("../audio/computer/computer-sound.mp3");
+    computerSound.play();
     contentDiv.textContent = "PRINTING..."; // Cambiar texto del div
     const clueDiv = document.createElement("div");
     clueDiv.id = "clue-computer";
