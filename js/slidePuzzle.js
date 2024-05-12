@@ -5,12 +5,16 @@ const modal_big_box = document.getElementById("modal-puzzle-box");
 document
   .getElementById("big-box-puzzle-close-btn")
   .addEventListener("click", () => {
+    let soundTile = new Audio("../audio/slide/close-slide.mp3");
+    soundTile.play();
     console.log("Cerrando modal slidePuzzle");
     closeModal(modal_big_box);
   });
 
 //Cuando haces click en el elemento abre la ventana modal
 document.getElementById("big-box-glow").addEventListener("click", () => {
+  let soundTile = new Audio("../audio/slide/open-slide.mp3");
+  soundTile.play();
   console.log("Abriendo modal slidePuzzle");
   if (JSON.parse(localStorage.getItem("solvedSlide")) == 1) {
     //Si esta solucionado muestra dialogo de solucion
@@ -138,7 +142,8 @@ function slideFunctionClick() {
         let currImg = slideGetClass(currTile);
         let otherImg = slideGetClass(otherTile);
 
-        let soundTile = new Audio("../audio/slide/slide-sound.mp3");
+        let soundTile = new Audio("../audio/slide/slide-sound-new.mp3");
+        soundTile.volume=0.25;
         soundTile.play();
 
         currTile.classList.add(otherImg);

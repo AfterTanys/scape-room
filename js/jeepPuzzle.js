@@ -4,6 +4,8 @@ const modal_jeep = document.getElementById("modal-puzzle-jeep");
 
 document.getElementById("jeep-door-glow").addEventListener("click", ()=>{
     if(JSON.parse(localStorage.getItem("jeepKeys"))==1){
+      let jeepOpenSound = new Audio(`../audio/jeep/open-sound.wav`);
+      jeepOpenSound.play();
       console.log("Opening jeep modal");
       showDialog(
         "Thankfully, the jeep is intact. Dad and I have put a lot of effort into the spectrometer in the back. I could use it to handle the Phobos rune without worrying about damaging it; I just need to follow the synchronization sequence... It's a simple machine, but it usually requires three people to operate it.",
@@ -17,6 +19,8 @@ document.getElementById("jeep-door-glow").addEventListener("click", ()=>{
 });
 
 document.getElementById("jeep-puzzle-close-btn").addEventListener("click", ()=>{
+    let jeepOpenSound = new Audio(`../audio/jeep/close-sound.mp3`);
+    jeepOpenSound.play();
     console.log("Closing jeep modal");
     closeModal(modal_jeep);
 });
@@ -55,9 +59,13 @@ cells[9].innerHTML = `<img src="../resources/runes/all-hive-runes_sigil_05_RED.p
 cells[10].innerHTML = `<img src="../resources/runes/all-hive-runes_sigil_12_YELLOW.png" alt="rune3" class="simon-rune">`;
 cells[11].innerHTML = `<img src="../resources/runes/all-hive-runes_sigil_18_TEAL.png" alt="rune4" class="simon-rune">`;
 
+let jeepSound;
+
 //Eventos de click
 for (let i = 0; i < 4; i++) {
   cells[i].addEventListener("click", () => {
+    jeepSound = new Audio(`../audio/jeep/simon-sound-${i}.mp3`);
+    jeepSound.play();
     cells[i].classList.add("simon-active");
     checkSequence(i);
     setTimeout(() => {
@@ -66,19 +74,31 @@ for (let i = 0; i < 4; i++) {
   });
 }
 
-document.addEventListener("keypress", function (event) {
+document.addEventListener("keydown", function (event) {
   let pulsada = -1;
   switch (event.key) {
     case "a":
       pulsada = 4;
       break;
+    case "ArrowLeft":
+      pulsada = 4;
+      break;
     case "w":
+      pulsada = 5;
+      break;
+    case "ArrowUp":
       pulsada = 5;
       break;
     case "s":
       pulsada = 6;
       break;
+    case "ArrowDown":
+      pulsada = 6;
+      break;
     case "d":
+      pulsada = 7;
+      break;
+    case "ArrowRight":
       pulsada = 7;
       break;
     case "j":
@@ -98,6 +118,8 @@ document.addEventListener("keypress", function (event) {
       break;
   }
   if (pulsada != -1) {
+    jeepSound = new Audio(`../audio/jeep/simon-sound-${pulsada}.mp3`);
+    jeepSound.play();
     cells[pulsada].classList.add("simon-active");
     checkSequence(pulsada);
     setTimeout(() => {
@@ -193,6 +215,8 @@ function checkSequence(introducido) {
 //Funcion para animar secuencia
 function animateSequence(idx) {
   setTimeout(() => {
+    jeepSound = new Audio(`../audio/jeep/simon-sound-${correct[idx]}.mp3`);
+    jeepSound.play();
     cells[correct[idx]].classList.add("simon-active");
     setTimeout(() => {
       cells[correct[idx]].classList.remove("simon-active");
