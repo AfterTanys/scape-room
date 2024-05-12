@@ -20,7 +20,7 @@ body, html {
     width: 100%;
     top: 100%; /* Start below the view */
     text-align: center;
-    animation: scrollUp 35s linear forwards;
+    animation: scrollUp 40s linear forwards;
 }
 
 @keyframes scrollUp {

@@ -4,6 +4,9 @@ const modal_small_box = document.getElementById("modal-puzzle-small-box");
 //Cuando haces click en el elemento abre la ventana modal
 document.getElementById("small-box-glow").addEventListener("click", ()=>{
     console.log("Abriendo modal crystalariumPuzzle");
+    let crystalariumSound = new Audio("../audio/crystalarium/Retro HiTech 08.wav");
+    crystalariumSound.volume=0.3;
+    crystalariumSound.play();
     showDialog(
         "This is Tara's crystalarium; she uses it to synthesize various compounds and minerals. When we escaped from Phobos, it took more hits than it could handle, and most of its functions went offline. Vex helped design a new interface that even I could understand. Tara is a very kind person. Maybe if I restore all its functions, I could make a new white crystal for my flashlight...",
         `SILA (${JSON.parse(localStorage.getItem("username"))})`,
@@ -56,6 +59,8 @@ function actualizarBotonesCrystal(colores) {
         colorBtn.classList.add('button-crystal')
         colorBtn.style.backgroundColor = color;  // Traduce el color al nombre reconocido por CSS.
         colorBtn.onclick = () => {
+            let crystalariumSound = new Audio("../audio/crystalarium/crystalarium-sound.mp3");
+            crystalariumSound.play();
             seleccionarColorCrystal(color, colorBtn, coloresSeleccionados);
         };
         botonesDiv.appendChild(colorBtn);
@@ -84,11 +89,15 @@ if (!closeBtn) {
 }
 
 closeBtn.onclick = () =>{
+    let crystalariumSound = new Audio("../audio/crystalarium/crystalarium-sound.mp3");
+    crystalariumSound.play();
     console.log("Cerrando modal crystalariumPuzzle");
     closeModal(modal_small_box);
 }
 
 checkBtn.onclick = () => {
+        let crystalariumSound = new Audio("../audio/crystalarium/crystalarium-sound.mp3");
+        crystalariumSound.play();
         if (coloresSeleccionados.length === 2) {
             if(fase1Crystal){
                 comprobarCombinacionFase1Crystal(coloresSeleccionados);
@@ -127,6 +136,8 @@ function actualizarBotonesFase2Crystal() {
         colorBtn.style.backgroundColor = color;
         botonesDiv.appendChild(colorBtn);
         colorBtn.onclick = () => {
+            let crystalariumSound = new Audio("../audio/crystalarium/crystalarium-sound.mp3");
+            crystalariumSound.play();
             seleccionarColorCrystal(color, colorBtn, coloresSeleccionados);
         };
     });
@@ -139,10 +150,14 @@ function actualizarBotonesFase2Crystal() {
         colorBtn.style.backgroundColor = color;
         botonesDiv.appendChild(colorBtn);
         colorBtn.onclick = () => {
+            let crystalariumSound = new Audio("../audio/crystalarium/crystalarium-sound.mp3");
+            crystalariumSound.play();
             seleccionarColorCrystal(color, colorBtn, coloresSeleccionados);
         };
     });
     checkBtn.onclick = () => {
+        let crystalariumSound = new Audio("../audio/crystalarium/crystalarium-sound.mp3");
+        crystalariumSound.play();
         if (coloresSeleccionados.length === 2) {
             if(fase1Crystal){
                 comprobarCombinacionFase1Crystal(coloresSeleccionados);
@@ -297,6 +312,8 @@ function nuevaFase3Crystal() {
         colorCuadro.style.boxSizing = 'border-box';
         colorCuadro.style.backgroundColor = i === posicionBlanco ? 'white' : generarHexAleatorioCrystal();
         colorCuadro.onclick = function() {
+            let crystalariumSound = new Audio("../audio/crystalarium/crystalarium-sound.mp3");
+            crystalariumSound.play();
             seleccionarColor3Crystal(this, coloresSeleccionados);
         };
         botonesDiv.appendChild(colorCuadro);
@@ -312,6 +329,8 @@ function nuevaFase3Crystal() {
     }
 
     checkBtn.onclick = () => {
+        let crystalariumSound = new Audio("../audio/crystalarium/crystalarium-sound.mp3");
+        crystalariumSound.play();
         comprobarCombinacionFase3Crystal(coloresSeleccionados, posicionBlanco);
         coloresSeleccionados = []; // Limpiar selecciones después de comprobar
     };

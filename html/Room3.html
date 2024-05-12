@@ -69,6 +69,7 @@
     </div>
 
     <div id="background-overlay"></div>
+    <audio id="room1Music" src="../audio/main/background-sound.mp3" autoplay loop></audio>
   </body>
   <script src="../js/timer.js"></script>
   <script src="../js/hud.js"></script>
@@ -97,6 +98,8 @@
           "../resources/sprites/Sila/Sila_Neutra.png"
         );
       } else {
+        let ballSound = new Audio("../audio/slide/pick-ball-sound.mp3");
+        ballSound.play();
         showDialog(
           "Yey the BLUE Ball",
           `SILA (${JSON.parse(localStorage.getItem("username"))})`,
@@ -123,6 +126,8 @@
             "../resources/sprites/Sila/Sila_Neutra.png"
           );
         } else {
+          let ballSound = new Audio("../audio/slide/pick-ball-sound.mp3");
+          ballSound.play();
           showDialog(
             "Yey the BLACK Ball",
             `SILA (${JSON.parse(localStorage.getItem("username"))})`,
@@ -154,11 +159,15 @@
 
     //Cuando haces click en el elemento abre la ventana modal
     document.getElementById("jeep-tower-glow").addEventListener("click", () => {
+      let openSound = new Audio(`../audio/other/pda-open.wav`);
+      openSound.play();
       console.log("Abriendo modal de la PDA");
       openModal(modal_pda);
     });
 
     document.getElementById("pda-close-btn").addEventListener("click", () => {
+      let openSound = new Audio(`../audio/other/pda-open.wav`);
+      openSound.play();
       console.log("Cerrando modal PDA");
       closeModal(modal_pda);
     });

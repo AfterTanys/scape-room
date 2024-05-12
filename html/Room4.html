@@ -26,6 +26,7 @@
     <div id="dark-room-lights-off"></div>
 
     <div id="background-overlay"></div>
+    <audio id="room1Music" src="../audio/main/background-sound.mp3" autoplay loop></audio>
   </body>
   <script src="../js/timer.js"></script>
   <script src="../js/modalOpener.js"></script>
@@ -53,6 +54,8 @@
         if(slideBallsItem.includes("green")){
           showDialog("I think I have already checked this spot...", `SILA (${JSON.parse(localStorage.getItem("username"))})`, "../resources/sprites/Sila/Sila_Neutra.png");
         }else{
+          let ballSound = new Audio("../audio/slide/pick-ball-sound.mp3");
+          ballSound.play();
           showDialog("Yey the GREEN Ball", `SILA (${JSON.parse(localStorage.getItem("username"))})`, "../resources/sprites/Sila/Sila_Feliz.png");
           console.log("Has pillado la bola verde");
           slideBallsItem.push("green");
@@ -69,6 +72,8 @@
         if(slideBallsItem.includes("red")){
           showDialog("I think I just saw what was behind this book", `SILA (${JSON.parse(localStorage.getItem("username"))})`, "../resources/sprites/Sila/Sila_Neutra.png");
         }else{
+          let ballSound = new Audio("../audio/slide/pick-ball-sound.mp3");
+          ballSound.play();
           showDialog("Yey the RED Ball", `SILA (${JSON.parse(localStorage.getItem("username"))})`, "../resources/sprites/Sila/Sila_Feliz.png");
           console.log("Has pillado la bola roja");
           slideBallsItem.push("red");

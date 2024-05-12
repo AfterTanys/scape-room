@@ -7,6 +7,8 @@ const overlay = document.getElementById("fullscreen-window-warning-overlay");
 
 const fontButton = document.getElementById("hub-font-button");
 
+const inputName = document.getElementById("hub-name-input");
+
 const arrChilds = document.getElementById("hub-body").childNodes;
 
 let fullscreen = false;
@@ -28,14 +30,18 @@ document.addEventListener("keydown", function (event) {
     closeModal();
     if (document.getElementById("hub-name-input").value.length === 0) {
       localStorage.setItem("username", JSON.stringify("Heroine"));
-    } else {
-      localStorage.setItem(
-        "username",
-        JSON.stringify(document.getElementById("hub-name-input").value)
-      );
     }
+    closeModal();
     document.getElementById("hub-start-button").disabled = false;
     fullscreen = true;
+  }
+});
+
+inputName.addEventListener("input", () => {
+  if (document.getElementById("hub-name-input").value.length === 0) {
+    localStorage.setItem("username", JSON.stringify("Heroine"));
+  } else {
+    localStorage.setItem("username", JSON.stringify(inputName.value));
   }
 });
 
