@@ -10,9 +10,9 @@ There are some bugs cause it's a beta so dont be mad about them,
 1- Only properly Tested on 1920x1080 devices with 100% scaled, other devices will have visual glitches.
 			(Change them on Screen properties)
 
-2- Please USE ONLY CHROME or EDGE (Other browsers like opera dont have all the requirements to play it).
+2- Please USE ONLY GOOGLE CHROME or MICROSOFT EDGE (Other browsers like opera dont have all the requirements to play it, and Firefox can come with some glitches).
 
-3- In case you dont know your way around this things, right click on "OPEN GAME", open with, edge or chrome.
+3- In case you dont know your way around this things, right click on "OPEN GAME", open with, edge or chrome, or copy the link and paste it on google chrome or microsoft edge.
 
 Have fun!!
 
