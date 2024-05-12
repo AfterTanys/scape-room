@@ -62,13 +62,28 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // hideDialog();
   // con dialog() hace toggle
 
-  // Metodo provisional para probar los dialogos en el boton de opciones
+  //Modal de boton de configuración
+
+  const configCanvas = document.getElementsByTagName("body")[0];
+  let configModal = document.createElement("div");
+  configModal.classList.add("modal-puzzle");
+  configModal.id = "configuration-modal";
+  configCanvas.appendChild(configModal);
+
+  //Evento de boton de configuracion
+  let activeOptions = false;
     optionsButton
     .addEventListener("click", function () {
-      //showDialog("DEBUG", "NAME(DEBUG)", "../resources/sprites/ejemplo.jpg");
+      if(activeOptions == false){
+        openModal(document.getElementById("configuration-modal"));
+        activeOptions=true;
+      }else{
+        closeModal(document.getElementById("configuration-modal"));
+        activeOptions=false;
+      }
     });
 
-  // Aquí puedes añadir otros controladores de eventos y lógica adicional
+  // Evento de abrir inventario
   let activeInventory = false;
   inventoryButton.addEventListener("click", () => {
     if (activeInventory == false) {
@@ -131,3 +146,10 @@ function hideDialog() {
   dialogBox.removeEventListener("click", hideDialog);
   activeDialog = false;
 }
+
+//Funcion para generar el menu de opciones
+function generateOptions(){
+  
+}
+
+

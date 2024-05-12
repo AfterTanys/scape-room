@@ -106,3 +106,43 @@
     z-index: 11;
     cursor: auto;
   }
+
+  #configuration-modal{
+    position: fixed;
+    background-image: url('../resources/dialogBox/CardX5.png');
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    top: 19vh;
+    left: 22vw;
+}
+
+#configuration-modal hr{
+  border: none;
+  height: 5px;
+  background-color: var(--color-one);
+}
+
+.configuration-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.configuration-header{
+    width: 200px;
+    height: 200px;
+    color: var(--color-one);
+    font-family: "FutureZ";
+    font-size: 2rem;
+}
+
+.configuration-item{
+    width: 200px;
+    height: 200px;
+}
