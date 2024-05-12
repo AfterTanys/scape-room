@@ -118,15 +118,17 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 3rem;
-    top: 19vh;
-    left: 22vw;
+    top: 40vh;
+    left: 35vw;
+    width: 70vw;
+    height: auto;
 }
 
-#configuration-modal hr{
+.configuration-divider{
   border: none;
-  height: 5px;
+  height: 3px;
   background-color: var(--color-one);
+  width: 300px;
 }
 
 .configuration-container{
@@ -135,14 +137,24 @@
 }
 
 .configuration-header{
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 50px;
     color: var(--color-one);
     font-family: "FutureZ";
     font-size: 2rem;
 }
 
-.configuration-item{
-    width: 200px;
-    height: 200px;
+.configuration-volume-icon{
+    width: 50px;
+    height: 50px;
+    margin: 1rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+
+}
+
+.configuration-volume-icon:hover{
+  border: 2px solid var(--color-four);
+  border-radius: 10px;
 }

@@ -9,9 +9,9 @@ let startTime;
 let timerEnd;
 
 document.addEventListener("DOMContentLoaded", () => {
+    timerEnd = JSON.parse(localStorage.getItem("timerEnd"));
     if (localStorage.getItem('startTime')) {
         const storedTime = JSON.parse(localStorage.getItem('startTime'));
-        timerEnd = JSON.parse(localStorage.getItem("timerEnd"));
         startTime = new Date(storedTime);
         const currentTime = new Date();
 

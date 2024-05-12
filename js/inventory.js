@@ -82,6 +82,9 @@ function resetInventory(){
     localStorage.removeItem("numPassedCorridor");
     //Reset de dialogos que solo salen una vez
     localStorage.removeItem("firstDialog");
+    //Reset del volumen de la musica
+    localStorage.removeItem("musicVolume");
+    localStorage.removeItem("mutedMusic");
 }
 
 function updateSlideBallsItem(inventoryItem1){
