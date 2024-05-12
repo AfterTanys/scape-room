@@ -1,5 +1,6 @@
 This version of the game is not complete because by downloading it and playing locally you will miss on sounds and music.
-If you want the full experience play it on this link:
+If you want the full experience play it on this link, the game version on the link below can be a bit slow or buggy depending on the internet connection
+and the quality of the server don't be mad about it:
 
 https://aftertanys.github.io/scape-room/
 
