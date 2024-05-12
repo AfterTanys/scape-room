@@ -1,4 +1,4 @@
 
 document.getElementById('startButton').addEventListener('click', function() {
-    window.location.href = 'cinematic.html';
+    window.location.href = 'Cinematic.html';
 });

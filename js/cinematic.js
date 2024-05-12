@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateSlide();
             } else {
                 resetInventory();
-                window.location.href = "room1.html"; // Redirige si es la última diapositiva
+                window.location.href = "Room1.html"; // Redirige si es la última diapositiva
             }
         }
     });
