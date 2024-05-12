@@ -1,4 +1,11 @@
-There are some bugs cause it's a beta so chill UwU,
+This version of the game is not complete because by downloading it and playing locally you will miss on sounds and music.
+If you want the full experience play it on this link:
+
+(github link)
+
+Before paying make sure to check the document that comes with this project and the requirements to play the game properly.
+
+There are some bugs cause it's a beta so dont be mad about them,
 
 1- Only properly Tested on 1920x1080 devices with 100% scaled, other devices will have visual glitches.
 			(Change them on Screen properties)
