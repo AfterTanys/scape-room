@@ -282,18 +282,28 @@ function generateOptions(){
 
   let configHeader2 = document.createElement("div");
   configHeader2.classList.add("configuration-header");
-  configHeader2.innerText = "Time Stop";
+  configHeader2.innerText = "Timer";
   configModal.appendChild(configHeader2);
 
   let configDivider2 = document.createElement("hr");
   configDivider2.classList.add("configuration-divider");
   configModal.appendChild(configDivider2);
 
+  let configContent4 = document.createElement("div");
+  configContent4.classList.add("configuration-container");
+  configModal.appendChild(configContent4);
+
   let configTimeStop = document.createElement("button");
   configTimeStop.classList.add("close-modal-btn");
   configTimeStop.innerText="Stop Timer";
   configTimeStop.addEventListener("click", ()=>{ stopTimer();});
-  configModal.appendChild(configTimeStop);
+  configContent4.appendChild(configTimeStop);
+
+  let configTimeReset = document.createElement("button");
+  configTimeReset.classList.add("close-modal-btn");
+  configTimeReset.innerText="Reset Timer";
+  configTimeReset.addEventListener("click", ()=>{ resetTimer();});
+  configContent4.appendChild(configTimeReset);
 
 }
 
